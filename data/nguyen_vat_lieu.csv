@@ -1,0 +1,24 @@
+﻿default_code,name,categ_id,is_storable,uom_id,standard_price,tracking,use_expiration_date,expiration_time,sale_ok,purchase_ok,seller_ids/partner_id,seller_ids/price,seller_ids/delay
+RM01,Bột mì số 11,Nguyên vật liệu / NVL khô,True,kg,18000,lot,True,180,False,True,"NCC mẫu 01 - Bột mì, đường, dầu",18000,2
+RM02,Bột mì số 8 (bánh ngọt),Nguyên vật liệu / NVL khô,True,kg,20000,lot,True,180,False,True,"NCC mẫu 01 - Bột mì, đường, dầu",20000,2
+RM03,Đường cát trắng,Nguyên vật liệu / NVL khô,True,kg,22000,none,False,0,False,True,"NCC mẫu 01 - Bột mì, đường, dầu",22000,2
+RM04,Muối tinh,Nguyên vật liệu / NVL khô,True,kg,8000,none,False,0,False,True,"NCC mẫu 01 - Bột mì, đường, dầu",8000,2
+RM05,Men khô instant,Nguyên vật liệu / NVL khô,True,kg,120000,lot,True,365,False,True,"NCC mẫu 02 - Men, phụ gia, socola",120000,3
+RM06,Bột nở,Nguyên vật liệu / NVL khô,True,kg,90000,lot,True,365,False,True,"NCC mẫu 02 - Men, phụ gia, socola",90000,3
+RM07,Bơ lạt,Nguyên vật liệu / NVL mát,True,kg,210000,lot,True,120,False,True,NCC mẫu 03 - Bơ sữa,210000,1
+RM08,Trứng gà,Nguyên vật liệu / NVL mát,True,Đơn vị,3200,lot,True,21,False,True,NCC mẫu 04 - Trứng gà,3200,1
+RM09,Sữa tươi không đường,Nguyên vật liệu / NVL mát,True,L,32000,lot,True,10,False,True,NCC mẫu 03 - Bơ sữa,32000,1
+RM10,Kem tươi whipping,Nguyên vật liệu / NVL mát,True,L,120000,lot,True,30,False,True,NCC mẫu 03 - Bơ sữa,120000,1
+RM11,Phô mai mozzarella,Nguyên vật liệu / NVL mát,True,kg,190000,lot,True,60,False,True,NCC mẫu 03 - Bơ sữa,190000,1
+RM12,Xúc xích,Nguyên vật liệu / NVL mát,True,kg,110000,lot,True,45,False,True,"NCC mẫu 05 - Xúc xích, sốt",110000,2
+RM13,Sốt cà chua pizza,Nguyên vật liệu / NVL khô,True,kg,60000,lot,True,180,False,True,"NCC mẫu 05 - Xúc xích, sốt",60000,2
+RM14,Dầu ăn,Nguyên vật liệu / NVL khô,True,L,45000,none,False,0,False,True,"NCC mẫu 01 - Bột mì, đường, dầu",45000,2
+RM15,Socola chip,Nguyên vật liệu / NVL khô,True,kg,180000,lot,True,365,False,True,"NCC mẫu 02 - Men, phụ gia, socola",180000,3
+RM16,Bột cacao,Nguyên vật liệu / NVL khô,True,kg,150000,lot,True,365,False,True,"NCC mẫu 02 - Men, phụ gia, socola",150000,3
+RM17,Ngũ cốc nguyên cám,Nguyên vật liệu / NVL khô,True,kg,40000,lot,True,180,False,True,"NCC mẫu 01 - Bột mì, đường, dầu",40000,2
+PK01,Túi in nhãn bánh mì,Bao bì,True,Đơn vị,600,none,False,0,False,True,NCC mẫu 06 - Bao bì,600,5
+PK02,Hộp nhựa bánh ngọt,Bao bì,True,Đơn vị,2500,none,False,0,False,True,NCC mẫu 06 - Bao bì,2500,5
+PK03,Khay giấy,Bao bì,True,Đơn vị,1500,none,False,0,False,True,NCC mẫu 06 - Bao bì,1500,5
+PK04,Túi zip cookies,Bao bì,True,Đơn vị,1200,none,False,0,False,True,NCC mẫu 06 - Bao bì,1200,5
+PK05,Thùng carton,Bao bì,True,Đơn vị,6000,none,False,0,False,True,NCC mẫu 06 - Bao bì,6000,5
+PK06,Màng co đế pizza,Bao bì,True,Đơn vị,400,none,False,0,False,True,NCC mẫu 06 - Bao bì,400,5

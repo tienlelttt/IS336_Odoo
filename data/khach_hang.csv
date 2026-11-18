@@ -1,0 +1,9 @@
+﻿ref,name,is_company,city,property_product_pricelist,property_payment_term_id,use_partner_credit_limit,credit_limit,category_id
+KH01,Quán cà phê Mộc (KH mẫu),True,TP. Hồ Chí Minh,Giá sỉ quán,Thanh toán ngay,False,0,"Tuyến 1 - Linh Xuân - Linh Trung,Trả tiền mặt cho tài xế"
+KH02,Chuỗi trà sữa Lá Xanh (KH mẫu),True,TP. Hồ Chí Minh,Giá sỉ quán,Thanh toán ngay,True,10000000,Tuyến 1 - Linh Xuân - Linh Trung
+KH03,Siêu thị mini Hiệp Bình (KH mẫu),True,TP. Hồ Chí Minh,Giá siêu thị - bếp ăn,30 ngày,True,30000000,Tuyến 2 - Hiệp Bình - Tam Bình
+KH04,Bếp ăn công nghiệp KCN (KH mẫu),True,TP. Hồ Chí Minh,Giá siêu thị - bếp ăn,30 ngày,True,80000000,Tuyến 2 - Hiệp Bình - Tam Bình
+KH05,Trường THPT Linh Trung (KH mẫu),True,TP. Hồ Chí Minh,Giá siêu thị - bếp ăn,30 ngày,True,30000000,Tuyến 3 - Thủ Đức - Bình Thạnh
+KH06,Thương hiệu bánh OEM Sao Mai (KH mẫu),True,TP. Hồ Chí Minh,Giá OEM theo hợp đồng,30 ngày,True,120000000,Tuyến 3 - Thủ Đức - Bình Thạnh
+KH07,Tạp hóa Bà Sáu (KH mẫu),True,TP. Hồ Chí Minh,Giá sỉ quán,Thanh toán ngay,False,0,"Tuyến 1 - Linh Xuân - Linh Trung,Trả tiền mặt cho tài xế"
+KH08,Quán cà phê Sân Thượng (KH mẫu),True,TP. Hồ Chí Minh,Giá sỉ quán,Thanh toán ngay,False,0,"Tuyến 3 - Thủ Đức - Bình Thạnh,Trả tiền mặt cho tài xế"

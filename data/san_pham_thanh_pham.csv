@@ -1,0 +1,13 @@
+﻿default_code,name,categ_id,is_storable,list_price,tracking,use_expiration_date,expiration_time,sale_ok,purchase_ok
+FG01,Bánh mì Hoppi (gói 6 cái),Thành phẩm / Bánh mì tươi,True,22000,lot,True,5,True,False
+FG02,Bánh mì sandwich trắng 400g,Thành phẩm / Bánh mì tươi,True,25000,lot,True,5,True,False
+FG03,Bánh mì sandwich đen 400g,Thành phẩm / Bánh mì tươi,True,32000,lot,True,5,True,False
+FG04,Bánh mì nguyên cám 400g,Thành phẩm / Bánh mì tươi,True,35000,lot,True,5,True,False
+FG05,Bông lan cắt lát OEM (hộp 10 miếng),Thành phẩm / Bánh ngọt,True,38000,lot,True,30,True,False
+FG06,Bánh tiệc trà (khay 20 cái),Thành phẩm / Bánh ngọt,True,85000,lot,True,15,True,False
+FG07,Bánh lạnh mousse (hộp 6 cái),Thành phẩm / Bánh lạnh,True,90000,lot,True,3,True,False
+FG08,Cookies bơ socola (túi 250g),Thành phẩm / Bánh khô,True,45000,lot,True,180,True,False
+FG09,Đế pizza nhỏ 18cm (gói 5),Thành phẩm / Cấp đông,True,20000,lot,True,180,True,False
+FG10,Đế pizza lớn 28cm (gói 3),Thành phẩm / Cấp đông,True,28000,lot,True,180,True,False
+FG11,Pizza xúc xích 18cm,Thành phẩm / Cấp đông,True,39000,lot,True,180,True,False
+FG12,Vỏ bánh tart (khay 24),Thành phẩm / Cấp đông,True,55000,lot,True,180,True,False
