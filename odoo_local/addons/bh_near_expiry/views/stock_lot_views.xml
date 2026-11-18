@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_production_lot_form_bh" model="ir.ui.view">
+        <field name="name">stock.lot.form.bh.expiry</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main_group']" position="after">
+                <group string="Cận hạn" name="bh_expiry">
+                    <group>
+                        <field name="bh_stage"/>
+                        <field name="bh_stage_date"/>
+                        <field name="bh_remaining_pct"/>
+                        <field name="bh_days_left"/>
+                    </group>
+                    <group>
+                        <field name="bh_stock_value"/>
+                        <field name="bh_customer_qty"/>
+                        <button name="action_bh_evaluate_now" type="object" string="Kiểm tra ngay" class="btn-secondary"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_production_lot_tree_bh" model="ir.ui.view">
+        <field name="name">stock.lot.list.bh.expiry</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="bh_stage" optional="show" widget="badge"
+                       decoration-warning="bh_stage in ('watch', 'markdown')"
+                       decoration-danger="bh_stage in ('recall', 'expired')"/>
+                <field name="bh_remaining_pct" optional="show"/>
+                <field name="bh_days_left" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="bh_lot_near_expiry_action" model="ir.actions.act_window">
+        <field name="name">Lô theo mức cận hạn</field>
+        <field name="res_model">stock.lot</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('expiration_date', '!=', False)]</field>
+        <field name="context">{'group_by': 'bh_stage'}</field>
+    </record>
+</odoo>

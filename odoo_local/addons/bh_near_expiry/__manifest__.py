@@ -1,0 +1,20 @@
+{
+    "name": "Bảo Hân - Quản lý hàng cận hạn",
+    "summary": "Chính sách cận hạn nhiều mức theo % hạn dùng còn lại, giao việc, thu hồi, hủy và báo cáo tổn thất",
+    "version": "19.0.1.0.0",
+    "category": "Inventory/Inventory",
+    "author": "Nhóm 06 - IS336.R12 - UIT",
+    "license": "LGPL-3",
+    "depends": ["stock", "product_expiry", "mail"],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/bh_expiry_rule_data.xml",
+        "data/ir_cron_data.xml",
+        "views/bh_expiry_rule_views.xml",
+        "views/bh_expiry_log_views.xml",
+        "views/stock_lot_views.xml",
+        "views/menus.xml",
+    ],
+    "installable": True,
+    "application": False,
+}

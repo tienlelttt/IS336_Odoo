@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bh_expiry_log_view_list" model="ir.ui.view">
+        <field name="name">bh.expiry.log.list</field>
+        <field name="model">bh.expiry.log</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="stage in ('recall', 'expired')" decoration-warning="stage == 'markdown'"
+                  decoration-muted="state == 'done'">
+                <field name="create_date" string="Ngày phát hiện"/>
+                <field name="product_id"/>
+                <field name="lot_id"/>
+                <field name="expiration_date"/>
+                <field name="partner_id"/>
+                <field name="stage"/>
+                <field name="remaining_pct"/>
+                <field name="qty" sum="Tổng"/>
+                <field name="value" sum="Tổng"/>
+                <field name="suggested_price" optional="show"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="resolution"/>
+                <field name="loss_value" sum="Tổng"/>
+                <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state == 'todo'"/>
+            </list>
+        </field>
+    </record>
+    <record id="bh_expiry_log_view_form" model="ir.ui.view">
+        <field name="name">bh.expiry.log.form</field>
+        <field name="model">bh.expiry.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_scrap" type="object" string="Hủy lô (tạo phiếu hủy)" class="btn-primary"
+                            invisible="state == 'done' or partner_id" confirm="Xác nhận hủy số lượng này khỏi kho?"/>
+                    <button name="action_mark_done" type="object" string="Đánh dấu đã xử lý" invisible="state == 'done'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Lô hàng">
+                            <field name="lot_id"/>
+                            <field name="product_id"/>
+                            <field name="expiration_date"/>
+                            <field name="partner_id"/>
+                            <field name="stage"/>
+                            <field name="rule_id"/>
+                            <field name="remaining_pct"/>
+                        </group>
+                        <group string="Xử lý">
+                            <field name="qty"/>
+                            <field name="unit_cost"/>
+                            <field name="value"/>
+                            <field name="suggested_price" invisible="stage != 'markdown'"/>
+                            <field name="user_id"/>
+                            <field name="resolution"/>
+                            <field name="loss_value"/>
+                            <field name="scrap_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="bh_expiry_log_view_pivot" model="ir.ui.view">
+        <field name="name">bh.expiry.log.pivot</field>
+        <field name="model">bh.expiry.log</field>
+        <field name="arch" type="xml">
+            <pivot string="Phân tích cận hạn và tổn thất">
+                <field name="categ_id" type="row"/>
+                <field name="stage" type="col"/>
+                <field name="value" type="measure"/>
+                <field name="loss_value" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="bh_expiry_log_view_graph" model="ir.ui.view">
+        <field name="name">bh.expiry.log.graph</field>
+        <field name="model">bh.expiry.log</field>
+        <field name="arch" type="xml">
+            <graph string="Tổn thất theo tháng" type="bar">
+                <field name="create_date" interval="month"/>
+                <field name="loss_value" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <record id="bh_expiry_log_view_search" model="ir.ui.view">
+        <field name="name">bh.expiry.log.search</field>
+        <field name="model">bh.expiry.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="product_id"/>
+                <field name="lot_id"/>
+                <field name="partner_id"/>
+                <filter name="todo" string="Cần xử lý" domain="[('state', '=', 'todo')]"/>
+                <filter name="mine" string="Việc của tôi" domain="[('user_id', '=', uid)]"/>
+                <filter name="at_customer" string="Đang ở điểm bán" domain="[('partner_id', '!=', False)]"/>
+                <separator/>
+                <filter name="recall" string="Thu hồi / hết hạn" domain="[('stage', 'in', ('recall', 'expired'))]"/>
+                <group>
+                    <filter name="group_stage" string="Mức" context="{'group_by': 'stage'}"/>
+                    <filter name="group_partner" string="Điểm bán" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_product" string="Sản phẩm" context="{'group_by': 'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="bh_expiry_log_action" model="ir.actions.act_window">
+        <field name="name">Việc xử lý cận hạn</field>
+        <field name="res_model">bh.expiry.log</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_todo': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Chưa có lô nào chạm ngưỡng cận hạn</p>
+            <p>Tác vụ định kỳ chạy mỗi ngày, so % hạn dùng còn lại của từng lô với các quy tắc và tạo việc ở đây.</p>
+        </field>
+    </record>
+</odoo>

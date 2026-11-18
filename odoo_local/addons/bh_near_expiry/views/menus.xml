@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_bh_expiry_root" name="Cận hạn" parent="stock.menu_stock_root" sequence="25"/>
+    <menuitem id="menu_bh_expiry_log" name="Việc cần xử lý" parent="menu_bh_expiry_root" action="bh_expiry_log_action" sequence="1"/>
+    <menuitem id="menu_bh_expiry_lots" name="Lô theo mức" parent="menu_bh_expiry_root" action="bh_lot_near_expiry_action" sequence="2"/>
+    <menuitem id="menu_bh_expiry_rule" name="Quy tắc cận hạn" parent="menu_bh_expiry_root" action="bh_expiry_rule_action"
+              sequence="10" groups="stock.group_stock_manager"/>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="rule_default_watch" model="bh.expiry.rule">
+        <field name="name">Chung - Theo dõi (còn ≤ 50%)</field>
+        <field name="stage">watch</field>
+        <field name="max_remaining_pct">50</field>
+        <field name="note">Ưu tiên xuất lô này trước (FEFO), báo kinh doanh chào hàng.</field>
+    </record>
+    <record id="rule_default_markdown" model="bh.expiry.rule">
+        <field name="name">Chung - Giảm giá (còn ≤ 30%)</field>
+        <field name="stage">markdown</field>
+        <field name="max_remaining_pct">30</field>
+        <field name="discount_pct">20</field>
+        <field name="note">Áp bảng giá xả hàng, chào bếp ăn và trường học tiêu thụ nhanh.</field>
+    </record>
+    <record id="rule_default_recall" model="bh.expiry.rule">
+        <field name="name">Chung - Thu hồi, cách ly (còn ≤ 15%)</field>
+        <field name="stage">recall</field>
+        <field name="max_remaining_pct">15</field>
+        <field name="note">Ngừng bán. Chuyển lô vào khu cách ly. Lập lịch thu hồi tại các điểm bán đang giữ lô.</field>
+    </record>
+</odoo>
