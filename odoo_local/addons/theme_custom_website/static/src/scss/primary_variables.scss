@@ -1,0 +1,50 @@
+// Design system Bảo Hân Bakery
+// 60% nền kem (o-color-4) · 30% vàng lúa mì / socola (o-color-3, o-color-5) · 10% caramel CTA (o-color-1)
+// Tương phản đã kiểm: chữ trắng trên caramel 5.7:1, socola trên kem 14.9:1, caramel trên kem 5.35:1 (WCAG AA).
+
+$o-theme-font-configs: map-merge($o-theme-font-configs, (
+    'Be Vietnam Pro': (
+        'family': ('Be Vietnam Pro', sans-serif),
+        'url': 'Be+Vietnam+Pro:300,400,500,600,700',
+    ),
+    'Lora': (
+        'family': ('Lora', serif),
+        'url': 'Lora:400,500,600,700',
+    ),
+));
+
+$o-color-palettes: map-merge($o-color-palettes, (
+    'bh-bakery': (
+        'o-color-1': #A84B16, // caramel - nút chính, điểm nhấn
+        'o-color-2': #4F7350, // xanh lá xám - nhãn chất lượng
+        'o-color-3': #F3E9DD, // lúa mì - nền khối phụ
+        'o-color-4': #FBF7F2, // kem - nền chính
+        'o-color-5': #2E1F18, // socola - chữ, footer
+        'menu': 1,
+        'footer': 5,
+        'copyright': 5,
+    ),
+));
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'bh-bakery');
+
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'bh-bakery',
+        'font': 'Be Vietnam Pro',
+        'headings-font': 'Lora',
+        'navbar-font': 'Be Vietnam Pro',
+        'buttons-font': 'Be Vietnam Pro',
+        'header-template': 'default',
+        'header-links-style': 'default',
+        'footer-template': 'default',
+        'footer-scrolltop': true,
+        'btn-padding-y': .65rem,
+        'btn-padding-x': 1.4rem,
+        'btn-padding-y-lg': .9rem,
+        'btn-padding-x-lg': 2rem,
+        'btn-border-radius': .75rem,
+        'btn-border-radius-lg': .875rem,
+        'btn-border-radius-sm': .625rem,
+        'input-border-radius': .625rem,
+    ),
+);

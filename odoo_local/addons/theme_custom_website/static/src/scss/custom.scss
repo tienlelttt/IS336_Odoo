@@ -1,0 +1,192 @@
+// Style riêng cho website, mọi selector nằm dưới tiền tố .x_custom_ để không chạm vào backend.
+// libsass của Odoo không tính được clamp() trộn rem + vw nên bọc bằng unquote().
+
+$x-caramel: #A84B16;
+$x-caramel-dark: #7A3410;
+$x-cocoa: #2E1F18;
+$x-cream: #FBF7F2;
+$x-wheat: #F3E9DD;
+$x-butter: #F2C98A;
+$x-muted: #6B5A50; // 6.15:1 trên nền kem
+$x-radius: 16px;
+$x-radius-lg: 24px;
+$x-radius-sm: 12px;
+$x-shadow: 0 1px 2px rgba(46, 31, 24, .06), 0 10px 28px rgba(122, 52, 16, .10);
+$x-shadow-hover: 0 2px 6px rgba(46, 31, 24, .08), 0 20px 44px rgba(122, 52, 16, .18);
+
+.x_custom_page {
+    line-height: 1.65;
+    color: $x-cocoa;
+
+    h1, .h1 { font-size: unquote("clamp(2.2rem, 1.3rem + 3.4vw, 3.8rem)"); line-height: 1.12; letter-spacing: -.015em; }
+    h2, .h2 { font-size: unquote("clamp(1.7rem, 1.15rem + 2vw, 2.6rem)"); line-height: 1.2; }
+    h3, .h3 { font-size: unquote("clamp(1.15rem, 1rem + .6vw, 1.4rem)"); line-height: 1.3; }
+
+    .x_custom_eyebrow {
+        display: inline-block;
+        font-size: .8rem;
+        font-weight: 600;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: $x-caramel;
+        margin-bottom: .75rem;
+    }
+    .x_custom_lead { font-size: unquote("clamp(1.02rem, .95rem + .35vw, 1.22rem)"); color: $x-muted; max-width: 58ch; }
+
+    // Nền ấm: kem pha ánh bơ, gợi cảm giác lò nướng
+    .x_custom_hero {
+        background:
+            radial-gradient(circle at 88% 18%, rgba($x-butter, .55), transparent 52%),
+            radial-gradient(circle at 5% 95%, rgba($x-butter, .35), transparent 45%),
+            linear-gradient(180deg, $x-cream 0%, $x-wheat 100%);
+    }
+    .x_custom_wheat { background: $x-wheat; }
+
+    .x_custom_hero_frame {
+        position: relative;
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .x_custom_hero_img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        border-radius: 200px 200px $x-radius-lg $x-radius-lg; // khung vòm như cửa lò
+        box-shadow: 0 30px 60px rgba(122, 52, 16, .28);
+    }
+    .x_custom_float_card {
+        position: absolute;
+        left: -1.5rem;
+        bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 1.25rem;
+        background: #fff;
+        border-radius: $x-radius;
+        box-shadow: $x-shadow;
+        .x_custom_stat { font-size: 1.9rem; }
+    }
+
+    .x_custom_trust li {
+        color: $x-muted;
+        font-weight: 500;
+        i { color: $x-caramel; }
+    }
+
+    .x_custom_chip {
+        display: inline-block;
+        padding: .3rem .75rem;
+        border-radius: 999px;
+        font-size: .78rem;
+        font-weight: 600;
+        background: rgba(79, 115, 80, .12);
+        color: #3E5C3F; // 6.4:1 trên nền chip
+    }
+    .x_custom_chip_warm { background: rgba($x-caramel, .12); color: $x-caramel-dark; }
+
+    // Ảnh luôn giữ tỉ lệ, không méo
+    .x_custom_media {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: $x-radius-sm;
+    }
+    .x_custom_media_soft { border-radius: $x-radius-lg; box-shadow: $x-shadow; }
+
+    .x_custom_card {
+        display: block;
+        height: 100%;
+        background: #fff;
+        border-radius: $x-radius;
+        box-shadow: $x-shadow;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        transition: transform .3s ease, box-shadow .3s ease;
+
+        .x_custom_img_wrap { overflow: hidden; }
+        .x_custom_media { border-radius: 0; transition: transform .5s ease; }
+        .x_custom_card_body { padding: 1.25rem 1.4rem 1.5rem; }
+        p { color: $x-muted; font-size: .95rem; }
+        .x_custom_more { color: $x-caramel; font-weight: 600; }
+
+        &:hover, &:focus-visible {
+            transform: translateY(-6px);
+            box-shadow: $x-shadow-hover;
+            .x_custom_media { transform: scale(1.06); }
+        }
+    }
+
+    .x_custom_stat {
+        font-family: 'Lora', serif;
+        font-size: unquote("clamp(2rem, 1.4rem + 2vw, 2.8rem)");
+        font-weight: 600;
+        color: $x-caramel;
+        line-height: 1;
+    }
+    .x_custom_stat_light { color: $x-butter; } // 10.2:1 trên nền socola
+
+    .x_custom_step {
+        position: relative;
+        padding-left: 3.4rem;
+        h3 { font-size: 1.1rem; }
+        p { color: $x-muted; font-size: .95rem; }
+        .x_custom_step_no {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            background: $x-caramel;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+    }
+
+    .x_custom_checks li { margin-bottom: .6rem; i { color: #4F7350; } }
+
+    .x_custom_badge {
+        display: inline-block;
+        padding: .5rem 1.1rem;
+        margin: .3rem;
+        border-radius: 999px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(46, 31, 24, .08);
+        font-weight: 600;
+    }
+
+    .x_custom_cta {
+        background: linear-gradient(135deg, $x-caramel 0%, $x-caramel-dark 100%);
+        color: #fff;
+        h2 { color: #fff; }
+        p { color: rgba(255, 255, 255, .92); }
+    }
+
+    .btn { transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba($x-caramel, .35); }
+
+    a:focus-visible, .btn:focus-visible {
+        outline: 3px solid #4F7350;
+        outline-offset: 3px;
+    }
+
+    @include media-breakpoint-down(lg) {
+        .x_custom_float_card { left: .75rem; bottom: .75rem; }
+    }
+}
+
+.x_custom_footer {
+    line-height: 1.65;
+    a { text-decoration: none; opacity: .9; transition: opacity .2s ease; }
+    a:hover { opacity: 1; text-decoration: underline; }
+    .x_custom_footer_title { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .x_custom_page *, .x_custom_footer * { transition: none !important; transform: none !important; }
+}

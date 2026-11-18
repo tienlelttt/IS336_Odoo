@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Header: thay số điện thoại mẫu của Odoo bằng hotline công khai. -->
+    <template id="bh_header_text" inherit_id="website.header_text_element" name="Bảo Hân - Hotline header">
+        <xpath expr="//t[@t-else='']/div" position="replace">
+            <div t-attf-class="s_text_block #{_div_class}" data-name="Text">
+                <a href="tel:+842862747929" class="nav-link o_nav-link_secondary p-2">
+                    <i class="fa fa-1x fa-fw fa-phone me-1"/>
+                    <span class="o_force_ltr"><small>(028) 6274 7929</small></span>
+                </a>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Trang Liên hệ: thay địa chỉ mẫu bằng thông tin công khai của công ty. -->
+    <template id="bh_contactus_info" inherit_id="website.contactus" name="Bảo Hân - Thông tin liên hệ">
+        <xpath expr="//div[hasclass('offset-lg-1')]" position="replace">
+            <div class="col-lg-4 offset-lg-1 mt-4 mt-lg-0 x_custom_footer">
+                <h5>Công ty TNHH Bánh Bảo Hân</h5>
+                <ul class="list-unstyled mb-0 ps-2">
+                    <li class="mb-2"><i class="fa fa-map-marker fa-fw me-2" aria-hidden="true"/>Xưởng: 71 Đường 20, P. Hiệp Bình Chánh, TP. Thủ Đức</li>
+                    <li class="mb-2"><i class="fa fa-building-o fa-fw me-2" aria-hidden="true"/>Trụ sở: 86 Đường 11, P. Linh Xuân, TP. Thủ Đức</li>
+                    <li class="mb-2"><i class="fa fa-phone fa-fw me-2" aria-hidden="true"/><a href="tel:+842862747929">(028) 6274 7929</a></li>
+                </ul>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Footer: kế thừa footer mặc định, giữ oe_structure để sửa được trong Website Builder. -->
+    <template id="bh_footer" inherit_id="website.footer_custom" name="Bảo Hân - Footer">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="oe_structure oe_structure_solo x_custom_footer" t-ignore="true" t-if="not no_footer">
+                <section class="s_text_block pt64 pb32" data-snippet="s_text_block" data-name="Footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 mb-4">
+                                <p class="x_custom_footer_title">Bảo Hân Bakery</p>
+                                <p>Xưởng sản xuất bánh mì, bánh ngọt, bánh cấp đông và đế pizza. Bán sỉ và gia công OEM.</p>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 mb-4">
+                                <p class="x_custom_footer_title">Liên hệ</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fa fa-map-marker fa-fw me-2" aria-hidden="true"/>Xưởng: 71 Đường 20, P. Hiệp Bình Chánh, TP. Thủ Đức, TP. HCM</li>
+                                    <li class="mb-2"><i class="fa fa-building-o fa-fw me-2" aria-hidden="true"/>Trụ sở: 86 Đường 11, P. Linh Xuân, TP. Thủ Đức, TP. HCM</li>
+                                    <li class="mb-2"><i class="fa fa-phone fa-fw me-2" aria-hidden="true"/><a href="tel:+842862747929">(028) 6274 7929</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6 col-lg-3 mb-4">
+                                <p class="x_custom_footer_title">Khách hàng</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><a href="/shop">Đặt hàng sỉ</a></li>
+                                    <li class="mb-2"><a href="/my/orders">Đơn hàng của tôi</a></li>
+                                    <li class="mb-2"><a href="/my/invoices">Hóa đơn và công nợ</a></li>
+                                    <li class="mb-2"><a href="/contactus">Liên hệ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

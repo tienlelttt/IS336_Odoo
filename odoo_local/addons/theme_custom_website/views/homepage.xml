@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Trang chủ: mỗi khối là một snippet chuẩn (data-snippet) trong oe_structure nên vẫn kéo-thả, sửa chữ/ảnh bằng Website Builder.
+         Ảnh minh họa có giấy phép miễn phí (xem static/src/img/CREDITS.md); thay bằng ảnh thật của xưởng khi triển khai. -->
+    <template id="bh_homepage" inherit_id="website.homepage" name="Bảo Hân - Trang chủ">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="oe_structure x_custom_page">
+
+                <!-- 1. Hero chia đôi -->
+                <section class="s_text_image pt64 pb80 x_custom_hero" data-snippet="s_text_image" data-name="Hero">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 mb-5 mb-lg-0">
+                                <span class="x_custom_chip x_custom_chip_warm"><i class="fa fa-fire me-1" aria-hidden="true"/>Mới ra lò mỗi sáng</span>
+                                <h1 class="mt-3">Bánh tươi thơm bơ, giao tận quán mỗi ngày</h1>
+                                <p class="x_custom_lead mt-3">Bánh mì, bánh ngọt, cookies và đế pizza làm tại xưởng Thủ Đức. Bán sỉ cho quán cà phê,
+                                    siêu thị, bếp ăn, và nhận gia công OEM theo công thức của bạn.</p>
+                                <p class="mt-4 mb-4">
+                                    <a href="/shop" class="btn btn-primary btn-lg me-2 mb-2"><i class="fa fa-shopping-basket me-2" aria-hidden="true"/>Đặt hàng sỉ</a>
+                                    <a href="#x_custom_oem" class="btn btn-outline-primary btn-lg mb-2">Gia công OEM</a>
+                                </p>
+                                <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0 x_custom_trust">
+                                    <li><i class="fa fa-truck me-2" aria-hidden="true"/>Giao trong ngày</li>
+                                    <li><i class="fa fa-calendar-check-o me-2" aria-hidden="true"/>Ghi rõ hạn dùng, số lô</li>
+                                    <li><i class="fa fa-snowflake-o me-2" aria-hidden="true"/>Xe lạnh cho hàng đông</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="x_custom_hero_frame">
+                                    <img src="/theme_custom_website/static/src/img/hero_bakery.jpg" class="img-fluid x_custom_hero_img"
+                                         alt="Kệ bánh mì mới nướng vàng óng trong tiệm" fetchpriority="high"/>
+                                    <div class="x_custom_float_card">
+                                        <span class="x_custom_stat">10.000</span>
+                                        <span class="small">bánh mỗi ngày</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Số liệu (thông tin công khai) -->
+                <section class="s_numbers o_cc o_cc5 pt48 pb48" data-snippet="s_numbers" data-name="Số liệu">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-6 col-lg-3 mb-3 mb-lg-0"><div class="x_custom_stat x_custom_stat_light">2017</div><p class="mt-2 mb-0">bắt đầu làm bánh</p></div>
+                            <div class="col-6 col-lg-3 mb-3 mb-lg-0"><div class="x_custom_stat x_custom_stat_light">500 m²</div><p class="mt-2 mb-0">xưởng và kho</p></div>
+                            <div class="col-6 col-lg-3"><div class="x_custom_stat x_custom_stat_light">20+</div><p class="mt-2 mb-0">loại bánh và OEM</p></div>
+                            <div class="col-6 col-lg-3"><div class="x_custom_stat x_custom_stat_light">3</div><p class="mt-2 mb-0">mức nhiệt bảo quản</p></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Sản phẩm -->
+                <section class="s_three_columns pt80 pb80 x_custom_wheat" data-snippet="s_three_columns" data-name="Sản phẩm">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-lg-8">
+                                <span class="x_custom_eyebrow">Thực đơn bán sỉ</span>
+                                <h2>Chọn bánh cho quầy của bạn</h2>
+                                <p class="x_custom_lead">Mỗi gói in ngày sản xuất, hạn dùng và số lô. Lô hết hạn trước được xuất trước, nên bánh đến tay bạn luôn mới nhất có thể.</p>
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-sm-6 col-lg-3">
+                                <a href="/shop" class="x_custom_card x_custom_product">
+                                    <div class="x_custom_img_wrap"><img src="/theme_custom_website/static/src/img/bread_sliced.jpg" class="img-fluid x_custom_media" alt="Bánh mì nguyên cám cắt lát trong giỏ" loading="lazy"/></div>
+                                    <div class="x_custom_card_body">
+                                        <span class="x_custom_chip">Nhiệt độ thường · 4–5 ngày</span>
+                                        <h3 class="mt-2">Bánh mì tươi</h3>
+                                        <p>Hoppi, sandwich trắng, sandwich đen, nguyên cám. Ruột mềm, vỏ mỏng.</p>
+                                        <span class="x_custom_more">Xem giá sỉ <i class="fa fa-long-arrow-right ms-1" aria-hidden="true"/></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <a href="/shop" class="x_custom_card x_custom_product">
+                                    <div class="x_custom_img_wrap"><img src="/theme_custom_website/static/src/img/cakes.jpg" class="img-fluid x_custom_media" alt="Bánh kem trái cây và bánh ngọt bày trên bàn tiệc" loading="lazy"/></div>
+                                    <div class="x_custom_card_body">
+                                        <span class="x_custom_chip">Mát 0–5 °C · 3 ngày</span>
+                                        <h3 class="mt-2">Bánh ngọt, tiệc trà</h3>
+                                        <p>Bông lan, bánh lạnh, bánh tiệc trà cho hội nghị và quán trà sữa.</p>
+                                        <span class="x_custom_more">Xem giá sỉ <i class="fa fa-long-arrow-right ms-1" aria-hidden="true"/></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <a href="/shop" class="x_custom_card x_custom_product">
+                                    <div class="x_custom_img_wrap"><img src="/theme_custom_website/static/src/img/cookies.jpg" class="img-fluid x_custom_media" alt="Cookies sô-cô-la vừa nướng" loading="lazy"/></div>
+                                    <div class="x_custom_card_body">
+                                        <span class="x_custom_chip">Túi kín · 6 tháng</span>
+                                        <h3 class="mt-2">Cookies bơ</h3>
+                                        <p>Giòn thơm bơ, đóng túi kín, hợp bán kèm đồ uống tại quầy.</p>
+                                        <span class="x_custom_more">Xem giá sỉ <i class="fa fa-long-arrow-right ms-1" aria-hidden="true"/></span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <a href="/shop" class="x_custom_card x_custom_product">
+                                    <div class="x_custom_img_wrap"><img src="/theme_custom_website/static/src/img/pizza.jpg" class="img-fluid x_custom_media" alt="Pizza xúc xích, cà chua và húng quế" loading="lazy"/></div>
+                                    <div class="x_custom_card_body">
+                                        <span class="x_custom_chip">Đông −18 °C · 6 tháng</span>
+                                        <h3 class="mt-2">Pizza và đế bánh</h3>
+                                        <p>Đế pizza nhỏ, lớn, pizza xúc xích, vỏ bánh cấp đông.</p>
+                                        <span class="x_custom_more">Xem giá sỉ <i class="fa fa-long-arrow-right ms-1" aria-hidden="true"/></span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Quy trình -->
+                <section class="s_text_image pt80 pb80" data-snippet="s_text_image" data-name="Quy trình">
+                    <div class="container">
+                        <div class="row align-items-center g-5">
+                            <div class="col-lg-5">
+                                <img src="/theme_custom_website/static/src/img/kneading.jpg" class="img-fluid x_custom_media x_custom_media_soft" alt="Bàn tay thợ bánh đang nhào bột" loading="lazy"/>
+                            </div>
+                            <div class="col-lg-7">
+                                <span class="x_custom_eyebrow">Làm bánh thế nào</span>
+                                <h2 class="mb-4">Từ bao bột mì đến kệ hàng của bạn</h2>
+                                <div class="row">
+                                    <div class="col-sm-6 mb-4 x_custom_step"><span class="x_custom_step_no">1</span><h3>Kiểm nguyên liệu</h3><p class="mb-0">Kiểm cảm quan, nhiệt độ hàng mát, hạn dùng và số lô từng đợt nhập.</p></div>
+                                    <div class="col-sm-6 mb-4 x_custom_step"><span class="x_custom_step_no">2</span><h3>Trộn và nhào</h3><p class="mb-0">Cân đúng định mức từng mẻ, phối trộn nguyên liệu và phụ gia.</p></div>
+                                    <div class="col-sm-6 mb-4 x_custom_step"><span class="x_custom_step_no">3</span><h3>Ủ, chia, tạo hình</h3><p class="mb-0">Ủ men bánh mì, chia bột theo khối lượng chuẩn.</p></div>
+                                    <div class="col-sm-6 mb-4 x_custom_step"><span class="x_custom_step_no">4</span><h3>Nướng</h3><p class="mb-0">Theo dõi nhiệt độ, thời gian nướng của từng mẻ.</p></div>
+                                    <div class="col-sm-6 mb-4 x_custom_step"><span class="x_custom_step_no">5</span><h3>Làm nguội, đóng gói</h3><p class="mb-0">In ngày sản xuất, hạn dùng, số lô lên từng gói.</p></div>
+                                    <div class="col-sm-6 mb-4 x_custom_step"><span class="x_custom_step_no">6</span><h3>Lưu kho, giao hàng</h3><p class="mb-0">Xếp kho theo nhiệt độ, xuất lô hết hạn trước.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. OEM -->
+                <section id="x_custom_oem" class="s_text_image pt80 pb80 x_custom_wheat" data-snippet="s_text_image" data-name="OEM">
+                    <div class="container">
+                        <div class="row align-items-center g-5">
+                            <div class="col-lg-6 order-lg-2">
+                                <img src="/theme_custom_website/static/src/img/oven.jpg" class="img-fluid x_custom_media x_custom_media_soft" alt="Mẻ bánh mì vàng ruộm trong lò nướng" loading="lazy"/>
+                            </div>
+                            <div class="col-lg-6 order-lg-1">
+                                <span class="x_custom_eyebrow">Gia công OEM</span>
+                                <h2>Bánh mang thương hiệu của bạn, làm tại xưởng của chúng tôi</h2>
+                                <p class="mt-3">Gửi công thức hoặc mô tả sản phẩm. Xưởng làm mẫu, báo giá theo định mức thực tế, rồi sản xuất theo lô với bao bì riêng.</p>
+                                <ul class="list-unstyled mt-3 x_custom_checks">
+                                    <li><i class="fa fa-check-circle me-2" aria-hidden="true"/>Báo giá dựa trên định mức nguyên liệu và công đoạn</li>
+                                    <li><i class="fa fa-check-circle me-2" aria-hidden="true"/>Mỗi lô truy được về lô nguyên liệu đã dùng</li>
+                                    <li><i class="fa fa-check-circle me-2" aria-hidden="true"/>Theo dõi đơn và công nợ qua cổng khách hàng</li>
+                                </ul>
+                                <a href="/contactus" class="btn btn-primary btn-lg mt-2">Gửi yêu cầu báo giá</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Đối tác (danh sách công khai) -->
+                <section class="s_text_block pt64 pb64 text-center" data-snippet="s_text_block" data-name="Đối tác">
+                    <div class="container">
+                        <span class="x_custom_eyebrow">Đối tác</span>
+                        <h2 class="mb-4">Bánh của chúng tôi đang có mặt tại</h2>
+                        <p class="mb-0">
+                            <span class="x_custom_badge">Aeon Mall</span>
+                            <span class="x_custom_badge">Dussmann</span>
+                            <span class="x_custom_badge">Metromart</span>
+                            <span class="x_custom_badge">Kizuna</span>
+                            <span class="x_custom_badge">Đại học FPT</span>
+                            <span class="x_custom_badge">Quán cà phê, trà sữa</span>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- 7. Kêu gọi hành động -->
+                <section class="s_call_to_action pt64 pb64 x_custom_cta" data-snippet="s_call_to_action" data-name="Đăng ký khách sỉ">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <h2>Mở tài khoản khách sỉ</h2>
+                                <p class="mb-lg-0">Xem bảng giá riêng, đặt hàng trực tuyến, theo dõi đơn và công nợ trực tuyến.</p>
+                            </div>
+                            <div class="col-lg-4 text-lg-end">
+                                <a href="/contactus" class="btn btn-light btn-lg">Liên hệ kinh doanh</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>
