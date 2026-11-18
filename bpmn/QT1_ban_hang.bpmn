@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_QT1_ban_hang" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <bpmn:collaboration id="Collaboration_QT1_ban_hang">
+    <bpmn:participant id="Participant_QT1_ban_hang" name="QT1 - Nhận đơn, giao hàng, thu tiền (Order to Cash) - Công ty TNHH Bánh Bảo Hân" processRef="Process_QT1_ban_hang" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_QT1_ban_hang" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_QT1_ban_hang">
+      <bpmn:lane id="Lane_QT1_ban_hang_0" name="Khách hàng sỉ">
+        <bpmn:flowNodeRef>S1</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT1_ban_hang_1" name="Nhân viên kinh doanh">
+        <bpmn:flowNodeRef>T1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T4</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT1_ban_hang_2" name="Giám đốc">
+        <bpmn:flowNodeRef>T3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E0</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT1_ban_hang_3" name="Hệ thống Odoo">
+        <bpmn:flowNodeRef>G1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T5</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T12</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT1_ban_hang_4" name="Thủ kho">
+        <bpmn:flowNodeRef>T6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T9</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT1_ban_hang_5" name="Tài xế">
+        <bpmn:flowNodeRef>T7</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT1_ban_hang_6" name="Kế toán">
+        <bpmn:flowNodeRef>T10</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>G4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>T11</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E1</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="S1" name="Đặt bánh cho ngày mai (Zalo, điện thoại, cổng, API)">
+      <bpmn:outgoing>Flow_QT1_ban_hang_0</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="T1" name="Nhập đơn bán, ngày giao mai (đơn cố định: nhân bản)">
+      <bpmn:incoming>Flow_QT1_ban_hang_0</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="G1" name="Nợ quá hạn hoặc vượt hạn mức?">
+      <bpmn:incoming>Flow_QT1_ban_hang_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT1_ban_hang_7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="T2" name="Chặn xác nhận, giao việc giám đốc">
+      <bpmn:incoming>Flow_QT1_ban_hang_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="T3" name="Xem công nợ, gắn nhãn Đã duyệt công nợ">
+      <bpmn:incoming>Flow_QT1_ban_hang_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="G2" name="Cho giao?">
+      <bpmn:incoming>Flow_QT1_ban_hang_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT1_ban_hang_6</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="E0" name="Từ chối, kinh doanh báo khách">
+      <bpmn:incoming>Flow_QT1_ban_hang_5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="T4" name="Xác nhận đơn trước 16:00">
+      <bpmn:incoming>Flow_QT1_ban_hang_6</bpmn:incoming>
+      <bpmn:incoming>Flow_QT1_ban_hang_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_8</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="T5" name="Tồn dự báo giảm, vào kế hoạch sản xuất (QT3)">
+      <bpmn:incoming>Flow_QT1_ban_hang_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_9</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="T6" name="05:00 soạn hàng theo tuyến, lô FEFO">
+      <bpmn:incoming>Flow_QT1_ban_hang_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_10</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="T7" name="Giao, khách ký; thu tiền mặt quán nhỏ; nhận hàng thu hồi">
+      <bpmn:incoming>Flow_QT1_ban_hang_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_11</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="G3" name="Khách nhận đủ?">
+      <bpmn:incoming>Flow_QT1_ban_hang_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_12</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT1_ban_hang_14</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="T8" name="Ghi số thực giao; hàng thu hồi vào Khu cách ly">
+      <bpmn:incoming>Flow_QT1_ban_hang_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_13</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="T9" name="Xác nhận phiếu giao">
+      <bpmn:incoming>Flow_QT1_ban_hang_13</bpmn:incoming>
+      <bpmn:incoming>Flow_QT1_ban_hang_14</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_15</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="T10" name="Cuối ngày: hóa đơn hàng loạt theo số đã giao, phát hành HĐĐT">
+      <bpmn:incoming>Flow_QT1_ban_hang_15</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_16</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="G4" name="Trả tiền mặt?">
+      <bpmn:incoming>Flow_QT1_ban_hang_16</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_17</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT1_ban_hang_18</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="T11" name="Nhận tiền tài xế nộp, đối chiếu phiếu giao">
+      <bpmn:incoming>Flow_QT1_ban_hang_17</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_19</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="T12" name="Trả sau: theo dõi công nợ, webhook ngân hàng (QT5)">
+      <bpmn:incoming>Flow_QT1_ban_hang_18</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT1_ban_hang_20</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="E1" name="Hoàn tất đơn">
+      <bpmn:incoming>Flow_QT1_ban_hang_19</bpmn:incoming>
+      <bpmn:incoming>Flow_QT1_ban_hang_20</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_0" sourceRef="S1" targetRef="T1" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_1" sourceRef="T1" targetRef="G1" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_2" name="Có" sourceRef="G1" targetRef="T2" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_3" sourceRef="T2" targetRef="T3" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_4" sourceRef="T3" targetRef="G2" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_5" name="Không" sourceRef="G2" targetRef="E0" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_6" name="Có" sourceRef="G2" targetRef="T4" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_7" name="Không" sourceRef="G1" targetRef="T4" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_8" sourceRef="T4" targetRef="T5" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_9" sourceRef="T5" targetRef="T6" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_10" sourceRef="T6" targetRef="T7" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_11" sourceRef="T7" targetRef="G3" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_12" name="Không" sourceRef="G3" targetRef="T8" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_13" sourceRef="T8" targetRef="T9" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_14" name="Có" sourceRef="G3" targetRef="T9" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_15" sourceRef="T9" targetRef="T10" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_16" sourceRef="T10" targetRef="G4" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_17" name="Có" sourceRef="G4" targetRef="T11" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_18" name="Trả sau" sourceRef="G4" targetRef="T12" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_19" sourceRef="T11" targetRef="E1" />
+    <bpmn:sequenceFlow id="Flow_QT1_ban_hang_20" sourceRef="T12" targetRef="E1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_QT1_ban_hang">
+    <bpmndi:BPMNPlane id="Plane_QT1_ban_hang" bpmnElement="Collaboration_QT1_ban_hang">
+      <bpmndi:BPMNShape id="Participant_QT1_ban_hang_di" bpmnElement="Participant_QT1_ban_hang" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="3030" height="1050" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_0_di" bpmnElement="Lane_QT1_ban_hang_0" isHorizontal="true">
+        <dc:Bounds x="40" y="0" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_1_di" bpmnElement="Lane_QT1_ban_hang_1" isHorizontal="true">
+        <dc:Bounds x="40" y="150" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_2_di" bpmnElement="Lane_QT1_ban_hang_2" isHorizontal="true">
+        <dc:Bounds x="40" y="300" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_3_di" bpmnElement="Lane_QT1_ban_hang_3" isHorizontal="true">
+        <dc:Bounds x="40" y="450" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_4_di" bpmnElement="Lane_QT1_ban_hang_4" isHorizontal="true">
+        <dc:Bounds x="40" y="600" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_5_di" bpmnElement="Lane_QT1_ban_hang_5" isHorizontal="true">
+        <dc:Bounds x="40" y="750" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_QT1_ban_hang_6_di" bpmnElement="Lane_QT1_ban_hang_6" isHorizontal="true">
+        <dc:Bounds x="40" y="900" width="2990" height="150" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S1_di" bpmnElement="S1">
+        <dc:Bounds x="167" y="57" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T1_di" bpmnElement="T1">
+        <dc:Bounds x="290" y="185" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G1_di" bpmnElement="G1" isMarkerVisible="true">
+        <dc:Bounds x="500" y="500" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T2_di" bpmnElement="T2">
+        <dc:Bounds x="630" y="485" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T3_di" bpmnElement="T3">
+        <dc:Bounds x="800" y="335" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G2_di" bpmnElement="G2" isMarkerVisible="true">
+        <dc:Bounds x="1010" y="350" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="E0_di" bpmnElement="E0">
+        <dc:Bounds x="1187" y="357" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T4_di" bpmnElement="T4">
+        <dc:Bounds x="1140" y="185" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T5_di" bpmnElement="T5">
+        <dc:Bounds x="1310" y="485" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T6_di" bpmnElement="T6">
+        <dc:Bounds x="1480" y="635" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T7_di" bpmnElement="T7">
+        <dc:Bounds x="1650" y="785" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G3_di" bpmnElement="G3" isMarkerVisible="true">
+        <dc:Bounds x="1860" y="650" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T8_di" bpmnElement="T8">
+        <dc:Bounds x="1990" y="635" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T9_di" bpmnElement="T9">
+        <dc:Bounds x="2160" y="635" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T10_di" bpmnElement="T10">
+        <dc:Bounds x="2330" y="935" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G4_di" bpmnElement="G4" isMarkerVisible="true">
+        <dc:Bounds x="2540" y="950" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T11_di" bpmnElement="T11">
+        <dc:Bounds x="2670" y="935" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T12_di" bpmnElement="T12">
+        <dc:Bounds x="2670" y="485" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="E1_di" bpmnElement="E1">
+        <dc:Bounds x="2887" y="957" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_0_di" bpmnElement="Flow_QT1_ban_hang_0">
+        <di:waypoint x="203" y="75" />
+        <di:waypoint x="246" y="75" />
+        <di:waypoint x="246" y="225" />
+        <di:waypoint x="290" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_1_di" bpmnElement="Flow_QT1_ban_hang_1">
+        <di:waypoint x="420" y="225" />
+        <di:waypoint x="460" y="225" />
+        <di:waypoint x="460" y="525" />
+        <di:waypoint x="500" y="525" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_2_di" bpmnElement="Flow_QT1_ban_hang_2">
+        <di:waypoint x="550" y="525" />
+        <di:waypoint x="630" y="525" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_3_di" bpmnElement="Flow_QT1_ban_hang_3">
+        <di:waypoint x="760" y="525" />
+        <di:waypoint x="780" y="525" />
+        <di:waypoint x="780" y="375" />
+        <di:waypoint x="800" y="375" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_4_di" bpmnElement="Flow_QT1_ban_hang_4">
+        <di:waypoint x="930" y="375" />
+        <di:waypoint x="1010" y="375" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_5_di" bpmnElement="Flow_QT1_ban_hang_5">
+        <di:waypoint x="1060" y="375" />
+        <di:waypoint x="1187" y="375" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_6_di" bpmnElement="Flow_QT1_ban_hang_6">
+        <di:waypoint x="1060" y="375" />
+        <di:waypoint x="1100" y="375" />
+        <di:waypoint x="1100" y="225" />
+        <di:waypoint x="1140" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_7_di" bpmnElement="Flow_QT1_ban_hang_7">
+        <di:waypoint x="550" y="525" />
+        <di:waypoint x="845" y="525" />
+        <di:waypoint x="845" y="225" />
+        <di:waypoint x="1140" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_8_di" bpmnElement="Flow_QT1_ban_hang_8">
+        <di:waypoint x="1270" y="225" />
+        <di:waypoint x="1290" y="225" />
+        <di:waypoint x="1290" y="525" />
+        <di:waypoint x="1310" y="525" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_9_di" bpmnElement="Flow_QT1_ban_hang_9">
+        <di:waypoint x="1440" y="525" />
+        <di:waypoint x="1460" y="525" />
+        <di:waypoint x="1460" y="675" />
+        <di:waypoint x="1480" y="675" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_10_di" bpmnElement="Flow_QT1_ban_hang_10">
+        <di:waypoint x="1610" y="675" />
+        <di:waypoint x="1630" y="675" />
+        <di:waypoint x="1630" y="825" />
+        <di:waypoint x="1650" y="825" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_11_di" bpmnElement="Flow_QT1_ban_hang_11">
+        <di:waypoint x="1780" y="825" />
+        <di:waypoint x="1820" y="825" />
+        <di:waypoint x="1820" y="675" />
+        <di:waypoint x="1860" y="675" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_12_di" bpmnElement="Flow_QT1_ban_hang_12">
+        <di:waypoint x="1910" y="675" />
+        <di:waypoint x="1990" y="675" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_13_di" bpmnElement="Flow_QT1_ban_hang_13">
+        <di:waypoint x="2120" y="675" />
+        <di:waypoint x="2160" y="675" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_14_di" bpmnElement="Flow_QT1_ban_hang_14">
+        <di:waypoint x="1910" y="675" />
+        <di:waypoint x="2160" y="675" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_15_di" bpmnElement="Flow_QT1_ban_hang_15">
+        <di:waypoint x="2290" y="675" />
+        <di:waypoint x="2310" y="675" />
+        <di:waypoint x="2310" y="975" />
+        <di:waypoint x="2330" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_16_di" bpmnElement="Flow_QT1_ban_hang_16">
+        <di:waypoint x="2460" y="975" />
+        <di:waypoint x="2540" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_17_di" bpmnElement="Flow_QT1_ban_hang_17">
+        <di:waypoint x="2590" y="975" />
+        <di:waypoint x="2670" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_18_di" bpmnElement="Flow_QT1_ban_hang_18">
+        <di:waypoint x="2590" y="975" />
+        <di:waypoint x="2630" y="975" />
+        <di:waypoint x="2630" y="525" />
+        <di:waypoint x="2670" y="525" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_19_di" bpmnElement="Flow_QT1_ban_hang_19">
+        <di:waypoint x="2800" y="975" />
+        <di:waypoint x="2887" y="975" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT1_ban_hang_20_di" bpmnElement="Flow_QT1_ban_hang_20">
+        <di:waypoint x="2800" y="525" />
+        <di:waypoint x="2843" y="525" />
+        <di:waypoint x="2843" y="975" />
+        <di:waypoint x="2887" y="975" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
