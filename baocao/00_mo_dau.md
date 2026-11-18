@@ -1,0 +1,35 @@
+# LỜI CẢM ƠN
+
+Nhóm xin cảm ơn thầy Văn Đức Sơn Hà và thầy Huy đã hướng dẫn môn Hoạch định nguồn lực doanh nghiệp, đặc biệt là bộ tiêu chí đồ án và các khóa học Odoo eLearning giúp nhóm hiểu cách một hệ thống ERP vận hành trong doanh nghiệp thật. Nhóm cũng cảm ơn các anh chị khóa trước đã chia sẻ báo cáo tham khảo.
+
+Báo cáo sử dụng thông tin công khai của Công ty TNHH Bánh Bảo Hân. Các số liệu nội bộ (nhân sự, định mức, khách hàng, nhà cung cấp, giao dịch) là giả định phục vụ học tập và được ghi rõ trong từng phần.
+
+[[PAGEBREAK]]
+
+# TÓM TẮT BÁO CÁO
+
+**Đề tài.** Triển khai hệ thống ERP Odoo 19 cho Công ty TNHH Bánh Bảo Hân – xưởng sản xuất bánh tươi, bánh cấp đông tại TP. Thủ Đức (MST 0314345823, công suất công bố khoảng 10.000 sản phẩm/ngày), bán sỉ cho quán, siêu thị, bếp ăn, trường học và gia công OEM.
+
+**Vấn đề của doanh nghiệp.** Đơn hàng qua nhiều kênh nhưng tổng hợp bằng Excel; định mức không cập nhật nên không biết giá thành; bánh hạn dùng 3–5 ngày bị quá hạn ở kho và ở điểm bán; công nợ nhiều khách theo dõi rời rạc; kiểm kê lệch không rõ nguyên nhân.
+
+**Những gì nhóm đã làm.**
+
+- Phân tích nhịp vận hành một ngày của xưởng và thiết kế 5 quy trình theo đúng người làm, giờ làm: Bán hàng (QT1), Mua hàng (QT2), Sản xuất cho quản đốc (QT3), Kho – lô – cận hạn (QT4), Kế toán công nợ (QT5). Mỗi quy trình có BPMN mở được bằng Camunda, bảng đặc tả, ngoại lệ, báo cáo.
+- Cài đặt Odoo 19 Community bằng Docker (một hệ thống duy nhất, tự host), bổ sung module cộng đồng OCA cho kiểm soát chất lượng và báo cáo tài chính; cấu hình VND, tiếng Việt, hệ thống tài khoản Việt Nam, 8 người dùng theo vai trò, kho nhận 1 bước – giao theo tuyến – sản xuất 2 bước, 12 định mức theo khối lượng thực tế, hợp đồng giá với nhà cung cấp, duyệt đơn mua trên 20 triệu.
+- Dựng dữ liệu tuần đầu go-live (14–18/11/2026): chuyển số dư đầu kỳ, 27 đơn bán, 11 lệnh sản xuất, giao 9 đợt theo tuyến, 16 hóa đơn và giấy báo có, cùng các ngoại lệ thật (khách nợ quá hạn bị chặn đơn, trứng vỡ trả lại, mẻ bánh thiếu, khách đóng cửa, bánh trả về, hàng hết hạn vào khu cách ly).
+- 6 quy tắc tự động (Automation Rules): chuẩn bị phiếu QC khi đơn mua xác nhận, chặn đơn khi nợ quá hạn, nhắc nợ, tạo phiếu QC thành phẩm, gửi webhook.
+- 2 module tự viết: **bh_near_expiry** quản lý hàng cận hạn nhiều mức theo nhóm, tìm lô đang ở điểm bán để thu hồi (3 test đạt); **bh_api** cung cấp REST API có token băm, phạm vi quyền, giới hạn tần suất, nhật ký và webhook ngân hàng tự đối soát (12 test đạt).
+- Theme website riêng (SCSS, QWeb, Be Vietnam Pro, đạt WCAG AA) có phân tích thiết kế, cổng đặt hàng cho khách sỉ.
+- Tích hợp hệ thống ngoài: ngân hàng (webhook), app đặt hàng của khách (API), Google Sheets (Apps Script), Telegram.
+
+**Kết quả chính.** Mỗi chứng từ trên Odoo thay một giấy tờ đang có; giá vốn ghi đúng 632/155 khi lập hóa đơn; lô thành phẩm truy được về lô nguyên liệu; quản đốc lập kế hoạch từ màn hình Bổ sung hàng trong vài phút.
+
+**Phần việc cá nhân.** Mỗi thành viên phụ trách chính một quy trình và quay video riêng, đọc và gọi một API khác nhau (chương 7, chương 9).
+
+[[PAGEBREAK]]
+
+^^**MỤC LỤC**
+
+[[TOC]]
+
+[[PAGEBREAK]]
