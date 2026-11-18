@@ -96,7 +96,7 @@ Dữ liệu trong Odoo mô phỏng **tuần đầu đưa Odoo vào vận hành**
 | ☐ | Website | http://localhost:8069/ , /shop , /contactus | Theme Bảo Hân, hotline thật, cửa hàng có ảnh |
 | ☐ | BPMN | Mở `bpmn/*.bpmn` bằng Camunda Modeler desktop | 5 file mở được; xuất ảnh chính thức |
 
-## 8. Kết quả kiểm tra ngày 18/11 (Claude)
+## 8. Kết quả kiểm tra ngày 18/11
 
 - 33 màn hình trong bảng: nạp action và toàn bộ view qua API của giao diện, không lỗi; số bản ghi khớp.
 - Đã kiểm dữ liệu cụ thể: S00020 bị chặn đúng thông báo; S00003 có nhãn duyệt; INV/2026/00012 tính 52/56 ổ FG02 (theo số giao); P00002 chờ duyệt, người tạo NV mua; QC-000006 không đạt; WH/MO/00007 66 → 58, xong, không lệnh bổ sung; SP/00001 gắn WH/MO/00006; webhook 1 đã ghi nhận + 1 trùng; BH1, BH2a, BH2b, BH3, BH5 bật, BH4 tắt.
