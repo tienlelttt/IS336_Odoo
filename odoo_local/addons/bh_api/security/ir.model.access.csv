@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bh_api_client_admin,bh.api.client admin,model_bh_api_client,base.group_system,1,1,1,1
+access_bh_api_log_admin,bh.api.log admin,model_bh_api_log,base.group_system,1,0,0,1
+access_bh_bank_txn_admin,bh.bank.txn admin,model_bh_bank_txn,base.group_system,1,1,1,1
+access_bh_bank_txn_account,bh.bank.txn accountant,model_bh_bank_txn,account.group_account_invoice,1,0,0,0
+access_bh_api_token_wizard,bh.api.token.wizard admin,model_bh_api_token_wizard,base.group_system,1,1,1,1

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bh_api_token_wizard_view_form" model="ir.ui.view">
+        <field name="name">bh.api.token.wizard.form</field>
+        <field name="model">bh.api.token.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Token mới">
+                <div class="alert alert-warning" role="alert">
+                    Sao chép token ngay. Hệ thống chỉ lưu bản băm nên sẽ không hiển thị lại token này.
+                </div>
+                <group>
+                    <field name="client_id"/>
+                    <field name="token" widget="CopyClipboardChar"/>
+                </group>
+                <footer>
+                    <button string="Đã sao chép" special="cancel" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

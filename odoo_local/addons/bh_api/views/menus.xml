@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_bh_api_root" name="API &amp; Tích hợp" parent="base.menu_administration" sequence="90"/>
+    <menuitem id="menu_bh_api_client" name="API đối tác" parent="menu_bh_api_root" action="bh_api_client_action" sequence="1"/>
+    <menuitem id="menu_bh_bank_txn" name="Giao dịch ngân hàng" parent="menu_bh_api_root" action="bh_bank_txn_action" sequence="2"/>
+</odoo>

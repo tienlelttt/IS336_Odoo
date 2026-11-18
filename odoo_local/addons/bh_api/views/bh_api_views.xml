@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bh_api_client_view_list" model="ir.ui.view">
+        <field name="name">bh.api.client.list</field>
+        <field name="model">bh.api.client</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="token_prefix"/>
+                <field name="expire_date"/>
+                <field name="scope_stock"/>
+                <field name="scope_order"/>
+                <field name="scope_debt"/>
+                <field name="call_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+    <record id="bh_api_client_view_form" model="ir.ui.view">
+        <field name="name">bh.api.client.form</field>
+        <field name="model">bh.api.client</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_token" type="object" string="Sinh token mới" class="btn-primary"
+                            confirm="Token cũ (nếu có) sẽ hết hiệu lực ngay. Tiếp tục?"/>
+                    <button name="action_revoke" type="object" string="Thu hồi token" invisible="not token_prefix"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Đối tác">
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="user_id"/>
+                            <field name="token_prefix"/>
+                            <field name="expire_date"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Phạm vi quyền">
+                            <field name="scope_stock"/>
+                            <field name="scope_order"/>
+                            <field name="scope_debt"/>
+                            <field name="rate_limit"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Nhật ký gọi API">
+                            <field name="log_ids" readonly="1">
+                                <list>
+                                    <field name="create_date"/>
+                                    <field name="method"/>
+                                    <field name="endpoint"/>
+                                    <field name="status"/>
+                                    <field name="ip"/>
+                                    <field name="duration_ms"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="bh_api_client_action" model="ir.actions.act_window">
+        <field name="name">API đối tác</field>
+        <field name="res_model">bh.api.client</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="bh_bank_txn_view_list" model="ir.ui.view">
+        <field name="name">bh.bank.txn.list</field>
+        <field name="model">bh.bank.txn</field>
+        <field name="arch" type="xml">
+            <list create="0" decoration-danger="state == 'unmatched'" decoration-muted="state == 'duplicate'">
+                <field name="create_date"/>
+                <field name="txn_ref"/>
+                <field name="content"/>
+                <field name="amount" sum="Tổng"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="move_id"/>
+                <field name="payment_id"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+    <record id="bh_bank_txn_action" model="ir.actions.act_window">
+        <field name="name">Giao dịch ngân hàng (webhook)</field>
+        <field name="res_model">bh.bank.txn</field>
+        <field name="view_mode">list</field>
+    </record>
+</odoo>
