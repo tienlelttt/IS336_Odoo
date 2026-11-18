@@ -2,6 +2,8 @@
 
 ## 8.1. Mô hình triển khai
 
+Bảng: So sánh các mô hình triển khai
+
 | Tiêu chí | Odoo Online (SaaS) | Odoo.sh (PaaS) | Tự cài – on-premise / VPS | Hybrid |
 |---|---|---|---|---|
 | Chi phí ban đầu | Thấp | Trung bình | Thấp (Community) đến trung bình | Trung bình |
@@ -17,6 +19,8 @@
 
 ## 8.2. Tư vấn hạ tầng
 
+Bảng: Đề xuất hạ tầng
+
 | Hạng mục | Đề xuất | Lý do |
 |---|---|---|
 | Máy chủ | VPS 2 vCPU, 4 GB RAM, 80 GB SSD, Ubuntu + Docker | Đủ cho 10–20 người dùng đồng thời |
@@ -28,6 +32,8 @@
 ## 8.3. Lộ trình và phương pháp triển khai
 
 Phương pháp lai: khung giai đoạn kiểu Waterfall với mốc go-live cố định; trong giai đoạn cấu hình chạy sprint 1 tuần, cuối sprint cho người dùng thật thử.
+
+Bảng: Lộ trình triển khai theo tuần
 
 | Tuần | Giai đoạn | Việc | Đầu ra |
 |---|---|---|---|
@@ -52,6 +58,8 @@ Ma trận ở mục 3.4, hiện thực bằng nhóm quyền của Odoo. Thêm qu
 
 ### 8.4.2. Mật khẩu và đăng nhập
 
+Bảng: Chính sách mật khẩu và đăng nhập
+
 | Biện pháp | Cấu hình |
 |---|---|
 | Độ dài tối thiểu | Thiết lập > Quyền > Độ dài mật khẩu tối thiểu: 10 ký tự |
@@ -65,6 +73,8 @@ Ma trận ở mục 3.4, hiện thực bằng nhóm quyền của Odoo. Thêm qu
 Theo dõi thay đổi (chatter tracking) trên chứng từ: ai đổi trạng thái, giá, số lượng, lúc nào; trạng thái việc cận hạn, cách xử lý, tổn thất có tracking; nhật ký gọi API (bh.api.log); giao dịch ngân hàng (bh.bank.txn). Hóa đơn đã xác nhận không sửa trực tiếp mà phải lập giấy báo có. Bản Enterprise có thêm "Audit Trail" kế toán; bản Community dùng tracking và khóa sổ kỳ (ngày khóa kế toán).
 
 ### 8.4.4. Sao lưu và dự phòng
+
+Bảng: Sao lưu và dự phòng
 
 | Biện pháp | Cách làm |
 |---|---|

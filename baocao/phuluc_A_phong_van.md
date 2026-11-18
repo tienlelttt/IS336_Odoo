@@ -6,6 +6,8 @@ Nhóm chưa liên hệ được Công ty TNHH Bánh Bảo Hân nên thực hiệ
 
 Mọi số liệu trong phụ lục trùng với các giả định ở Chương 1, RA_SOAT_QUY_TRINH và dữ liệu demo trên Odoo. Khi phỏng vấn được doanh nghiệp, nhóm dùng lại đúng bộ câu hỏi này và sửa những chỗ khác biệt.
 
+Bảng: Cách thực hiện phỏng vấn mô phỏng
+
 | Mục | Nội dung |
 |---|---|
 | Hình thức | Mô phỏng theo kịch bản, không phải buổi làm việc với doanh nghiệp |
@@ -113,6 +115,8 @@ Ký hiệu: **H** là câu hỏi của nhóm, **Đ** là câu trả lời mô ph
 Đ: Chưa. Chỉ biết tổng chi phí tháng, không tách được từng loại bánh.
 
 ## B.3. Kết quả đưa vào thiết kế
+
+Bảng: Kết quả phỏng vấn đưa vào thiết kế
 
 | Phát hiện từ phỏng vấn | Câu | Đưa vào Odoo |
 |---|---|---|

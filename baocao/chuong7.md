@@ -4,6 +4,8 @@
 
 ### 7.1.1. Danh sách quy tắc
 
+Bảng: Danh sách quy tắc tự động hóa
+
 | Mã | Mô hình | Kích hoạt | Điều kiện | Hành động | Quy trình |
 |---|---|---|---|---|---|
 | BH1 | Phiếu kho | Trạng thái chuyển "Sẵn sàng" | Phiếu nhập hàng | Chạy code: tạo phiếu QC cho từng NVL theo nhóm (mát/khô), giao việc cho QC hạn đúng ngày xe đến; chống tạo trùng | QT2 |
@@ -42,6 +44,8 @@ Bánh mì hạn 5 ngày, bánh lạnh 3 ngày. Odoo chuẩn có ngày cảnh bá
 
 ### 7.2.2. Yêu cầu
 
+Bảng: Yêu cầu của module bh_near_expiry
+
 | Mã | Yêu cầu |
 |---|---|
 | R1 | Quy tắc theo % hạn dùng còn lại, theo nhóm sản phẩm (kế thừa theo cây nhóm), có quy tắc chung |
@@ -52,6 +56,8 @@ Bánh mì hạn 5 ngày, bánh lạnh 3 ngày. Odoo chuẩn có ngày cảnh bá
 | R6 | Báo cáo Pivot/Graph giá trị cận hạn và tổn thất |
 
 ### 7.2.3. Thiết kế dữ liệu
+
+Bảng: Thiết kế dữ liệu của module bh_near_expiry
 
 | Model | Trường chính | Ghi chú |
 |---|---|---|
@@ -81,6 +87,8 @@ Khách sỉ lớn (chuỗi trà sữa) muốn app của họ tự xem giá, đ�
 
 ### 7.3.2. Thiết kế
 
+Bảng: Các endpoint của module bh_api
+
 | Endpoint | Phạm vi quyền | Mô tả |
 |---|---|---|
 | GET /api/bh/v1/products | Xem sản phẩm | Danh sách sản phẩm, tồn, giá theo bảng giá của khách |
@@ -88,6 +96,8 @@ Khách sỉ lớn (chuỗi trà sữa) muốn app của họ tự xem giá, đ�
 | GET /api/bh/v1/orders/<số đơn> | Tạo đơn | Chỉ xem được đơn của chính khách đó |
 | GET /api/bh/v1/debt | Xem công nợ | Hóa đơn chưa trả, tổng nợ, nợ quá hạn |
 | POST /api/bh/v1/webhook/bank | Secret riêng | Nhận biến động số dư kiểu SePay, tự ghi nhận thanh toán |
+
+Bảng: Biện pháp bảo mật của module bh_api
 
 | Biện pháp bảo mật | Cách làm |
 |---|---|
@@ -111,6 +121,8 @@ Mã lỗi: 401 sai token, 403 thiếu phạm vi, 404 không thấy, 422 dữ li�
 
 ### 7.4.1. Các cách giao tiếp với Odoo 19
 
+Bảng: Các cách giao tiếp với Odoo 19
+
 | API | Đặc điểm |
 |---|---|
 | JSON-2 (mới ở Odoo 19) | `POST /json/2/<model>/<method>`, xác thực bằng API key của người dùng (Bearer) |
@@ -123,6 +135,8 @@ Cách khám phá: bật chế độ nhà phát triển → xem tên model, trư�
 
 ### 7.4.2. Mỗi thành viên một API
 
+Bảng: API cá nhân của từng thành viên
+
 | Thành viên | API | Ví dụ | Script |
 |---|---|---|---|
 | Đoàn Thị Thùy Trang (A) | Module API bh_api | App khách đặt hàng, xem công nợ | scripts/api_demo_calls.py |
@@ -130,6 +144,8 @@ Cách khám phá: bật chế độ nhà phát triển → xem tên model, trư�
 | Phạm Tuấn Hải (C) | XML-RPC | Tạo yêu cầu báo giá cho nhà cung cấp từ hệ thống ngoài | scripts/api_ca_nhan/xmlrpc_tao_don_mua.py |
 
 ## 7.5. Tích hợp với hệ thống bên ngoài
+
+Bảng: Tích hợp với hệ thống bên ngoài
 
 | # | Hệ thống | Chiều | Cơ chế | Giá trị | Trạng thái |
 |---|---|---|---|---|---|

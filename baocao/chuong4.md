@@ -4,6 +4,8 @@
 
 Hệ thống chạy bằng Docker Compose trên máy của nhóm (chi tiết từng lệnh ở tài liệu HUONG_DAN_CAI_DAT.md):
 
+Bảng: Các bước cài đặt Odoo 19
+
 | Bước | Việc | Kết quả |
 |---|---|---|
 | 1 | Cài Docker Desktop | Môi trường container |

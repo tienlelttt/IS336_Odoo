@@ -4,6 +4,8 @@
 
 Nguyên tắc: mỗi thành viên phụ trách chính một quy trình (không trùng), quay video riêng, đọc và gọi một API khác nhau. Khối lượng cân theo độ khó đã chấm (tầm quan trọng, độ phức tạp cấu hình, ngoại lệ, tích hợp, kiến thức nền).
 
+Bảng: Phân công công việc
+
 | Hạng mục | 24521769 – Lê Thị Thanh Tiền | 24521817 – Đoàn Thị Thùy Trang | 24520442 – Phạm Tuấn Hải |
 |---|---|---|---|
 | Vai trò | B | A | C |
@@ -18,6 +20,8 @@ Phần làm chung cả nhóm: tóm tắt, chương 1–3, chương 8–9, phụ 
 Điểm độ khó (thang 5 cho mỗi tiêu chí, cộng 6 tiêu chí): QT1 27, QT3 25, QT5 23, QT4 22, QT2 20. Cộng cả phần phụ: A khoảng 39, B khoảng 36, C khoảng 42. A nặng về số ngoại lệ và điểm tích hợp; B là phần sản xuất cốt lõi của doanh nghiệp sản xuất; C điểm cao nhất nhưng phần phụ là thao tác ngắn, lặp lại (kiểm kê, thanh toán nhà cung cấp, chạy báo cáo).
 
 ## 9.2. Kiến thức đã học và áp dụng
+
+Bảng: Kiến thức đã học và áp dụng
 
 | Kiến thức môn học | Áp dụng trong đồ án |
 |---|---|

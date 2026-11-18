@@ -14,6 +14,8 @@ Nhận đơn sỉ đúng giá, không giao cho khách đang nợ quá hạn, gia
 
 ### 5.1.3. Đặc tả quy trình
 
+Bảng: Đặc tả QT1 – Nhận đơn, giao hàng, thu tiền
+
 | # | Bước | Người thực hiện | Mô tả | Màn hình / chứng từ Odoo |
 |---|---|---|---|---|
 | 1 | Nhận yêu cầu | Khách sỉ | Đặt bánh cho ngày mai qua Zalo, điện thoại, cổng khách hàng hoặc app (API) | – |
@@ -51,6 +53,8 @@ Nhận đơn sỉ đúng giá, không giao cho khách đang nợ quá hạn, gia
 
 ### 5.1.5. Ngoại lệ
 
+Bảng: Ngoại lệ của QT1
+
 | Tình huống (có trong dữ liệu) | Cách hệ thống xử lý |
 |---|---|
 | KH03 có hóa đơn tháng 10 quá hạn (S00003, S00020) | BH2b chặn xác nhận; BH2a giao việc giám đốc; mở bằng nhãn duyệt |
@@ -80,6 +84,8 @@ Bối cảnh: 6 nhà cung cấp cố định. Hàng mát (trứng, sữa, bơ, k
 
 ### 5.2.3. Đặc tả quy trình
 
+Bảng: Đặc tả QT2 – Đặt nguyên liệu, nhận hàng, trả tiền
+
 | # | Bước | Người thực hiện | Mô tả | Màn hình / chứng từ Odoo |
 |---|---|---|---|---|
 | 0 | Chốt giá quý | Giám đốc, NV mua | Thỏa thuận giá và số lượng dự kiến cả quý với NCC chính | Mua hàng > Hợp đồng mua hàng (Blanket Order) |
@@ -96,6 +102,8 @@ Bối cảnh: 6 nhà cung cấp cố định. Hàng mát (trứng, sữa, bơ, k
 | 11 | Trả hàng phát hiện sau | Thủ kho, kế toán | Lỗi ẩn (bơ hỏng) → phiếu trả NCC, giấy báo có NCC | Phiếu trả, hóa đơn điều chỉnh |
 
 ### 5.2.4. Cấu hình phục vụ quy trình
+
+Bảng: Cấu hình phục vụ QT2
 
 | Cấu hình | Giá trị | Ý nghĩa kiểm soát |
 |---|---|---|
@@ -124,6 +132,8 @@ Bối cảnh: 6 nhà cung cấp cố định. Hàng mát (trứng, sữa, bơ, k
 
 ### 5.2.6. Ngoại lệ
 
+Bảng: Ngoại lệ của QT2
+
 | Tình huống | Cách xử lý |
 |---|---|
 | Trứng vỡ khi giao (thứ Hai, có trong dữ liệu) | QC không đạt; nhận thiếu 60 quả; không tạo đơn chờ; hóa đơn chỉ theo số nhận |
@@ -138,6 +148,8 @@ Bối cảnh: 6 nhà cung cấp cố định. Hàng mát (trứng, sữa, bơ, k
 Người dùng: đơn chờ giao hôm nay, đơn chờ hóa đơn, phiếu QC cần làm. Quản lý: giá trị mua theo NCC và tháng, biến động giá so hợp đồng, tỷ lệ không đạt theo NCC (lọc phiếu QC "Không đạt" nhóm theo sản phẩm/NCC), công nợ phải trả đến hạn (tuổi nợ OCA).
 
 ### 5.2.8. Bút toán
+
+Bảng: Bút toán của QT2
 
 | Nghiệp vụ | Bút toán (dữ liệu thật) |
 |---|---|
@@ -155,6 +167,8 @@ Mỗi ngày làm đúng số bánh cần giao và cần dự trữ; mỗi lô c�
 ![Hình 5.19. BPMN quy trình QT3](../bpmn/QT3_san_xuat.png)
 
 ### 5.3.3. Đặc tả quy trình
+
+Bảng: Đặc tả QT3 – Sản xuất theo mẻ
 
 | # | Giờ | Người | Việc | Màn hình Odoo |
 |---|---|---|---|---|
@@ -189,6 +203,8 @@ Mỗi ngày làm đúng số bánh cần giao và cần dự trữ; mỗi lô c�
 
 ### 5.3.5. Ngoại lệ
 
+Bảng: Ngoại lệ của QT3
+
 | Tình huống | Cách xử lý |
 |---|---|
 | Mẻ bánh mì sandwich thiếu 8 ổ (WH/MO/00007) | Ghi số thực 58, đóng lệnh; bếp ăn nhận thiếu, hóa đơn theo số giao |
@@ -213,6 +229,8 @@ Biết chính xác còn gì, ở đâu, lô nào, hết hạn khi nào; không g
 ![Hình 5.27. BPMN quy trình QT4](../bpmn/QT4_kho_can_han.png)
 
 ### 5.4.3. Đặc tả quy trình
+
+Bảng: Đặc tả QT4 – Lô, hạn dùng, cận hạn, kiểm kê
 
 | # | Nhịp | Người | Việc | Odoo |
 |---|---|---|---|---|
@@ -253,6 +271,8 @@ Công nợ phải thu, phải trả đúng theo chứng từ; tiền về đư�
 
 ### 5.5.3. Đặc tả quy trình
 
+Bảng: Đặc tả QT5 – Công nợ, thu tiền, đối soát
+
 | # | Nhịp | Người | Việc | Odoo |
 |---|---|---|---|---|
 | 1 | Go-live | Kế toán | Chuyển công nợ tháng 10 từ sổ cũ (đối ứng TK 4211) | Hóa đơn có tham chiếu "Số dư đầu kỳ" |
@@ -271,6 +291,8 @@ Công nợ phải thu, phải trả đúng theo chứng từ; tiền về đư�
 ![Hình 5.34. Phân tích hóa đơn](hinh/40_phan_tich_hoa_don.png)
 
 ### 5.5.5. Bút toán tiêu biểu (dữ liệu thật)
+
+Bảng: Bút toán tiêu biểu của QT5
 
 | Chứng từ | Bút toán |
 |---|---|

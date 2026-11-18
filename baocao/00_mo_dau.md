@@ -55,6 +55,12 @@ Ngoài phần riêng, cả nhóm cùng làm: khảo sát và phân tích doanh n
 
 [[PAGEBREAK]]
 
+^^**DANH MỤC BẢNG**
+
+[[DM_BANG]]
+
+[[PAGEBREAK]]
+
 # TÓM TẮT BÁO CÁO
 
 **Đề tài.** Triển khai hệ thống ERP Odoo 19 cho Công ty TNHH Bánh Bảo Hân – xưởng sản xuất bánh tươi, bánh cấp đông tại TP. Thủ Đức (MST 0314345823, công suất công bố khoảng 10.000 sản phẩm/ngày), bán sỉ cho quán, siêu thị, bếp ăn, trường học và gia công OEM.

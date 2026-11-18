@@ -10,6 +10,8 @@ Nhóm chọn Công ty TNHH Bánh Bảo Hân vì bốn lý do. Thứ nhất, đâ
 
 Nhóm phân biệt rõ hai loại thông tin trong báo cáo:
 
+Bảng: Nguồn thông tin và cách đánh dấu trong báo cáo
+
 | Loại thông tin | Nguồn | Cách đánh dấu trong báo cáo |
 |---|---|---|
 | Thông tin công khai | Hồ sơ doanh nghiệp trên Yellow Pages Việt Nam và Trang Vàng Việt Nam (do doanh nghiệp tự cung cấp) | Ghi nguồn [1], [2] |
@@ -21,6 +23,8 @@ Thông tin giả định chỉ phục vụ mục đích học tập và không p
 ## 1.3. Tổng quan doanh nghiệp
 
 Thông tin công khai [1], [2]:
+
+Bảng: Thông tin công khai của Công ty TNHH Bánh Bảo Hân
 
 | Hạng mục | Nội dung |
 |---|---|
@@ -45,6 +49,8 @@ Danh mục công khai [1] gồm bánh mì Hoppi, bánh tiệc trà, bánh lạnh
 
 Trong phạm vi đồ án, nhóm chọn 12 sản phẩm đại diện, chia theo điều kiện bảo quản. Điều kiện bảo quản quyết định hạn dùng và kho chứa. Hạn dùng dưới đây là giả định của nhóm, tham khảo mức phổ biến của từng loại bánh.
 
+Bảng: Sản phẩm đại diện trong phạm vi đồ án
+
 | Nhóm | Sản phẩm đại diện | Bảo quản | Hạn dùng (giả định) |
 |---|---|---|---|
 | Bánh mì tươi | Bánh mì Hoppi, sandwich trắng, sandwich đen, bánh mì nguyên cám | Nhiệt độ thường | 4–5 ngày |
@@ -68,6 +74,8 @@ Ví dụ định mức (BoM) cho 1 mẻ 100 bánh mì sandwich trắng 400 g: 23
 ## 1.5. Cơ cấu tổ chức (giả định)
 
 Với công suất khoảng 10.000 sản phẩm/ngày và xưởng 300 m², nhóm ước tính doanh nghiệp có khoảng 26 nhân sự:
+
+Bảng: Cơ cấu tổ chức (giả định)
 
 | Bộ phận | Số người | Nhiệm vụ chính |
 |---|---|---|
@@ -126,6 +134,8 @@ Kế toán lập hóa đơn theo phiếu giao, theo dõi công nợ từng khác
 
 Nhóm chọn 5 phân hệ thực sự cần cho một xưởng bánh 20–30 người và đúng danh sách nhóm quy trình của môn học (Sales, Purchase, Inventory/MM, Manufacturing, FI). Kiểm soát chất lượng không tách thành phân hệ riêng mà nằm trong Mua hàng (kiểm đầu vào) và Sản xuất (kiểm mẫu thành phẩm), vì xưởng nhỏ chỉ có một người QC.
 
+Bảng: Phạm vi nghiệp vụ: 5 quy trình và phân hệ Odoo
+
 | # | Quy trình | Phân hệ Odoo | Người dùng chính |
 |---|---|---|---|
 | QT1 | Nhận đơn, giao hàng theo tuyến, thu tiền (Order to Cash) | Bán hàng, Kho, Kế toán | Nhân viên kinh doanh, thủ kho, kế toán |
@@ -147,6 +157,8 @@ Không thuộc phạm vi (trình bày lý do ở chương 9): nhân sự và ti�
 ## 1.9. Mục tiêu dự án
 
 Mục tiêu được đặt dưới dạng chỉ số đo được. Số liệu nền là giả định và sẽ cập nhật sau khảo sát.
+
+Bảng: Mục tiêu dự án và chỉ số đo
 
 | Mục tiêu | Chỉ số | Hiện tại (giả định) | Sau triển khai |
 |---|---|---|---|

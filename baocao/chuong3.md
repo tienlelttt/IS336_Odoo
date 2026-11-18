@@ -11,6 +11,8 @@ Nhóm thiết kế từ vị trí doanh nghiệp, không từ tính năng phần
 
 ## 3.2. Nhịp vận hành một ngày (TO-BE)
 
+Bảng: Nhịp vận hành một ngày (TO-BE)
+
 | Giờ | Bộ phận | Việc | Trên Odoo |
 |---|---|---|---|
 | 05:00 | Quản đốc, QC | Ghi sản lượng ca đêm, bánh lỗi; QC lấy mẫu | Hoàn tất lệnh sản xuất, phiếu loại bỏ, phiếu QC |
@@ -28,6 +30,8 @@ Nhịp tuần: kiểm kê kho mát, đặt bột, thanh toán nhà cung cấp đ
 
 ## 3.3. Những lựa chọn thiết kế và lý do
 
+Bảng: Lựa chọn thiết kế và lý do thực tế
+
 | Vấn đề | Cách làm trên Odoo | Lý do thực tế |
 |---|---|---|
 | Bánh tươi cho nhiều khách | Gom nhu cầu ngày mai, 1 lệnh sản xuất / sản phẩm / ca; MTO chỉ cho OEM | Xưởng nướng theo mẻ cho cả ngày |
@@ -42,6 +46,8 @@ Nhịp tuần: kiểm kê kho mát, đặt bột, thanh toán nhà cung cấp đ
 | Cận hạn | Ngưỡng riêng theo nhóm bánh | Bánh mì 5 ngày khác cookies 6 tháng |
 
 ## 3.4. Cơ cấu tổ chức và ma trận phân quyền
+
+Bảng: Ma trận phân quyền theo vai trò
 
 | Vai trò (tài khoản) | Bán hàng | Mua hàng | Kho | Sản xuất | Chất lượng | Kế toán |
 |---|---|---|---|---|---|---|
@@ -58,6 +64,8 @@ Ma trận được hiện thực bằng nhóm quyền chuẩn của Odoo (res.gr
 
 ## 3.5. Kiến trúc hệ thống
 
+Bảng: Thành phần kiến trúc hệ thống
+
 | Thành phần | Công nghệ | Vai trò |
 |---|---|---|
 | Máy chủ ứng dụng | Odoo 19 Community (Docker image odoo:19.0) | Toàn bộ phân hệ, website, API |
@@ -70,6 +78,8 @@ Ma trận được hiện thực bằng nhóm quyền chuẩn của Odoo (res.gr
 ## 3.6. Đặc tả dữ liệu
 
 ### 3.6.1. Dữ liệu nền (master data)
+
+Bảng: Đặc tả dữ liệu nền
 
 | Đối tượng (model) | Trường chính | Đặc điểm riêng ở Bảo Hân |
 |---|---|---|
@@ -87,6 +97,8 @@ Ma trận được hiện thực bằng nhóm quyền chuẩn của Odoo (res.gr
 | Quy tắc cận hạn (bh.expiry.rule) | Nhóm, mức, ngưỡng %, % giảm, người xử lý | Theo nhóm bánh |
 
 ### 3.6.2. Dữ liệu giao dịch (transaction data)
+
+Bảng: Đặc tả dữ liệu giao dịch
 
 | Chứng từ (model) | Trường chính |
 |---|---|
@@ -106,6 +118,8 @@ Ma trận được hiện thực bằng nhóm quyền chuẩn của Odoo (res.gr
 ## 3.7. Điểm tích hợp và bút toán tự động
 
 Bút toán dưới đây lấy từ dữ liệu thật trong Odoo (hệ thống tài khoản Việt Nam cài sẵn).
+
+Bảng: Điểm tích hợp và bút toán tự động
 
 | Sự kiện | Phân hệ phát sinh → nhận | Odoo tự làm | Bút toán |
 |---|---|---|---|

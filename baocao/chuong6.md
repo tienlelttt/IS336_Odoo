@@ -11,6 +11,8 @@ Website của Bảo Hân không phải cửa hàng bán lẻ mà là **kênh nh�
 
 ## 6.2. Đối tượng người dùng
 
+Bảng: Đối tượng người dùng website
+
 | Nhóm | Nhu cầu | Thiết bị |
 |---|---|---|
 | Chủ quán cà phê, tạp hóa | Xem sản phẩm, giá sỉ, đặt nhanh cho ngày mai | Điện thoại |
@@ -21,6 +23,8 @@ Website của Bảo Hân không phải cửa hàng bán lẻ mà là **kênh nh�
 ## 6.3. Yêu cầu
 
 ### 6.3.1. Yêu cầu chức năng
+
+Bảng: Yêu cầu chức năng của website
 
 | Mã | Yêu cầu | Đáp ứng bằng |
 |---|---|---|
@@ -34,6 +38,8 @@ Website của Bảo Hân không phải cửa hàng bán lẻ mà là **kênh nh�
 
 ### 6.3.2. Yêu cầu phi chức năng
 
+Bảng: Yêu cầu phi chức năng của website
+
 | Mã | Yêu cầu | Tiêu chí |
 |---|---|---|
 | N1 | Thẩm mỹ, đúng ngành bánh | Tông ấm, ảnh bánh thật, cảm giác "mới ra lò" |
@@ -45,6 +51,8 @@ Website của Bảo Hân không phải cửa hàng bán lẻ mà là **kênh nh�
 
 ## 6.4. Use case chính
 
+Bảng: Use case chính của website
+
 | Use case | Tác nhân | Luồng chính |
 |---|---|---|
 | UC1 Xem sản phẩm | Khách | Trang chủ → nhóm sản phẩm → Cửa hàng → chi tiết |
@@ -54,6 +62,8 @@ Website của Bảo Hân không phải cửa hàng bán lẻ mà là **kênh nh�
 | UC5 Cập nhật nội dung | Nhân viên | Chế độ chỉnh sửa website → sửa chữ, thay ảnh trong khối |
 
 ## 6.5. Sơ đồ trang và luồng đặt hàng
+
+Bảng: Sơ đồ trang website
 
 | Trang | Đường dẫn | Nội dung |
 |---|---|---|
@@ -70,6 +80,8 @@ Luồng đặt hàng sỉ: Trang chủ → "Đặt hàng sỉ" → Cửa hàng �
 
 ### 6.6.1. Khung bố cục trang chủ (wireframe)
 
+Bảng: Khung bố cục trang chủ
+
 | Khối | Bố cục | Mục đích |
 |---|---|---|
 | Header | Logo trái, menu giữa, hotline + nút "Liên hệ" phải | Nhận diện, gọi điện nhanh |
@@ -83,6 +95,8 @@ Luồng đặt hàng sỉ: Trang chủ → "Đặt hàng sỉ" → Cửa hàng �
 | Footer | Giới thiệu, liên hệ (xưởng, trụ sở, hotline), liên kết khách hàng | Thông tin |
 
 ### 6.6.2. Design system
+
+Bảng: Design system của website
 
 | Thành phần | Giá trị | Ghi chú |
 |---|---|---|
@@ -99,6 +113,8 @@ Luồng đặt hàng sỉ: Trang chủ → "Đặt hàng sỉ" → Cửa hàng �
 
 Tương phản đã đo (WCAG AA yêu cầu ≥ 4,5:1 với chữ thường):
 
+Bảng: Tỷ lệ tương phản màu chữ và nền
+
 | Cặp chữ / nền | Tỷ lệ |
 |---|---|
 | Socola trên kem | 14,86 : 1 |
@@ -114,6 +130,8 @@ Tương phản đã đo (WCAG AA yêu cầu ≥ 4,5:1 với chữ thường):
 
 ## 6.7. Kiến trúc kỹ thuật (module theme_custom_website)
 
+Bảng: Các tệp của module theme_custom_website
+
 | Tệp | Vai trò |
 |---|---|
 | `__manifest__.py` | Khai báo theme, phụ thuộc `website`, tài nguyên (assets) |
@@ -126,6 +144,8 @@ Tương phản đã đo (WCAG AA yêu cầu ≥ 4,5:1 với chữ thường):
 Lưu ý kỹ thuật gặp khi làm: trình biên dịch SCSS của Odoo (libsass) không tính được `clamp()` trộn đơn vị rem và vw, nên phải bọc bằng `unquote()`; giá trị bo góc nút phải dùng rem vì Bootstrap tính toán với rem.
 
 ## 6.8. Kiểm thử website
+
+Bảng: Kết quả kiểm thử website
 
 | Kiểm thử | Kết quả |
 |---|---|

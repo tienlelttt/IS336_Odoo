@@ -8,6 +8,8 @@ ERP (Enterprise Resource Planning) là hệ thống phần mềm tích hợp cá
 
 ### 2.1.2. Đặc điểm
 
+Bảng: Đặc điểm của hệ thống ERP và ý nghĩa với Bảo Hân
+
 | Đặc điểm | Ý nghĩa với Bảo Hân |
 |---|---|
 | Tích hợp | Một đơn bán đi qua kinh doanh, kho, sản xuất, kế toán mà không nhập lại |
@@ -35,6 +37,8 @@ Odoo là bộ ứng dụng doanh nghiệp mã nguồn mở của Bỉ, viết b�
 
 ### 2.2.2. Kiến trúc
 
+Bảng: Kiến trúc Odoo
+
 | Tầng | Thành phần |
 |---|---|
 | Trình diễn | Web client (framework OWL, JavaScript), website QWeb |
@@ -44,6 +48,8 @@ Odoo là bộ ứng dụng doanh nghiệp mã nguồn mở của Bỉ, viết b�
 Mỗi tính năng là một **module** (thư mục có `__manifest__.py`, models, views, security, data). Module mới kế thừa module có sẵn bằng `_inherit` (thêm trường, ghi đè hàm) và XPath (sửa giao diện) mà không sửa mã gốc. Đây là cách nhóm viết bh_near_expiry, bh_api và theme.
 
 ### 2.2.3. Các phân hệ dùng trong đồ án
+
+Bảng: Các phân hệ Odoo dùng trong đồ án
 
 | Phân hệ | Khái niệm chính |
 |---|---|
@@ -66,6 +72,8 @@ Mỗi tính năng là một **module** (thư mục có `__manifest__.py`, models
 
 ## 2.3. Ngôn ngữ mô hình hóa BPMN 2.0
 
+Bảng: Ký hiệu BPMN 2.0 dùng trong đồ án
+
 | Ký hiệu | Ý nghĩa | Dùng trong đồ án |
 |---|---|---|
 | Pool / Lane | Tổ chức / vai trò thực hiện | Mỗi lane là một vai trò ở Chương 1 (kể cả "Hệ thống Odoo") |
@@ -86,6 +94,8 @@ Các file BPMN được tạo theo chuẩn BPMN 2.0 có phần hiển thị (DI)
 - Nghị định 123/2020/NĐ-CP: hóa đơn điện tử → module l10n_vn_edi_viettel.
 
 ## 2.5. Phương pháp triển khai ERP
+
+Bảng: So sánh các phương pháp triển khai ERP
 
 | Phương pháp | Đặc điểm | Phù hợp |
 |---|---|---|

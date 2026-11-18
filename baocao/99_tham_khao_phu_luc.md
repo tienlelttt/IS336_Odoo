@@ -32,6 +32,8 @@
 
 # PHỤ LỤC A. DANH MỤC SẢN PHẨM NỘP
 
+Bảng: Danh mục sản phẩm nộp
+
 | Sản phẩm | Vị trí trong thư mục DoAn_HoanChinh |
 |---|---|
 | Báo cáo (file này) | Report - Nhóm 06.docx |
