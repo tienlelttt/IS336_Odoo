@@ -1,0 +1,25 @@
+# Odoo 19 Community local de phat trien module tuy chinh (Odoo Online khong cai duoc code Python)
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+    volumes: [db-data:/var/lib/postgresql/data]
+  odoo:
+    image: odoo:19.0
+    depends_on: [db]
+    ports: ["8069:8069"]
+    command: ["--", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons,/mnt/oca/manufacture,/mnt/oca/account-financial-reporting,/mnt/oca/server-ux,/mnt/oca/reporting-engine,/mnt/oca/stock-logistics-barcode", "--db-filter=^baohan$"]
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+    volumes:
+      - ./addons:/mnt/extra-addons
+      - ./oca:/mnt/oca
+      - odoo-data:/var/lib/odoo
+volumes:
+  db-data:
+  odoo-data:
