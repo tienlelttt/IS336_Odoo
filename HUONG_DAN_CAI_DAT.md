@@ -62,7 +62,7 @@ http://localhost:8069 – `admin` / `admin` (chỉ máy local). Các tài khoả
 | Sao lưu | `docker compose exec -T db pg_dump -U odoo -Fc baohan > ../backups/baohan_$(date +%Y%m%d).dump` |
 | Khôi phục | `docker compose exec -T db createdb -U odoo baohan2` rồi `docker compose exec -T db pg_restore -U odoo -d baohan2 < file.dump` |
 | Gọi API demo | `BH_API_TOKEN=<token> python ../scripts/api_demo_calls.py` (token: Thông số hệ thống `bh_demo.api_token_kh02`) |
-| Dựng lại báo cáo | `python ../tools/md2docx.py "../Report - Nhóm 06.docx" ../baocao/00_bia.md ../baocao/00_mo_dau.md ../baocao/chuong1.md ... ` (xem mục 4.3) |
+| Dựng lại báo cáo | `python ../tools/md2docx.py "../Report - Nhóm 06.docx" ../baocao/00_mo_dau.md ../baocao/chuong1.md ... ` (xem mục 4.3) |
 
 Lỗi thường gặp: Docker chưa bật (`failed to connect to the docker API`) → mở Docker Desktop; cổng 8069 bận → tắt Odoo khác đang chạy; chạy lệnh từ Git Bash phải có `MSYS_NO_PATHCONV=1` trước `docker compose run` (script đã có sẵn).
 
@@ -140,7 +140,7 @@ Sửa các file `baocao/*.md` (tiêu đề `#` là chương, `##` mục, `###` t
 ### 4.3. Dựng file
 
 ```
-python tools/md2docx.py "Report - Nhóm 06.docx" baocao/00_bia.md baocao/00_mo_dau.md baocao/chuong1.md baocao/chuong2.md baocao/chuong3.md baocao/chuong4.md baocao/chuong5.md baocao/chuong6.md baocao/chuong7.md baocao/chuong8.md baocao/chuong9.md baocao/99_tham_khao_phu_luc.md baocao/phuluc_A_phong_van.md
+python tools/md2docx.py "Report - Nhóm 06.docx" baocao/00_mo_dau.md baocao/chuong1.md baocao/chuong2.md baocao/chuong3.md baocao/chuong4.md baocao/chuong5.md baocao/chuong6.md baocao/chuong7.md baocao/chuong8.md baocao/chuong9.md baocao/99_tham_khao_phu_luc.md baocao/phuluc_A_phong_van.md
 ```
 
-Mở file trong Word, đồng ý "cập nhật trường" để mục lục tự sinh (hoặc nhấn chuột phải vào mục lục → Update Field → Update entire table). Điền họ tên 2 bạn, bảng phân công, tỷ lệ đóng góp ở chương 9 trước khi nộp. Nếu Khoa có template riêng: chép nội dung sang template, dùng Heading 1–3 để mục lục vẫn tự động.
+Bìa, lề, kiểu chữ lấy từ `tools/mau_bao_cao.docx` (tạo từ báo cáo mẫu IS201 bằng `python tools/tao_mau_bao_cao.py <file mẫu>.docx`; sửa chữ trên bìa trong script đó). Mở file trong Word, đồng ý "cập nhật trường" để mục lục tự sinh (hoặc nhấn chuột phải vào mục lục → Update Field → Update entire table). Điền họ tên 2 bạn, bảng phân công, tỷ lệ đóng góp ở chương 9 trước khi nộp. Nếu Khoa có template riêng: chép nội dung sang template, dùng Heading 1–3 để mục lục vẫn tự động.

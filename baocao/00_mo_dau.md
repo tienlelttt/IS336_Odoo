@@ -6,6 +6,55 @@ Báo cáo sử dụng thông tin công khai của Công ty TNHH Bánh Bảo Hân
 
 [[PAGEBREAK]]
 
+^^**NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN**
+
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+^^
+
+^^..…., ngày……tháng…..năm 2026
+^^Người nhận xét
+^^(Ký tên và ghi rõ họ tên)
+
+[[PAGEBREAK]]
+
+^^**BẢNG PHÂN CÔNG, ĐÁNH GIÁ THÀNH VIÊN**
+
+Nhóm chia việc theo quy trình nghiệp vụ: mỗi thành viên phụ trách chính một quy trình (cấu hình, chạy thử, mô tả trong báo cáo, quay video), một phần phụ và một API khác nhau. Chi tiết và cơ sở chia việc ở mục 9.1.
+
+| Họ và tên | MSSV | Phân công | Đánh giá |
+|---|---|---|---|
+| Lê Thị Thanh Tiền | 24521769 | QT3 Sản xuất theo mẻ (mục 5.3); QT4 phần cận hạn và module bh_near_expiry (5.4, 7.2); API JSON-2 (7.4) | Hoàn thành tốt nhiệm vụ được giao (34%) |
+| Đoàn Thị Thùy Trang | 24521817 | QT1 Bán hàng (5.1); QT5 phần phải thu, đối soát ngân hàng (5.5); website (chương 6); module bh_api, tích hợp (7.3, 7.5) | Hoàn thành tốt nhiệm vụ được giao (33%) |
+| Phạm Tuấn Hải | 24520442 | QT2 Mua hàng (5.2); QT4 phần kho, kiểm kê (5.4); QT5 phần phải trả (5.5); cấu hình kho (4.2); Automation Rules (7.1); API XML-RPC (7.4) | Hoàn thành tốt nhiệm vụ được giao (33%) |
+
+Ngoài phần riêng, cả nhóm cùng làm: khảo sát và phân tích doanh nghiệp, thiết kế quy trình và BPMN, chương 1–3, chương 8–9, phụ lục, slide thuyết trình và hoàn thiện báo cáo.
+
+[[PAGEBREAK]]
+
+^^**MỤC LỤC**
+
+[[TOC]]
+
+[[PAGEBREAK]]
+
+^^**DANH MỤC HÌNH**
+
+[[DM_HINH]]
+
+[[PAGEBREAK]]
+
 # TÓM TẮT BÁO CÁO
 
 **Đề tài.** Triển khai hệ thống ERP Odoo 19 cho Công ty TNHH Bánh Bảo Hân – xưởng sản xuất bánh tươi, bánh cấp đông tại TP. Thủ Đức (MST 0314345823, công suất công bố khoảng 10.000 sản phẩm/ngày), bán sỉ cho quán, siêu thị, bếp ăn, trường học và gia công OEM.
@@ -26,10 +75,4 @@ Báo cáo sử dụng thông tin công khai của Công ty TNHH Bánh Bảo Hân
 
 **Phần việc cá nhân.** Mỗi thành viên phụ trách chính một quy trình và quay video riêng, đọc và gọi một API khác nhau (chương 7, chương 9).
 
-[[PAGEBREAK]]
-
-^^**MỤC LỤC**
-
-[[TOC]]
-
-[[PAGEBREAK]]
+[[SECTION]]

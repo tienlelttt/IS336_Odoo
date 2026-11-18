@@ -210,7 +210,7 @@ Gọi API thật qua HTTP: `BH_API_TOKEN=<token> python scripts/api_demo_calls.p
 
 ```bash
 python tools/chup_man_hinh.py          # chụp lại ảnh (Odoo phải đang chạy)
-python tools/md2docx.py "Report - Nhóm 06.docx" baocao/00_bia.md baocao/00_mo_dau.md baocao/chuong1.md ... baocao/phuluc_A_phong_van.md
+python tools/md2docx.py "Report - Nhóm 06.docx" baocao/00_mo_dau.md baocao/chuong1.md ... baocao/phuluc_A_phong_van.md
 python tools/bpmn_gen.py               # sinh lại 5 BPMN từ tools/bpmn_specs.py
 ```
 

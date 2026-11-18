@@ -1,14 +1,15 @@
-"""Dựng báo cáo .docx từ các file markdown, dùng style của file Chương 1 gốc làm mẫu (Times New Roman 13, Heading 1–3).
+"""Dựng báo cáo .docx từ các file markdown trên mẫu tools/mau_bao_cao.docx (bìa, lề, style của báo cáo mẫu IS201;
+tạo lại mẫu bằng tools/tao_mau_bao_cao.py).
 
 Hỗ trợ: # / ## / ### tiêu đề (vào Heading 1–3 → mục lục tự động), đoạn văn, danh sách '-' và '1.', bảng '|...|',
 **đậm**, ![chú thích](ảnh.png), khối ``` code ```, dòng '^^' căn giữa (trang bìa),
-[[TOC]] mục lục tự động (Word cập nhật khi mở file), [[PAGEBREAK]] ngắt trang.
+[[TOC]] mục lục, [[DM_HINH]] danh mục hình (Word cập nhật khi mở file), [[PAGEBREAK]] ngắt trang,
+[[SECTION]] hết phần đầu (không số trang) – chương sau bắt đầu trang 1.
 Dùng: python tools/md2docx.py out.docx in1.md [in2.md ...]
 """
 import os
 import re
 import sys
-from copy import deepcopy
 from pathlib import Path
 
 from docx import Document
@@ -17,7 +18,8 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
 
-TEMPLATE = Path(__file__).resolve().parents[2] / "GIới-thiệu-đề-tài.docx"
+TEMPLATE = Path(__file__).with_name("mau_bao_cao.docx")
+FRONT_SECT = []  # đoạn mang section phần đầu, lấy từ mẫu
 
 
 def add_runs(par, text, size=None):
@@ -68,7 +70,7 @@ def add_table(doc, rows):
     doc.add_paragraph()
 
 
-def add_field(paragraph, instr):
+def add_field(paragraph, instr, hint_text="Nhấn chuột phải vào đây → Update Field nếu mục lục chưa hiện."):
     """Chèn trường Word (ví dụ mục lục) – Word tính lại khi mở file."""
     run = paragraph.add_run()
     for tag, attrs in (("w:fldChar", {"w:fldCharType": "begin"}),):
@@ -83,7 +85,7 @@ def add_field(paragraph, instr):
     sep = OxmlElement("w:fldChar")
     sep.set(qn("w:fldCharType"), "separate")
     run._r.append(sep)
-    hint = paragraph.add_run("Nhấn chuột phải vào đây → Update Field nếu mục lục chưa hiện.")
+    hint = paragraph.add_run(hint_text)
     hint.italic = True
     end_run = paragraph.add_run()
     end = OxmlElement("w:fldChar")
@@ -122,6 +124,11 @@ def convert(md_text, doc, base_dir):
             doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
         elif line == "[[TOC]]":
             add_field(doc.add_paragraph(), 'TOC \\o "1-3" \\h \\z \\u')
+        elif line == "[[DM_HINH]]":
+            add_field(doc.add_paragraph(), 'TOC \\h \\z \\t "Caption,1"',
+                      "Nhấn chuột phải vào đây → Update Field nếu danh mục hình chưa hiện.")
+        elif line == "[[SECTION]]":
+            doc.element.body[-1].addprevious(FRONT_SECT.pop())
         elif line.startswith("^^"):
             p = doc.add_paragraph()
             add_runs(p, line[2:], size=14)
@@ -139,7 +146,7 @@ def convert(md_text, doc, base_dir):
                 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
             else:
                 doc.add_paragraph(f"[THIẾU HÌNH: {img.group(2)}]")
-            cap = doc.add_paragraph()
+            cap = doc.add_paragraph(style="Caption")
             add_runs(cap, img.group(1), size=11)
             for run in cap.runs:
                 run.italic = True
@@ -157,15 +164,15 @@ def convert(md_text, doc, base_dir):
 def main(out, *inputs):
     doc = Document(str(TEMPLATE))
     body = doc.element.body
-    sect = deepcopy(body[-1]) if body[-1].tag == qn("w:sectPr") else None
-    for el in list(body):
-        body.remove(el)
-    if sect is not None:
-        body.append(sect)
+    # Mẫu: bìa (giữ) + đoạn mang section phần đầu (chèn lại ở [[SECTION]]) + section thân bài (cuối body)
+    sect_ps = [el for el in body if el.tag == qn("w:p") and el.find(".//" + qn("w:sectPr")) is not None]
+    FRONT_SECT.append(sect_ps[1])
+    body.remove(sect_ps[1])
     for k, f in enumerate(inputs):
         text = Path(f).read_text(encoding="utf-8")
         # Mỗi chương (file bắt đầu bằng "# ") sang trang mới
-        if k and text.lstrip().startswith("# ") and not text.lstrip().startswith("# MỤC LỤC"):
+        after_section = body[-2].find(".//" + qn("w:sectPr")) is not None  # ngắt section đã sang trang
+        if k and text.lstrip().startswith("# ") and not after_section:
             doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
         convert(text, doc, Path(f).parent)
     for p in doc.paragraphs:
