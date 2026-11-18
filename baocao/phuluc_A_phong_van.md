@@ -4,7 +4,7 @@
 
 Nhóm chưa liên hệ được Công ty TNHH Bánh Bảo Hân nên thực hiện **phỏng vấn mô phỏng**: nhóm soạn 32 câu hỏi khảo sát theo 5 phân hệ, sau đó trả lời từ vị trí một người quản lý xưởng bánh. Câu trả lời dựa trên ba nguồn: thông tin công khai của Bảo Hân [1], [2]; quy trình chuẩn ngành bánh và quy định an toàn thực phẩm [3]–[7]; ước tính theo quy mô công bố (xưởng 500 m², khoảng 10.000 sản phẩm/ngày).
 
-Đây không phải lời của nhân sự Bảo Hân. Mọi số liệu trong phụ lục trùng với các giả định ở Chương 1, RA_SOAT_QUY_TRINH và dữ liệu demo trên Odoo. Khi phỏng vấn được doanh nghiệp, nhóm dùng lại đúng bộ câu hỏi này và sửa những chỗ khác biệt.
+Mọi số liệu trong phụ lục trùng với các giả định ở Chương 1, RA_SOAT_QUY_TRINH và dữ liệu demo trên Odoo. Khi phỏng vấn được doanh nghiệp, nhóm dùng lại đúng bộ câu hỏi này và sửa những chỗ khác biệt.
 
 | Mục | Nội dung |
 |---|---|
