@@ -1,0 +1,20 @@
+[submodule "odoo_local/oca/account-financial-reporting"]
+	path = odoo_local/oca/account-financial-reporting
+	url = https://github.com/OCA/account-financial-reporting.git
+	branch = 19.0
+[submodule "odoo_local/oca/manufacture"]
+	path = odoo_local/oca/manufacture
+	url = https://github.com/OCA/manufacture.git
+	branch = 19.0
+[submodule "odoo_local/oca/reporting-engine"]
+	path = odoo_local/oca/reporting-engine
+	url = https://github.com/OCA/reporting-engine.git
+	branch = 19.0
+[submodule "odoo_local/oca/server-ux"]
+	path = odoo_local/oca/server-ux
+	url = https://github.com/OCA/server-ux.git
+	branch = 19.0
+[submodule "odoo_local/oca/stock-logistics-barcode"]
+	path = odoo_local/oca/stock-logistics-barcode
+	url = https://github.com/OCA/stock-logistics-barcode.git
+	branch = 19.0
