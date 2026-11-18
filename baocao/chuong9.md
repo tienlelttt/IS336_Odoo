@@ -44,7 +44,7 @@ Gợi ý theo vai trò (nhóm tự gắn tên theo thế mạnh):
 
 ## 9.4. Nhược điểm và hạn chế
 
-- Số liệu nội bộ là giả định; chưa phỏng vấn được doanh nghiệp (bộ câu hỏi ở Phụ lục A).
+- Số liệu nội bộ là giả định; chưa phỏng vấn được doanh nghiệp thật, mới phỏng vấn mô phỏng (Phụ lục B).
 - Dùng Community nên không có Shop Floor, Planning, quét mã vạch, Studio, đối soát ngân hàng tự động; thời gian công đoạn ghi theo định mức.
 - Dữ liệu demo chỉ một tuần go-live; báo cáo xu hướng dài hạn chưa có ý nghĩa.
 - Hóa đơn điện tử, Google Sheets, Telegram mới ở mức cấu hình / code, chưa chạy với tài khoản thật.

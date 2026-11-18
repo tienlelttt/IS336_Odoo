@@ -16,7 +16,7 @@ Nhóm phân biệt rõ hai loại thông tin trong báo cáo:
 | Quy trình chuẩn ngành bánh | Tài liệu nghiên cứu chế biến bánh bông lan [3], hướng dẫn công bố sản phẩm [4], văn bản pháp luật về an toàn thực phẩm và nhãn hàng hóa [5], [6], tài liệu HACCP [7] | Ghi nguồn tương ứng |
 | Cơ cấu tổ chức, số liệu vận hành, khó khăn hiện tại | Nhóm giả định dựa trên quy mô công bố và quy trình chuẩn ngành | Ghi "(giả định)" |
 
-Thông tin giả định chỉ phục vụ mục đích học tập và không phải số liệu thực của Bảo Hân. Nhóm đã chuẩn bị bộ câu hỏi phỏng vấn (Phụ lục B). Khi liên hệ được doanh nghiệp, nhóm sẽ thay các giả định bằng câu trả lời thực tế và lưu biên bản làm minh chứng khảo sát.
+Thông tin giả định chỉ phục vụ mục đích học tập và không phải số liệu thực của Bảo Hân. Nhóm đã soạn 32 câu hỏi khảo sát và thực hiện phỏng vấn mô phỏng từ vị trí người quản lý xưởng (Phụ lục B); kết quả được dùng để thiết kế 5 quy trình. Khi liên hệ được doanh nghiệp, nhóm sẽ thay các giả định bằng câu trả lời thực tế và lưu biên bản làm minh chứng khảo sát.
 
 ## 1.3. Tổng quan doanh nghiệp
 
@@ -63,7 +63,7 @@ Nhóm chia nguyên vật liệu thành ba kho theo điều kiện bảo quản, 
 - Kho mát: bơ, trứng, sữa tươi, kem tươi, phô mai, xúc xích. Đây là nhóm có hạn dùng ngắn, phải quản lý theo lô và xuất theo nguyên tắc hết hạn trước xuất trước (FEFO).
 - Kho bao bì: túi in nhãn, khay, thùng carton, tem lô và hạn dùng.
 
-Ví dụ định mức (BoM) cho 1 mẻ 100 bánh mì sandwich trắng: 10 kg bột mì, 0,8 kg đường, 0,15 kg muối, 0,12 kg men, 0,6 kg bơ, 1 kg trứng, 5 lít nước, 100 túi, 5 thùng carton. Định mức thật sẽ được thay khi có số liệu khảo sát.
+Ví dụ định mức (BoM) cho 1 mẻ 100 bánh mì sandwich trắng 400 g: 23 kg bột mì (vừa một cối trộn 25 kg), 1,5 kg đường, 0,45 kg muối, 0,3 kg men, 1,5 kg bơ, 5 lít sữa tươi, 100 túi, 5 thùng carton. Định mức thật sẽ được thay khi có số liệu khảo sát.
 
 ## 1.5. Cơ cấu tổ chức (giả định)
 
