@@ -4,7 +4,7 @@
 
 ## Quyết định đã chốt (18/11/2026)
 - Case: Công ty TNHH Bánh Bảo Hân (cơ sở thật, MST 0314345823, TP Thủ Đức). Thông tin công khai có trích nguồn; số liệu nội bộ ghi "(giả định)". KHÔNG viết biên bản phỏng vấn giả. Bộ câu hỏi: baocao/phuluc_A_phong_van.md.
-- Nhóm 3 người: 24521769 (Lê Thị Thanh Tiền), 24521817, 24520442 (chưa có tên).
+- Nhóm 3 người: 24521769 (Lê Thị Thanh Tiền), 24521817 (Đoàn Thị Thùy Trang), 24520442 (Phạm Tuấn Hải).
 - Nền tảng: CHỈ Odoo 19 Community local bằng Docker (người dùng quyết định, không dùng edu online). Quality/Planning/Barcode/Studio không có trong Community.
 - Không đưa website lên Internet dưới tên Bảo Hân khi chưa được doanh nghiệp đồng ý.
 
@@ -50,3 +50,5 @@ Lưu ý kỹ thuật thêm:
 - 18/11 tối: kiểm tra lại toàn hệ thống (33 màn hình), sửa Khu cách ly ra ngoài Tồn kho + bước cách ly lô; gán nhân viên kinh doanh, mua hàng; TK tồn kho thành phẩm 155 (trước đó giá vốn ghi Có 152). Đã dựng lại DB bằng rebuild_all.sh sau các sửa này.
 - Còn thiếu trong báo cáo: họ tên 2 thành viên, bảng phân công và % đóng góp (chương 9) – nhóm tự điền.
 - 19/11: dọn thư mục – đã chuyển vào Thùng rác: file khóa Word, __pycache__, bpmn/kiem_tra_bpmn.html, Chuong1_BaoHan.docx, scripts/demo_transactions.py, KIEM_TRA_YEU_CAU.md, ../DANH_GIA_DE_TAI_va_DE_XUAT.md, backups/baohan_ban1 (dump bản 1). Đã drop DB bh_test, np_test.
+
+- 19/11: repo git tại DoAn_HoanChinh (remote tienlelttt/IS336_Odoo, OCA là submodule, chưa push). Đã điền tên Đoàn Thị Thùy Trang (24521817), Phạm Tuấn Hải (24520442) vào bìa, chương 9, README; dựng lại docx. Còn thiếu: gán quy trình/vai trò và % đóng góp ở chương 9. Phụ lục phỏng vấn vẫn là bộ câu hỏi (chưa phỏng vấn thật).

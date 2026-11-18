@@ -220,13 +220,17 @@ python tools/bpmn_gen.py               # sinh lại 5 BPMN từ tools/bpmn_specs
 
 <p align="center">
   <a href="https://github.com/tienlelttt"><img src="https://github.com/tienlelttt.png?size=80" width="64" height="64" alt="Lê Thị Thanh Tiền" /></a>
+  &nbsp;
+  <a href="https://github.com/ThorBietBay001"><img src="https://github.com/ThorBietBay001.png?size=80" width="64" height="64" alt="Đoàn Thị Thùy Trang" /></a>
+  &nbsp;
+  <a href="https://github.com/haiphamt"><img src="https://github.com/haiphamt.png?size=80" width="64" height="64" alt="Phạm Tuấn Hải" /></a>
 </p>
 
 | STT | MSSV | Họ và tên | Vai trò chính | GitHub |
 |:---:|---|---|---|---|
 | 1 | 24521769 | **Lê Thị Thanh Tiền** | _(cập nhật)_ | [tienlelttt](https://github.com/tienlelttt) |
-| 2 | 24521817 | _(cập nhật)_ | _(cập nhật)_ | |
-| 3 | 24520442 | _(cập nhật)_ | _(cập nhật)_ | |
+| 2 | 24521817 | Đoàn Thị Thùy Trang | _(cập nhật)_ | [ThorBietBay001](https://github.com/ThorBietBay001) |
+| 3 | 24520442 | Phạm Tuấn Hải | _(cập nhật)_ | [haiphamt](https://github.com/haiphamt) |
 
 Đề xuất chia vai trò A (QT1 + phải thu + `bh_api`), B (QT3 + cận hạn + website), C (QT2 + kho + phải trả + Automation Rules) ở mục 6.2 [`RA_SOAT_QUY_TRINH.md`](RA_SOAT_QUY_TRINH.md).
 

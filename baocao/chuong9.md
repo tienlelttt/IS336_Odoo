@@ -4,7 +4,7 @@
 
 Nguyên tắc: mỗi thành viên phụ trách chính một quy trình (không trùng), quay video riêng, đọc và gọi một API khác nhau. Khối lượng cân theo độ khó đã chấm (tầm quan trọng, độ phức tạp cấu hình, ngoại lệ, tích hợp, kiến thức nền).
 
-| Hạng mục | 24521769 – Lê Thị Thanh Tiền | 24521817 – [Họ tên] | 24520442 – [Họ tên] |
+| Hạng mục | 24521769 – Lê Thị Thanh Tiền | 24521817 – Đoàn Thị Thùy Trang | 24520442 – Phạm Tuấn Hải |
 |---|---|---|---|
 | Quy trình chính, video | [QT gán] | [QT gán] | [QT gán] |
 | Phần phụ | | | |

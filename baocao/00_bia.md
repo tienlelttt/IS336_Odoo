@@ -15,8 +15,8 @@
 ^^
 ^^Nhóm 06 – Sinh viên thực hiện:
 ^^1. Lê Thị Thanh Tiền – 24521769
-^^2. [Họ và tên] – 24521817
-^^3. [Họ và tên] – 24520442
+^^2. Đoàn Thị Thùy Trang – 24521817
+^^3. Phạm Tuấn Hải – 24520442
 ^^
 ^^
 ^^TP. Hồ Chí Minh, tháng 11 năm 2026
