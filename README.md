@@ -228,11 +228,11 @@ python tools/bpmn_gen.py               # sinh lại 5 BPMN từ tools/bpmn_specs
 
 | STT | MSSV | Họ và tên | Vai trò chính | GitHub |
 |:---:|---|---|---|---|
-| 1 | 24521769 | **Lê Thị Thanh Tiền** | _(cập nhật)_ | [tienlelttt](https://github.com/tienlelttt) |
-| 2 | 24521817 | Đoàn Thị Thùy Trang | _(cập nhật)_ | [ThorBietBay001](https://github.com/ThorBietBay001) |
-| 3 | 24520442 | Phạm Tuấn Hải | _(cập nhật)_ | [haiphamt](https://github.com/haiphamt) |
+| 1 | 24521769 | **Lê Thị Thanh Tiền** | B: QT3 Sản xuất, cận hạn, JSON-2 (34%) | [tienlelttt](https://github.com/tienlelttt) |
+| 2 | 24521817 | Đoàn Thị Thùy Trang | A: QT1 Bán hàng, phải thu, `bh_api`, website (33%) | [ThorBietBay001](https://github.com/ThorBietBay001) |
+| 3 | 24520442 | Phạm Tuấn Hải | C: QT2 Mua hàng, kho, phải trả, Automation, XML-RPC (33%) | [haiphamt](https://github.com/haiphamt) |
 
-Đề xuất chia vai trò A (QT1 + phải thu + `bh_api`), B (QT3 + cận hạn + website), C (QT2 + kho + phải trả + Automation Rules) ở mục 6.2 [`RA_SOAT_QUY_TRINH.md`](RA_SOAT_QUY_TRINH.md).
+Chi tiết phân công ở chương 9 báo cáo; cơ sở chia vai trò ở mục 6.2 [`RA_SOAT_QUY_TRINH.md`](RA_SOAT_QUY_TRINH.md).
 
 ## Giấy phép
 

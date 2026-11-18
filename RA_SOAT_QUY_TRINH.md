@@ -301,13 +301,13 @@ Kết luận:
 
 | Vai trò | Quy trình chính (quay video) | Phần phụ | Tổng điểm | Hợp với người |
 |---|---|---|---|---|
-| A | QT1 Bán hàng (27) | QT5 phần phải thu, đối soát ngân hàng (≈12); Module API | ≈ 39 | Giao tiếp tốt, chịu được nhiều tình huống, đọc được code API |
-| B | QT3 Sản xuất (25) | QT4 phần cận hạn (module bh_near_expiry) (≈11); Website | ≈ 36 | Tư duy hệ thống, tỉ mỉ với số liệu định mức, thuyết trình chắc vì đây là phần thầy hỏi nhiều |
+| A | QT1 Bán hàng (27) | QT5 phần phải thu, đối soát ngân hàng (≈12); Module API; Website | ≈ 39 | Giao tiếp tốt, chịu được nhiều tình huống, đọc được code API |
+| B | QT3 Sản xuất (25) | QT4 phần cận hạn (module bh_near_expiry) (≈11) | ≈ 36 | Tư duy hệ thống, tỉ mỉ với số liệu định mức, thuyết trình chắc vì đây là phần thầy hỏi nhiều |
 | C | QT2 Mua hàng (20) | QT4 phần vị trí, kiểm kê (≈11); QT5 phần phải trả, giá vốn, báo cáo tài chính (≈11); Automation Rules | ≈ 42 | Cẩn thận, có nền kế toán hoặc chịu học bút toán |
 
 Ghi chú:
 - C có tổng điểm cao nhất nhưng các phần phụ đều là thao tác ngắn, lặp lại (kiểm kê, thanh toán NCC, chạy báo cáo); A và B có phần phụ cần đọc code.
-- Nhóm tự gắn tên vào A, B, C theo thế mạnh. Bảng chỉ đề xuất cách chia, không áp tên.
+- Nhóm đã chọn (19/11): A – Đoàn Thị Thùy Trang, B – Lê Thị Thanh Tiền, C – Phạm Tuấn Hải; đóng góp 33/34/33%. Website chuyển sang A cho khớp chương 9.
 - Phần làm chung: Chương 1–2, mô hình triển khai, bảo mật, kết luận, slide; mỗi người một API khác nhau (A: Module API bh_api; B: JSON-2 API đọc lệnh sản xuất, lô; C: XML-RPC tạo đơn mua).
 
 ## 7. Giả định cần kiểm chứng khi phỏng vấn

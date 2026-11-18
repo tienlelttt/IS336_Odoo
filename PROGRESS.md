@@ -48,7 +48,8 @@ Lưu ý kỹ thuật thêm:
 - Trạng thái 'done' của phiếu kho được ghi 2 lần nên quy tắc on_state_set có thể chạy 2 lần: code BH1 đã chống trùng.
 
 - 18/11 tối: kiểm tra lại toàn hệ thống (33 màn hình), sửa Khu cách ly ra ngoài Tồn kho + bước cách ly lô; gán nhân viên kinh doanh, mua hàng; TK tồn kho thành phẩm 155 (trước đó giá vốn ghi Có 152). Đã dựng lại DB bằng rebuild_all.sh sau các sửa này.
-- Còn thiếu trong báo cáo: họ tên 2 thành viên, bảng phân công và % đóng góp (chương 9) – nhóm tự điền.
 - 19/11: dọn thư mục – đã chuyển vào Thùng rác: file khóa Word, __pycache__, bpmn/kiem_tra_bpmn.html, Chuong1_BaoHan.docx, scripts/demo_transactions.py, KIEM_TRA_YEU_CAU.md, ../DANH_GIA_DE_TAI_va_DE_XUAT.md, backups/baohan_ban1 (dump bản 1). Đã drop DB bh_test, np_test.
 
 - 19/11: repo git tại DoAn_HoanChinh (remote tienlelttt/IS336_Odoo, OCA là submodule, đã push nhánh main 19/11). Đã điền tên Đoàn Thị Thùy Trang (24521817), Phạm Tuấn Hải (24520442) vào bìa, chương 9, README; dựng lại docx. Còn thiếu: gán quy trình/vai trò và % đóng góp ở chương 9. Phụ lục B đã viết thành phỏng vấn mô phỏng 32 câu (ghi rõ là mô phỏng, không phải lời doanh nghiệp), số liệu khớp Chương 1 và seed_data; sửa ví dụ BoM Chương 1 thành 23 kg bột/100 ổ cho khớp DB.
+
+- 19/11 (phiên sau): đã điền phân công chương 9 theo lựa chọn của nhóm: A – Đoàn Thị Thùy Trang (QT1, phải thu, bh_api, website), B – Lê Thị Thanh Tiền (QT3, cận hạn, JSON-2), C – Phạm Tuấn Hải (QT2, kho/kiểm kê, phải trả, Automation, XML-RPC); đóng góp Tiền 34%, Trang 33%, Hải 33%. Ghi tên vào bảng API 7.4.2, README, RA_SOAT mục 6.2 (Website chuyển sang A). Đã dựng lại docx. Việc tiếp: mở Word cập nhật mục lục, soát trang, xuất PDF.

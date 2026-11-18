@@ -6,19 +6,16 @@ Nguyên tắc: mỗi thành viên phụ trách chính một quy trình (không t
 
 | Hạng mục | 24521769 – Lê Thị Thanh Tiền | 24521817 – Đoàn Thị Thùy Trang | 24520442 – Phạm Tuấn Hải |
 |---|---|---|---|
-| Quy trình chính, video | [QT gán] | [QT gán] | [QT gán] |
-| Phần phụ | | | |
-| API cá nhân | | | |
-| Chương báo cáo | | | |
-| Tỷ lệ đóng góp | % | % | % |
+| Vai trò | B | A | C |
+| Quy trình chính, video | QT3 Sản xuất | QT1 Bán hàng | QT2 Mua hàng |
+| Phần phụ | QT4 phần cận hạn; module bh_near_expiry | QT5 phần phải thu, đối soát ngân hàng; module bh_api; website | QT4 phần kho, kiểm kê; QT5 phần phải trả, báo cáo tài chính; Automation Rules |
+| API cá nhân | JSON-2 (đọc lệnh sản xuất, lô) | bh_api (đơn từ app khách, webhook ngân hàng) | XML-RPC (tạo đơn mua) |
+| Phần báo cáo phụ trách | 5.3, 5.4 (cận hạn), 7.2, 7.4 (JSON-2) | 5.1, 5.5 (phải thu), chương 6, 7.3, 7.5 | 4.2 (kho), 5.2, 5.4 (kho, kiểm kê), 5.5 (phải trả), 7.1, 7.4 (XML-RPC) |
+| Tỷ lệ đóng góp | 34% | 33% | 33% |
 
-Gợi ý theo vai trò (nhóm tự gắn tên theo thế mạnh):
+Phần làm chung cả nhóm: tóm tắt, chương 1–3, chương 8–9, phụ lục, slide thuyết trình.
 
-| Vai trò | Quy trình chính | Phần phụ | API cá nhân |
-|---|---|---|---|
-| A | QT1 Bán hàng | QT5 phần phải thu, đối soát ngân hàng; Module API; Website | bh_api |
-| B | QT3 Sản xuất | QT4 phần cận hạn (module bh_near_expiry) | JSON-2 |
-| C | QT2 Mua hàng | QT4 phần kho, kiểm kê; QT5 phần phải trả, báo cáo tài chính; Automation | XML-RPC |
+Điểm độ khó (thang 5 cho mỗi tiêu chí, cộng 6 tiêu chí): QT1 27, QT3 25, QT5 23, QT4 22, QT2 20. Cộng cả phần phụ: A khoảng 39, B khoảng 36, C khoảng 42. A nặng về số ngoại lệ và điểm tích hợp; B là phần sản xuất cốt lõi của doanh nghiệp sản xuất; C điểm cao nhất nhưng phần phụ là thao tác ngắn, lặp lại (kiểm kê, thanh toán nhà cung cấp, chạy báo cáo).
 
 ## 9.2. Kiến thức đã học và áp dụng
 
