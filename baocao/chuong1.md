@@ -328,9 +328,9 @@ Bảng: Nhân sự nhóm dự án
 
 | Thành viên | MSSV | Vai trò trong dự án |
 |---|---|---|
-| Lê Thị Thanh Tiền | 24521769 | Phụ trách QT1 Bán hàng; module bh_api, API REST; chốt BPMN, gom báo cáo |
-| Đoàn Thị Thùy Trang | 24521817 | Phụ trách QT2 Mua hàng và QT5 Công nợ; API XML-RPC; Automation phiếu QC, Google Sheets, website |
-| Phạm Tuấn Hải | 24520442 | Phụ trách QT3 Sản xuất và QT4 Kho; API JSON-2; dữ liệu demo, module bh_near_expiry, Telegram |
+| Lê Thị Thanh Tiền | 24521769 | Phụ trách QT1 Bán hàng; API REST bh_api; kiểm luồng app đặt hàng; chốt dữ liệu demo, mẫu BPMN; gom tài liệu, dựng file Word |
+| Đoàn Thị Thùy Trang | 24521817 | Phụ trách QT2 Mua hàng và QT5 Công nợ; API XML-RPC; Automation phiếu QC, Google Sheets, website; hoàn thiện báo cáo |
+| Phạm Tuấn Hải | 24520442 | Trưởng nhóm, điều phối; phụ trách QT3 Sản xuất và QT4 Kho; API JSON-2; module bh_near_expiry, Telegram |
 
 ## 1.12. Sản phẩm chuyển giao và tiêu chí thành công
 

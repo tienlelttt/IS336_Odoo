@@ -31,15 +31,15 @@ Báo cáo sử dụng thông tin công khai của Công ty TNHH Bánh Bảo Hân
 
 ^^**BẢNG PHÂN CÔNG, ĐÁNH GIÁ THÀNH VIÊN**
 
-Nhóm chia việc theo quy trình nghiệp vụ: mỗi thành viên phụ trách chính một quy trình (cấu hình, chạy thử, mô tả trong báo cáo, quay video), một phần phụ và một API khác nhau. Chi tiết và cơ sở chia việc ở mục 9.1.
+Mỗi thành viên phụ trách chính quy trình riêng (chạy thử, mô tả trong báo cáo, quay video), một API khác nhau, một phần kiểm thử, đóng gói và tài liệu. Trưởng nhóm Phạm Tuấn Hải điều phối, theo dõi tiến độ. Chi tiết ở mục 9.1.
 
 | Họ và tên | MSSV | Phân công | Đánh giá |
 |---|---|---|---|
-| Lê Thị Thanh Tiền | 24521769 | QT1 Bán hàng (mục 5.1); module bh_api và API REST tạo đơn bán (7.3, 7.4); kiểm tra luồng app khách đặt hàng vào Odoo; chốt mẫu BPMN trắng đen (3.8, chương 5); gom báo cáo Word, đóng gói ZIP module bh_api | Hoàn thành tốt nhiệm vụ được giao (34%) |
-| Đoàn Thị Thùy Trang | 24521817 | QT2 Mua hàng (5.2) và QT5 Công nợ (5.5); API XML-RPC tạo yêu cầu báo giá (7.4); kiểm tra Automation tạo phiếu QC (7.1); tích hợp Google Sheets (7.5); kiểm tra website (chương 6) | Hoàn thành tốt nhiệm vụ được giao (33%) |
-| Phạm Tuấn Hải | 24520442 | QT3 Sản xuất (5.3) và QT4 Kho: lô, cận hạn, kiểm kê (5.4); API JSON-2 đọc lệnh sản xuất (7.4); chốt bộ dữ liệu demo; kiểm thử, đóng gói module bh_near_expiry (7.2); tích hợp Telegram (7.5) | Hoàn thành tốt nhiệm vụ được giao (33%) |
+| Lê Thị Thanh Tiền | 24521769 | QT1 Bán hàng (5.1, quay video); API REST qua module bh_api tạo đơn bán (7.4); kiểm tra luồng app khách đặt hàng vào Odoo; chốt bộ dữ liệu demo chung; đóng gói ZIP module bh_api; chốt mẫu BPMN trắng đen; gom tài liệu, dựng file Word | Hoàn thành tốt nhiệm vụ được giao (33%) |
+| Đoàn Thị Thùy Trang | 24521817 | QT2 Mua hàng (5.2, quay video) và QT5 Công nợ (5.5); API XML-RPC tạo yêu cầu báo giá (7.4); kiểm tra Automation tạo phiếu QC; chạy tích hợp Google Sheets; kiểm tra website Bảo Hân; hoàn thiện báo cáo trước khi nộp | Hoàn thành tốt nhiệm vụ được giao (33%) |
+| Phạm Tuấn Hải | 24520442 | Trưởng nhóm: chia việc, theo dõi tiến độ; QT3 Sản xuất (5.3, quay video) và QT4 Kho (5.4); API JSON-2 đọc lệnh sản xuất (7.4); kiểm thử, đóng gói module bh_near_expiry; tạo bot và chạy tích hợp Telegram | Hoàn thành tốt nhiệm vụ được giao (34%) |
 
-Ngoài phần riêng, cả nhóm cùng làm: khảo sát và phân tích doanh nghiệp, thiết kế quy trình và BPMN, chương 1–3, chương 8–9, phụ lục, slide thuyết trình và hoàn thiện báo cáo.
+Ngoài phần riêng, cả nhóm cùng làm: khảo sát và phân tích doanh nghiệp, thiết kế quy trình và BPMN, cài đặt và cấu hình Odoo, chương 1–4, 6–9, phụ lục, slide thuyết trình.
 
 [[PAGEBREAK]]
 

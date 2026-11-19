@@ -2,24 +2,26 @@
 
 ## 9.1. Phân công công việc
 
-Nguyên tắc: mỗi thành viên phụ trách chính một quy trình (không trùng), quay video riêng, đọc và gọi một API khác nhau. Khối lượng cân theo độ khó đã chấm (tầm quan trọng, độ phức tạp cấu hình, ngoại lệ, tích hợp, kiến thức nền).
+Nguyên tắc: mỗi thành viên phụ trách chính quy trình riêng (không trùng), quay video riêng, đọc và gọi một API khác nhau, nhận một phần kiểm thử, đóng gói và một phần tài liệu. Khối lượng cân theo độ khó đã chấm (tầm quan trọng, độ phức tạp cấu hình, ngoại lệ, tích hợp, kiến thức nền).
 
 Bảng: Phân công công việc
 
-| Hạng mục | 24521769 – Lê Thị Thanh Tiền | 24521817 – Đoàn Thị Thùy Trang | 24520442 – Phạm Tuấn Hải |
+| Hạng mục | 24521769 – Lê Thị Thanh Tiền | 24521817 – Đoàn Thị Thùy Trang | 24520442 – Phạm Tuấn Hải (trưởng nhóm) |
 |---|---|---|---|
-| Quy trình chính, video | QT1 Bán hàng | QT2 Mua hàng | QT3 Sản xuất |
-| Quy trình phụ | Không | QT5 Công nợ | QT4 Kho: lô, cận hạn, kiểm kê |
+| Quy trình phụ trách | QT1 Bán hàng | QT2 Mua hàng; QT5 Công nợ | QT3 Sản xuất; QT4 Kho |
+| Video thao tác | QT1 Bán hàng | QT2 Mua hàng | QT3 Sản xuất |
 | API cá nhân | REST qua module bh_api (tạo đơn bán) | XML-RPC (tạo yêu cầu báo giá) | JSON-2 (đọc lệnh sản xuất, lô) |
-| Phần nhóm | Kiểm tra luồng app khách đặt hàng vào Odoo; chốt mẫu BPMN trắng đen; gom báo cáo; đóng gói ZIP module bh_api | Kiểm tra Automation tạo phiếu QC; tích hợp Google Sheets; kiểm tra website | Chốt bộ dữ liệu demo; kiểm thử, đóng gói module bh_near_expiry; tích hợp Telegram |
-| Phần báo cáo phụ trách | 3.8, 5.1, 7.3 | 5.2, 5.5, 7.1, chương 6 | 4.2.4, 5.3, 5.4, 7.2 |
-| Tỷ lệ đóng góp | 34% | 33% | 33% |
+| Kiểm thử, tích hợp | Kiểm tra luồng app khách đặt hàng vào Odoo; chốt bộ dữ liệu demo chung | Kiểm tra Automation tạo phiếu QC; chạy tích hợp Google Sheets; kiểm tra website Bảo Hân | Kiểm thử module bh_near_expiry; tạo bot, chạy tích hợp Telegram |
+| Đóng gói | ZIP module bh_api | – | ZIP module bh_near_expiry |
+| Tài liệu | Mục 5.1; chốt mẫu BPMN trắng đen; gom tài liệu, dựng file Word | Mục 5.2, 5.5; hoàn thiện báo cáo (rà nội dung, đối chiếu số liệu, mục lục) trước khi nộp | Mục 5.3, 5.4 |
+| Điều phối | – | – | Chia việc, theo dõi tiến độ, chốt hạn nộp |
+| Tỷ lệ đóng góp | 33% | 33% | 34% |
 
-Phần làm chung cả nhóm: tóm tắt, chương 1–3, chương 8–9, mục 7.4–7.6, phụ lục, slide thuyết trình.
+Phần làm chung cả nhóm: khảo sát, phân tích doanh nghiệp; thiết kế 5 quy trình và BPMN; cài đặt, cấu hình Odoo; chương 1–4, 6–9, phụ lục; slide thuyết trình, ôn vấn đáp, demo.
 
-Cách chia theo luồng hàng và tiền: Tiền giữ đoạn từ khách đặt hàng đến hóa đơn bán; Hải giữ đoạn sản xuất và kho, vì cấp nguyên liệu, lô thành phẩm, cận hạn và kiểm kê dùng chung dữ liệu kho; Trang giữ đoạn mua nguyên liệu và công nợ hai chiều. Ranh giới QT1 và QT5: QT1 dừng ở hóa đơn và ghi nhận tiền mặt tài xế nộp; QT5 gồm theo dõi khách trả sau, webhook ngân hàng ghi nhận chuyển khoản, nhắc nợ, chặn đơn khi nợ quá hạn và trả nhà cung cấp. Webhook nằm trong module bh_api nên phần mã do Tiền phụ trách, phần nghiệp vụ do Trang phụ trách.
+Cách chia quy trình theo luồng hàng và tiền: Tiền giữ đoạn từ khách đặt hàng đến hóa đơn bán; Hải giữ đoạn sản xuất và kho, vì cấp nguyên liệu, lô thành phẩm, cận hạn và kiểm kê dùng chung dữ liệu kho; Trang giữ đoạn mua nguyên liệu và công nợ hai chiều. Ranh giới QT1 và QT5: QT1 dừng ở hóa đơn và ghi nhận tiền mặt tài xế nộp; QT5 gồm theo dõi khách trả sau, webhook ngân hàng ghi nhận chuyển khoản, nhắc nợ, chặn đơn khi nợ quá hạn và trả nhà cung cấp. Webhook nằm trong module bh_api nên Tiền đóng gói kèm module, phần nghiệp vụ do Trang trình bày. Bộ dữ liệu demo do Tiền chốt; mỗi người kiểm phần dữ liệu của quy trình mình.
 
-Điểm độ khó (thang 5 cho mỗi tiêu chí, cộng 6 tiêu chí): QT1 27, QT3 25, QT5 23, QT4 22, QT2 20. Tiền nhận quy trình nặng nhất về số ngoại lệ và điểm tích hợp, cộng phần gom báo cáo; Hải nhận hai quy trình gắn với kho (47 điểm) nhưng QT4 phần lớn do module tự chạy; Trang nhận QT2 nhẹ nhất cùng QT5 (43 điểm).
+Điểm độ khó (thang 5 cho mỗi tiêu chí, cộng 6 tiêu chí): QT1 27, QT3 25, QT5 23, QT4 22, QT2 20. Tiền nhận một quy trình nhưng nhiều ngoại lệ và điểm tích hợp nhất (27), bù thêm BPMN, dữ liệu demo và dựng file báo cáo; Hải nhận hai quy trình gắn với kho (47 điểm) cùng việc điều phối nhóm; Trang nhận QT2 cùng QT5 (43 điểm) và khâu hoàn thiện báo cáo.
 
 ## 9.2. Kiến thức đã học và áp dụng
 

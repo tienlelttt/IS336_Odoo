@@ -228,9 +228,9 @@ python tools/bpmn_gen.py               # sinh lại 6 BPMN (tổng quan + 5 quy 
 
 | STT | MSSV | Họ và tên | Vai trò chính | GitHub |
 |:---:|---|---|---|---|
-| 1 | 24521769 | **Lê Thị Thanh Tiền** | QT1 Bán hàng, `bh_api` (REST), BPMN, gom báo cáo (34%) | [tienlelttt](https://github.com/tienlelttt) |
-| 2 | 24521817 | Đoàn Thị Thùy Trang | QT2 Mua hàng, QT5 Công nợ, XML-RPC, Automation QC, Google Sheets, website (33%) | [ThorBietBay001](https://github.com/ThorBietBay001) |
-| 3 | 24520442 | Phạm Tuấn Hải | QT3 Sản xuất, QT4 Kho, JSON-2, dữ liệu demo, `bh_near_expiry`, Telegram (33%) | [haiphamt](https://github.com/haiphamt) |
+| 1 | 24521769 | **Lê Thị Thanh Tiền** | QT1 Bán hàng, REST `bh_api`, kiểm luồng app đặt hàng, dữ liệu demo, BPMN, gom tài liệu (33%) | [tienlelttt](https://github.com/tienlelttt) |
+| 2 | 24521817 | Đoàn Thị Thùy Trang | QT2 Mua hàng, QT5 Công nợ, XML-RPC, Automation QC, Google Sheets, website, hoàn thiện báo cáo (33%) | [ThorBietBay001](https://github.com/ThorBietBay001) |
+| 3 | 24520442 | **Phạm Tuấn Hải** | Trưởng nhóm: QT3 Sản xuất, QT4 Kho, JSON-2, `bh_near_expiry`, Telegram (34%) | [haiphamt](https://github.com/haiphamt) |
 
 Chi tiết phân công ở chương 9 báo cáo; cơ sở chia vai trò ở mục 6.2 [`RA_SOAT_QUY_TRINH.md`](RA_SOAT_QUY_TRINH.md).
 
