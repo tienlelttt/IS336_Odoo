@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 from docx import Document
+from docx.enum.table import WD_ALIGN_VERTICAL
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
@@ -78,12 +79,21 @@ def add_table(doc, rows):
         for j in range(ncol):
             cell = table.cell(i, j)
             cell.width = widths[j]
-            par = cell.paragraphs[0]
-            add_runs(par, r[j] if j < len(r) else "", size=11)
-            fmt = par.paragraph_format  # Normal của mẫu giãn 1,5 + cách 6pt: quá cao trong ô bảng
-            fmt.line_spacing, fmt.space_after, fmt.alignment = 1.15, Pt(2), WD_ALIGN_PARAGRAPH.LEFT
+            text = r[j] if j < len(r) else ""
+            # Ô có nhiều ý (ngăn bằng "; ") -> mỗi ý một dòng, gạch đầu dòng "-"
+            items = [t.strip() for t in text.split("; ")] if i and "; " in text else [text]
+            for n, item in enumerate(items):
+                par = cell.paragraphs[0] if n == 0 else cell.add_paragraph()
+                add_runs(par, f"-\t{item}" if len(items) > 1 else item, size=13)
+                fmt = par.paragraph_format  # Normal của mẫu giãn 1,5 + cách 6pt: quá cao trong ô bảng
+                fmt.line_spacing, fmt.space_after = 1.15, Pt(2)
+                fmt.alignment = WD_ALIGN_PARAGRAPH.CENTER if i == 0 else WD_ALIGN_PARAGRAPH.LEFT
+                if len(items) > 1:
+                    fmt.left_indent, fmt.first_line_indent = Cm(0.4), Cm(-0.4)
+                    fmt.tab_stops.add_tab_stop(Cm(0.4))
             if i == 0:
                 shade(cell, "F3E9DD")
+                cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
                 for run in par.runs:
                     run.bold = True
     doc.add_paragraph()
@@ -197,7 +207,7 @@ def convert(md_text, doc, base_dir):
         elif re.match(r"(- |\d+\. )", line):
             # Đoạn thường, thụt treo để dòng sau thẳng với chữ (List Paragraph của mẫu thụt 1,27 cm, giãn dòng 1)
             p = doc.add_paragraph(style="Normal")
-            add_runs(p, re.sub(r"^- ", "•\t", re.sub(r"^(\d+\.) ", r"\1\t", line)))
+            add_runs(p, re.sub(r"^- ", "-\t", re.sub(r"^(\d+\.) ", r"\1\t", line)))
             fmt = p.paragraph_format
             fmt.left_indent, fmt.first_line_indent, fmt.space_after = Cm(0.9), Cm(-0.6), Pt(3)
             fmt.tab_stops.add_tab_stop(Cm(0.9))
