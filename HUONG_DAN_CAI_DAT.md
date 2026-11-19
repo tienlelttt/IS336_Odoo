@@ -117,6 +117,8 @@ Mở `bpmn/*.bpmn` bằng Camunda Modeler → kéo gọn nếu muốn → File >
 
 ## Phần 3. Quay video cá nhân (theo tiêu chí)
 
+Kịch bản chi tiết từng bước bấm và lời nói cho từng bạn: [`KICH_BAN_VIDEO.md`](KICH_BAN_VIDEO.md). Phần dưới là khung tóm tắt.
+
 Đặt tên: `Thao tác ERP - MSSV - [Họ và tên].mp4`. Có mặt và giọng nói (OBS Studio: nguồn màn hình + webcam góc phải). Nội dung 8–12 phút:
 
 1. Chứng minh tự cài: mở Docker Desktop thấy 2 container; chạy `docker compose ps`; mở Thiết lập > Người dùng của tài khoản admin trên máy mình.
