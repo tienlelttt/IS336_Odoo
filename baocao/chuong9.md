@@ -27,7 +27,7 @@ Bảng: Kiến thức đã học và áp dụng
 |---|---|
 | ERP tích hợp một cơ sở dữ liệu | Một đơn bán tác động kinh doanh, kho, sản xuất, kế toán |
 | O2C, P2P, sản xuất | 5 quy trình theo vai trò và giờ làm thật |
-| Phân tích nghiệp vụ, BPMN | 5 sơ đồ có lane, ngoại lệ, mở bằng Camunda |
+| Phân tích nghiệp vụ, BPMN | 1 sơ đồ tổng quan và 5 sơ đồ quy trình có lane, ngoại lệ, mở bằng Camunda |
 | Dữ liệu nền và giao dịch | Đặc tả, import, chuyển đổi dữ liệu go-live |
 | Kế toán tích hợp | Giá vốn AVCO, ghi 632/155 khi lập hóa đơn; tiền đang chuyển 1131 |
 | Phân quyền, kiểm soát nội bộ | Ma trận quyền, duyệt đơn mua, chặn đơn công nợ |
@@ -45,7 +45,7 @@ Bảng: Kiến thức đã học và áp dụng
 
 ## 9.4. Nhược điểm và hạn chế
 
-- Số liệu nội bộ là giả định; chưa phỏng vấn được doanh nghiệp thật, mới phỏng vấn mô phỏng (Phụ lục B).
+- Số liệu nội bộ là giả định; chưa phỏng vấn được doanh nghiệp thật, mới phỏng vấn mô phỏng (mục 1.6).
 - Dùng Community nên không có Shop Floor, Planning, quét mã vạch, Studio, đối soát ngân hàng tự động; thời gian công đoạn ghi theo định mức.
 - Dữ liệu demo chỉ một tuần go-live; báo cáo xu hướng dài hạn chưa có ý nghĩa.
 - Hóa đơn điện tử, Google Sheets, Telegram mới ở mức cấu hình / code, chưa chạy với tài khoản thật.

@@ -70,6 +70,21 @@ Bảng: Các phân hệ Odoo dùng trong đồ án
 - **Định giá tồn kho tự động (perpetual):** ở Odoo 19 là "Perpetual (at invoicing)" – bút toán kho ghi khi lập hóa đơn: hóa đơn bán ghi Nợ 632 / Có 155; hóa đơn nhà cung cấp ghi Nợ 152 / Có 331.
 - **Tài khoản tiền đang chuyển (outstanding receipts/payments):** khoản thanh toán ghi nhận trước, đối soát với sổ phụ ngân hàng sau (video eLearning Accounting "Payments and outstanding accounts").
 
+### 2.2.5. Ưu điểm và hạn chế của Odoo đối với Bảo Hân
+
+Bảng: Ưu điểm và hạn chế của Odoo Community
+
+| | Nội dung | Ý nghĩa với Bảo Hân |
+|---|---|---|
+| Ưu điểm | Bản Community miễn phí, mã nguồn mở; tự cài trên máy chủ riêng | Xưởng nhỏ không phải trả phí bản quyền theo người dùng |
+| Ưu điểm | Các phân hệ Bán, Mua, Kho, Sản xuất, Kế toán dùng chung một cơ sở dữ liệu | Đơn bán tự thành nhu cầu sản xuất, hóa đơn tự ghi giá vốn, không nhập lại |
+| Ưu điểm | Có sẵn lô, hạn dùng, FEFO, định mức, phụ phẩm, phế phẩm, hệ thống tài khoản Việt Nam | Phù hợp ngành thực phẩm hạn ngắn mà không phải lập trình nhiều |
+| Ưu điểm | Mở rộng bằng module Python, Automation Rules, API (XML-RPC, JSON-2) và module cộng đồng OCA | Nhóm tự viết module cận hạn, API cho khách sỉ, webhook ngân hàng |
+| Hạn chế | Một số app chỉ có ở Enterprise: Shop Floor, Quality, Planning, Barcode, Studio, MPS | Phải thay bằng module OCA (kiểm tra chất lượng) hoặc thiết kế quy trình không cần đến (thợ không thao tác trên máy) |
+| Hạn chế | Tự cài thì doanh nghiệp tự lo máy chủ, sao lưu, cập nhật bảo mật | Cần người kỹ thuật hoặc dịch vụ thuê ngoài (chương 8) |
+| Hạn chế | Mỗi năm một phiên bản lớn; module tự viết và module OCA phải nâng cấp theo | Cần kế hoạch nâng cấp và kiểm thử lại module tự viết |
+| Hạn chế | Hóa đơn điện tử, kê khai thuế Việt Nam cần nhà cung cấp hoặc phần mềm riêng | Odoo làm phần quản trị; khai thuế vẫn dùng phần mềm kế toán riêng |
+
 ## 2.3. Ngôn ngữ mô hình hóa BPMN 2.0
 
 Bảng: Ký hiệu BPMN 2.0 dùng trong đồ án

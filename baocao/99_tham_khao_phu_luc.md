@@ -37,7 +37,7 @@ Bảng: Danh mục sản phẩm nộp
 | Sản phẩm | Vị trí trong thư mục DoAn_HoanChinh |
 |---|---|
 | Báo cáo (file này) | Report - Nhóm 06.docx |
-| File BPMN (Camunda) và ảnh | bpmn/QT1–QT5 (.bpmn, .png) |
+| File BPMN (Camunda) và ảnh | bpmn/QT0 (tổng quan), QT1–QT5 (.bpmn, .png) |
 | Module cận hạn (mã nguồn, test) | odoo_local/addons/bh_near_expiry |
 | Module API (mã nguồn, test) | odoo_local/addons/bh_api |
 | Theme website | odoo_local/addons/theme_custom_website |

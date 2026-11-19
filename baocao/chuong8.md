@@ -37,7 +37,7 @@ Bảng: Lộ trình triển khai theo tuần
 
 | Tuần | Giai đoạn | Việc | Đầu ra |
 |---|---|---|---|
-| 1 | Khảo sát | Phỏng vấn (Phụ lục B), thu chứng từ mẫu, quan sát một ngày vận hành | Hiện trạng, yêu cầu |
+| 1 | Khảo sát | Phỏng vấn (mục 1.6, mẫu biên bản ở Phụ lục B), thu chứng từ mẫu, quan sát một ngày vận hành | Hiện trạng, yêu cầu |
 | 2 | Thiết kế | Quy trình TO-BE, BPMN, ma trận quyền, dữ liệu nền | Bản thiết kế được duyệt |
 | 3 | Sprint 1 | Cài đặt, cấu hình chung, dữ liệu nền, Bán hàng | Demo QT1 |
 | 4 | Sprint 2 | Mua hàng, Kho, Chất lượng | Demo QT2, QT4 |

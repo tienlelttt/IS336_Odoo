@@ -61,6 +61,42 @@ Ngoài phần riêng, cả nhóm cùng làm: khảo sát và phân tích doanh n
 
 [[PAGEBREAK]]
 
+^^**DANH MỤC TỪ VIẾT TẮT VÀ THUẬT NGỮ**
+
+| Từ viết tắt | Diễn giải |
+|---|---|
+| API | Application Programming Interface – giao diện lập trình ứng dụng |
+| AVCO | Average Cost – phương pháp giá vốn bình quân gia quyền |
+| BoM | Bill of Materials – định mức nguyên vật liệu |
+| BPMN | Business Process Model and Notation – ký hiệu mô hình hóa quy trình nghiệp vụ |
+| CRM | Customer Relationship Management – quản lý quan hệ khách hàng |
+| ERP | Enterprise Resource Planning – hoạch định nguồn lực doanh nghiệp |
+| FEFO / FIFO | First Expired, First Out – hết hạn trước xuất trước / First In, First Out – nhập trước xuất trước |
+| FI | Finance – phân hệ tài chính kế toán |
+| HACCP | Hazard Analysis and Critical Control Points – phân tích mối nguy và điểm kiểm soát tới hạn |
+| MM | Material Management – quản lý vật tư |
+| MO | Manufacturing Order – lệnh sản xuất |
+| MRP | Manufacturing Resource Planning – hoạch định sản xuất (phân hệ Sản xuất của Odoo) |
+| MST | Mã số thuế |
+| MTO | Make to Order – sản xuất theo đơn |
+| NCC | Nhà cung cấp |
+| NVL | Nguyên vật liệu |
+| O2C / P2P | Order to Cash – từ đơn hàng đến thu tiền / Procure to Pay – từ mua hàng đến trả tiền |
+| OCA | Odoo Community Association – cộng đồng phát triển module mã nguồn mở cho Odoo |
+| OEM | Original Equipment Manufacturer – gia công theo nhãn hàng của khách |
+| PO / RFQ | Purchase Order – đơn mua / Request for Quotation – yêu cầu báo giá |
+| QC | Quality Control – kiểm tra chất lượng |
+| QT1–QT5 | Quy trình 1 đến quy trình 5 của đồ án |
+| SaaS / PaaS | Software / Platform as a Service – phần mềm / nền tảng dạng dịch vụ |
+| TK | Tài khoản kế toán |
+| TO-BE | Quy trình sau khi áp dụng ERP |
+| TP | Thành phẩm |
+| VPS | Virtual Private Server – máy chủ ảo |
+| Webhook | Cơ chế hệ thống ngoài gọi vào Odoo (hoặc ngược lại) khi có sự kiện |
+| XML-RPC, JSON-RPC, JSON-2 | Các giao thức gọi hàm từ xa của Odoo; JSON-2 là API mới từ Odoo 19 |
+
+[[PAGEBREAK]]
+
 # TÓM TẮT BÁO CÁO
 
 **Đề tài.** Triển khai hệ thống ERP Odoo 19 cho Công ty TNHH Bánh Bảo Hân – xưởng sản xuất bánh tươi, bánh cấp đông tại TP. Thủ Đức (MST 0314345823, công suất công bố khoảng 10.000 sản phẩm/ngày), bán sỉ cho quán, siêu thị, bếp ăn, trường học và gia công OEM.

@@ -136,3 +136,26 @@ Bảng: Điểm tích hợp và bút toán tự động
 | Giấy báo có (hàng trả) | Kế toán | Giảm doanh thu, nhận lại hàng | Nợ 511, Nợ 33311 / Có 1311; Nợ 155 / Có 632 |
 | Khách nợ quá hạn | Kế toán → Bán hàng | BH2b chặn đơn mới | – |
 | Lô chạm ngưỡng | Kho → Bán hàng, Kế toán | Việc cận hạn; tổn thất khi hủy | – |
+
+## 3.8. Mô hình BPMN tổng quan hệ thống
+
+Sơ đồ tổng quan cho thấy 5 quy trình nối với nhau thế nào trong một ngày vận hành. Mỗi quy trình là một quy trình con (call activity, viền đậm), chi tiết ở chương 5. File gốc: bpmn/QT0_tong_quan.bpmn, mở bằng Camunda Modeler.
+
+![Hình 3.1. BPMN tổng quan hệ thống](../bpmn/QT0_tong_quan.png)
+
+Bảng: Đặc tả BPMN tổng quan hệ thống
+
+| STT | Bước | Bộ phận thực hiện | Ghi chú |
+|---|---|---|---|
+| 1 | Đặt bánh cho ngày mai | Khách hàng sỉ | Qua Zalo, điện thoại, cổng khách hàng hoặc API của app đặt hàng |
+| 2 | QT1 Nhận đơn, kiểm tra công nợ, xác nhận trước 16:00 | Kinh doanh | Khách nợ quá hạn bị chặn xác nhận, giám đốc gắn nhãn để mở (mục 5.1) |
+| 3 | Tồn dự báo trừ đơn đã xác nhận | Hệ thống Odoo | Nhu cầu ngày mai hiện ở màn hình Bổ sung hàng |
+| 4 | QT3 Lập kế hoạch mẻ, lệnh sản xuất theo ca | Quản đốc sản xuất | 16:00–16:30; 1 lệnh / sản phẩm / ca (mục 5.3) |
+| 5 | Đủ nguyên liệu? | Hệ thống Odoo | Trạng thái nguyên liệu trên lệnh sản xuất |
+| 6 | QT2 Đặt NVL theo hợp đồng giá, QC tại cửa, nhận hàng | Mua hàng | Chỉ khi thiếu; đơn trên 20 triệu chờ giám đốc duyệt (mục 5.2) |
+| 7 | Cấp NVL cho ca; QC kiểm mẫu thành phẩm | Kho - QC | Sản xuất 2 bước, lô giữ theo FEFO; phiếu QC thành phẩm tự tạo (BH5) |
+| 8 | Ghi sản lượng, hoàn tất lệnh, nhập thành phẩm theo lô | Quản đốc sản xuất | 05:00 theo sổ ca; hạn dùng tự tính, giá vốn AVCO |
+| 9 | QT4 Soạn hàng FEFO theo tuyến, giao, thu hồi cận hạn, kiểm kê | Kho - QC | Đợt soạn hàng theo tuyến; module bh_near_expiry (mục 5.4) |
+| 10 | Nhận hàng, ký phiếu giao | Khách hàng sỉ | Giao thiếu thì ghi số thực giao |
+| 11 | QT5 Hóa đơn theo số giao, thu tiền, đối soát, trả NCC | Kế toán | Nhận cả hóa đơn NCC từ QT2; webhook ngân hàng tự ghi nhận chuyển khoản (mục 5.5) |
+| 12 | Cập nhật công nợ; nợ quá hạn chặn đơn mới | Hệ thống Odoo | Quay về điều kiện chặn ở bước 2 cho các đơn hôm sau |

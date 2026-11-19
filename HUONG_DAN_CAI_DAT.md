@@ -23,7 +23,7 @@ Chép nguyên thư mục `DoAn_HoanChinh` (kèm file `GIới-thiệu-đề-tài.
 |---|---|
 | odoo_local/ | docker-compose.yml, addons/ (3 module tự viết), oca/ (module cộng đồng) |
 | scripts/ | Dữ liệu nền, cấu hình, kịch bản tuần go-live, gọi API, dựng lại |
-| bpmn/ | 5 quy trình (.bpmn, .png) |
+| bpmn/ | Tổng quan QT0 và 5 quy trình (.bpmn, .png) |
 | baocao/ | Nội dung báo cáo (.md) và ảnh chụp màn hình |
 | data/ | File import CSV/XLSX |
 | integrations/ | Apps Script Google Sheets, hướng dẫn Telegram |

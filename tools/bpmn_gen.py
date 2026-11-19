@@ -15,9 +15,10 @@ from bpmn_specs import PROCESSES  # noqa: E402
 OUT = Path(__file__).resolve().parents[1] / "bpmn"
 COL_W, LANE_H, LANE_LABEL_W, X0 = 170, 150, 40, 60
 SIZES = {"start": (36, 36), "timer": (36, 36), "end": (36, 36), "gw": (50, 50),
-         "task": (130, 80), "user": (130, 80), "service": (130, 80), "send": (130, 80), "receive": (130, 80)}
+         "task": (130, 80), "user": (130, 80), "service": (130, 80), "send": (130, 80), "receive": (130, 80), "call": (130, 80)}
 TAG = {"start": "startEvent", "timer": "startEvent", "end": "endEvent", "gw": "exclusiveGateway",
-       "task": "task", "user": "userTask", "service": "serviceTask", "send": "sendTask", "receive": "receiveTask"}
+       "task": "task", "user": "userTask", "service": "serviceTask", "send": "sendTask", "receive": "receiveTask",
+       "call": "callActivity"}
 
 
 def layout(spec):
@@ -172,8 +173,9 @@ def to_png(key, spec, geo, path):
                 d.text((cx, by - 6 * S - (len(ls) - k) * 13 * S), line, font=fs, fill="#2E1F18", anchor="ma")
         else:
             fill = {"service": "#E8F0E8", "send": "#FDEFE3", "receive": "#FDEFE3"}.get(typ, "#FFFFFF")
-            d.rounded_rectangle((bx, by, bx + bw, by + bh), radius=10 * S, fill=fill, outline="#2E1F18", width=2)
-            tag = {"user": "Người", "service": "Hệ thống", "send": "Gửi", "receive": "Nhận"}.get(typ)
+            d.rounded_rectangle((bx, by, bx + bw, by + bh), radius=10 * S, fill=fill, outline="#2E1F18",
+                                width=5 if typ == "call" else 2)  # call activity: viền đậm theo BPMN
+            tag = {"user": "Người", "service": "Hệ thống", "send": "Gửi", "receive": "Nhận", "call": "Quy trình con"}.get(typ)
             if tag:
                 d.text((bx + 5 * S, by + 3 * S), tag, font=font(8 * S), fill="#6B5A50")
             ls = wrap(d, label, f, bw - 12 * S)

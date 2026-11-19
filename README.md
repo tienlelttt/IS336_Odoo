@@ -36,7 +36,7 @@ Trường Đại học Công nghệ Thông tin · ĐHQG TP. Hồ Chí Minh
 
 Công ty TNHH Bánh Bảo Hân là xưởng sản xuất bánh tươi và bánh cấp đông tại TP. Thủ Đức, bán sỉ cho quán, siêu thị, bếp ăn, trường học và nhận gia công OEM. Sản phẩm hạn dùng ngắn (3–5 ngày), giao theo tuyến mỗi sáng, nhiều khách mua chịu: đây là bài toán điển hình cho ERP doanh nghiệp sản xuất.
 
-> **Về dữ liệu:** tên, mã số thuế, địa chỉ công ty là thông tin công khai. Nhân sự, khách hàng, nhà cung cấp, giá, định mức và mọi số liệu nội bộ là **giả định** phục vụ học tập. Nhóm chưa phỏng vấn doanh nghiệp; bộ câu hỏi phỏng vấn nằm ở [`baocao/phuluc_A_phong_van.md`](baocao/phuluc_A_phong_van.md). Ảnh website là ảnh minh họa có giấy phép miễn phí, không phải ảnh sản phẩm thật.
+> **Về dữ liệu:** tên, mã số thuế, địa chỉ công ty là thông tin công khai. Nhân sự, khách hàng, nhà cung cấp, giá, định mức và mọi số liệu nội bộ là **giả định** phục vụ học tập. Nhóm chưa phỏng vấn doanh nghiệp; phỏng vấn mô phỏng 32 câu ở mục 1.6 [`baocao/chuong1.md`](baocao/chuong1.md), mẫu biên bản ở [`baocao/phuluc_A_phong_van.md`](baocao/phuluc_A_phong_van.md). Ảnh website là ảnh minh họa có giấy phép miễn phí, không phải ảnh sản phẩm thật.
 
 Thiết kế quy trình bám theo nhịp một ngày vận hành thật của xưởng: ai làm, lúc mấy giờ, thay cho giấy tờ nào. Odoo sản xuất dành cho **quản đốc**, thợ đứng lò không phải dùng máy. Chi tiết và lý do từng quyết định ở [`RA_SOAT_QUY_TRINH.md`](RA_SOAT_QUY_TRINH.md).
 
@@ -211,7 +211,7 @@ Gọi API thật qua HTTP: `BH_API_TOKEN=<token> python scripts/api_demo_calls.p
 ```bash
 python tools/chup_man_hinh.py          # chụp lại ảnh (Odoo phải đang chạy)
 python tools/md2docx.py "Report - Nhóm 06.docx" baocao/00_mo_dau.md baocao/chuong1.md ... baocao/phuluc_A_phong_van.md
-python tools/bpmn_gen.py               # sinh lại 5 BPMN từ tools/bpmn_specs.py
+python tools/bpmn_gen.py               # sinh lại 6 BPMN (tổng quan + 5 quy trình) từ tools/bpmn_specs.py
 ```
 
 `md2docx.py` dùng file mẫu định dạng của môn (`GIới-thiệu-đề-tài.docx`) đặt ở thư mục cha của repo; file này không nằm trong repository. Lệnh đầy đủ ở [`HUONG_DAN_CAI_DAT.md`](HUONG_DAN_CAI_DAT.md#phần-4-dựng-báo-cáo-word).

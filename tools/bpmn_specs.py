@@ -1,8 +1,32 @@
 # Đặc tả 5 quy trình vận hành thực tế của Bảo Hân (bản 2, theo RA_SOAT_QUY_TRINH.md) cho bpmn_gen.py.
-# nút: (id, loại, lane, cột, nhãn); loại: start, timer, end, gw, task, user, service, send, receive
+# nút: (id, loại, lane, cột, nhãn); loại: start, timer, end, gw, task, user, service, send, receive, call (quy trình con)
 # luồng: (nguồn, đích, nhãn)
 
 PROCESSES = {
+    "QT0_tong_quan": {
+        "title": "Tổng quan hệ thống - Luồng tích hợp 5 quy trình trong một ngày vận hành - Công ty TNHH Bánh Bảo Hân",
+        "lanes": ["Khách hàng sỉ", "Kinh doanh", "Hệ thống Odoo", "Quản đốc sản xuất", "Kho - QC", "Mua hàng", "Kế toán"],
+        "nodes": [
+            ("S1", "start", "Khách hàng sỉ", 0, "Đặt bánh cho ngày mai"),
+            ("C1", "call", "Kinh doanh", 1, "QT1 Nhận đơn, kiểm tra công nợ, xác nhận trước 16:00"),
+            ("T1", "service", "Hệ thống Odoo", 2, "Tồn dự báo trừ đơn đã xác nhận"),
+            ("C3", "call", "Quản đốc sản xuất", 3, "QT3 Lập kế hoạch mẻ, lệnh sản xuất theo ca"),
+            ("G1", "gw", "Hệ thống Odoo", 4, "Đủ nguyên liệu?"),
+            ("C2", "call", "Mua hàng", 5, "QT2 Đặt NVL theo hợp đồng giá, QC tại cửa, nhận hàng"),
+            ("T2", "user", "Kho - QC", 6, "Cấp NVL cho ca; QC kiểm mẫu thành phẩm"),
+            ("T3", "user", "Quản đốc sản xuất", 7, "Ghi sản lượng, hoàn tất lệnh, nhập thành phẩm theo lô"),
+            ("C4", "call", "Kho - QC", 8, "QT4 Soạn hàng FEFO theo tuyến, giao, thu hồi cận hạn, kiểm kê"),
+            ("T4", "user", "Khách hàng sỉ", 9, "Nhận hàng, ký phiếu giao"),
+            ("C5", "call", "Kế toán", 10, "QT5 Hóa đơn theo số giao, thu tiền, đối soát, trả NCC"),
+            ("T5", "service", "Hệ thống Odoo", 11, "Cập nhật công nợ; nợ quá hạn chặn đơn mới"),
+            ("E1", "end", "Hệ thống Odoo", 12, "Kết thúc ngày vận hành"),
+        ],
+        "flows": [
+            ("S1", "C1", ""), ("C1", "T1", ""), ("T1", "C3", ""), ("C3", "G1", ""), ("G1", "C2", "Thiếu"),
+            ("G1", "T2", "Đủ"), ("C2", "T2", ""), ("C2", "C5", "Hóa đơn NCC"), ("T2", "T3", ""), ("T3", "C4", ""),
+            ("C4", "T4", ""), ("T4", "C5", ""), ("C5", "T5", ""), ("T5", "E1", ""),
+        ],
+    },
     "QT1_ban_hang": {
         "title": "QT1 - Nhận đơn, giao hàng, thu tiền (Order to Cash) - Công ty TNHH Bánh Bảo Hân",
         "lanes": ["Khách hàng sỉ", "Nhân viên kinh doanh", "Giám đốc", "Hệ thống Odoo", "Thủ kho", "Tài xế", "Kế toán"],
