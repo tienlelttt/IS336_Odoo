@@ -1,4 +1,4 @@
-"""API cá nhân (thành viên B): JSON-2 API của Odoo 19 – đọc lệnh sản xuất và lô thành phẩm cho báo cáo xưởng.
+"""API cá nhân (Phạm Tuấn Hải): JSON-2 API của Odoo 19 – đọc lệnh sản xuất và lô thành phẩm cho báo cáo xưởng.
 
 Lấy API key: Odoo > avatar > Tùy chọn của tôi > Bảo mật tài khoản > Khóa API mới (chọn hạn dùng).
 Chạy: ODOO_API_KEY=<key> python scripts/api_ca_nhan/json2_doc_lenh_san_xuat.py

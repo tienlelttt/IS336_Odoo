@@ -139,9 +139,9 @@ Bảng: API cá nhân của từng thành viên
 
 | Thành viên | API | Ví dụ | Script |
 |---|---|---|---|
-| Đoàn Thị Thùy Trang (A) | Module API bh_api | App khách đặt hàng, xem công nợ | scripts/api_demo_calls.py |
-| Lê Thị Thanh Tiền (B) | JSON-2 | Đọc lệnh sản xuất, lô thành phẩm cho báo cáo xưởng | scripts/api_ca_nhan/json2_doc_lenh_san_xuat.py |
-| Phạm Tuấn Hải (C) | XML-RPC | Tạo yêu cầu báo giá cho nhà cung cấp từ hệ thống ngoài | scripts/api_ca_nhan/xmlrpc_tao_don_mua.py |
+| Lê Thị Thanh Tiền | REST, module API bh_api | App khách tạo đơn bán, xem công nợ | scripts/api_demo_calls.py |
+| Phạm Tuấn Hải | JSON-2 | Đọc lệnh sản xuất, lô thành phẩm cho báo cáo xưởng | scripts/api_ca_nhan/json2_doc_lenh_san_xuat.py |
+| Đoàn Thị Thùy Trang | XML-RPC | Tạo yêu cầu báo giá cho nhà cung cấp từ hệ thống ngoài | scripts/api_ca_nhan/xmlrpc_tao_don_mua.py |
 
 ## 7.5. Tích hợp với hệ thống bên ngoài
 

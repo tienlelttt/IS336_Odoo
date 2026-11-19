@@ -1,4 +1,4 @@
-"""API cá nhân (thành viên C): XML-RPC – hệ thống ngoài tạo yêu cầu báo giá (RFQ) gửi nhà cung cấp.
+"""API cá nhân (Đoàn Thị Thùy Trang): XML-RPC – hệ thống ngoài tạo yêu cầu báo giá (RFQ) gửi nhà cung cấp.
 
 Chạy: ODOO_USER=admin ODOO_API_KEY=<key hoặc mật khẩu> python scripts/api_ca_nhan/xmlrpc_tao_don_mua.py
 Bước: /xmlrpc/2/common authenticate → uid; /xmlrpc/2/object execute_kw(model, method, args, kwargs).

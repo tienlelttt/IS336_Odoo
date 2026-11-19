@@ -307,7 +307,7 @@ Kết luận:
 
 Ghi chú:
 - C có tổng điểm cao nhất nhưng các phần phụ đều là thao tác ngắn, lặp lại (kiểm kê, thanh toán NCC, chạy báo cáo); A và B có phần phụ cần đọc code.
-- Nhóm đã chọn (19/11): A – Đoàn Thị Thùy Trang, B – Lê Thị Thanh Tiền, C – Phạm Tuấn Hải; đóng góp 33/34/33%. Website chuyển sang A cho khớp chương 9.
+- Nhóm chốt lại (19/11), khác đề xuất A/B/C ở trên: Lê Thị Thanh Tiền – QT1 Bán hàng, bh_api (REST), BPMN, gom báo cáo; Phạm Tuấn Hải – QT3 Sản xuất + QT4 Kho (cùng dữ liệu kho), JSON-2, dữ liệu demo, bh_near_expiry, Telegram; Đoàn Thị Thùy Trang – QT2 Mua hàng + QT5 Công nợ, XML-RPC, Automation QC, Google Sheets, website. Đóng góp 34/33/33%. Chi tiết: chương 9 báo cáo.
 - Phần làm chung: Chương 1–2, mô hình triển khai, bảo mật, kết luận, slide; mỗi người một API khác nhau (A: Module API bh_api; B: JSON-2 API đọc lệnh sản xuất, lô; C: XML-RPC tạo đơn mua).
 
 ## 7. Giả định cần kiểm chứng khi phỏng vấn

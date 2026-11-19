@@ -35,9 +35,9 @@ Nhóm chia việc theo quy trình nghiệp vụ: mỗi thành viên phụ trách
 
 | Họ và tên | MSSV | Phân công | Đánh giá |
 |---|---|---|---|
-| Lê Thị Thanh Tiền | 24521769 | QT3 Sản xuất theo mẻ (mục 5.3); QT4 phần cận hạn và module bh_near_expiry (5.4, 7.2); API JSON-2 (7.4) | Hoàn thành tốt nhiệm vụ được giao (34%) |
-| Đoàn Thị Thùy Trang | 24521817 | QT1 Bán hàng (5.1); QT5 phần phải thu, đối soát ngân hàng (5.5); website (chương 6); module bh_api, tích hợp (7.3, 7.5) | Hoàn thành tốt nhiệm vụ được giao (33%) |
-| Phạm Tuấn Hải | 24520442 | QT2 Mua hàng (5.2); QT4 phần kho, kiểm kê (5.4); QT5 phần phải trả (5.5); cấu hình kho (4.2); Automation Rules (7.1); API XML-RPC (7.4) | Hoàn thành tốt nhiệm vụ được giao (33%) |
+| Lê Thị Thanh Tiền | 24521769 | QT1 Bán hàng (mục 5.1); module bh_api và API REST tạo đơn bán (7.3, 7.4); kiểm tra luồng app khách đặt hàng vào Odoo; chốt mẫu BPMN trắng đen (3.8, chương 5); gom báo cáo Word, đóng gói ZIP module bh_api | Hoàn thành tốt nhiệm vụ được giao (34%) |
+| Đoàn Thị Thùy Trang | 24521817 | QT2 Mua hàng (5.2) và QT5 Công nợ (5.5); API XML-RPC tạo yêu cầu báo giá (7.4); kiểm tra Automation tạo phiếu QC (7.1); tích hợp Google Sheets (7.5); kiểm tra website (chương 6) | Hoàn thành tốt nhiệm vụ được giao (33%) |
+| Phạm Tuấn Hải | 24520442 | QT3 Sản xuất (5.3) và QT4 Kho: lô, cận hạn, kiểm kê (5.4); API JSON-2 đọc lệnh sản xuất (7.4); chốt bộ dữ liệu demo; kiểm thử, đóng gói module bh_near_expiry (7.2); tích hợp Telegram (7.5) | Hoàn thành tốt nhiệm vụ được giao (33%) |
 
 Ngoài phần riêng, cả nhóm cùng làm: khảo sát và phân tích doanh nghiệp, thiết kế quy trình và BPMN, chương 1–3, chương 8–9, phụ lục, slide thuyết trình và hoàn thiện báo cáo.
 
