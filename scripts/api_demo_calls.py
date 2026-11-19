@@ -2,7 +2,7 @@
 
 Chạy:
   BH_API_TOKEN=<token> python scripts/api_demo_calls.py [invoice_name]
-Token lấy ở Odoo: Thiết lập > API & Tích hợp > API đối tác > Sinh token mới (chỉ hiện một lần).
+Token lấy ở Odoo: Cài đặt > API & Tích hợp > API đối tác > Sinh token mới (chỉ hiện một lần).
 """
 import json
 import os

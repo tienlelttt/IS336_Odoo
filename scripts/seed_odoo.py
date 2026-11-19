@@ -88,6 +88,13 @@ for login, name, job, groups in USERS:
     else:
         user = env["res.users"].create({**vals, "password": TEST_PASSWORD})
     user.partner_id.function = job
+# Quản đốc (Sản xuất: quản lý, Kho: người dùng) lập kế hoạch ở màn hình Bổ sung hàng: cần tạo/sửa/xóa quy tắc bổ sung
+# (Odoo xóa quy tắc tạm 0/0 sau khi đặt lệnh).
+# Odoo chỉ cho Kho: quản trị viên; cấp riêng quyền này thay vì cho quản đốc toàn quyền kho (điều chỉnh tồn, cấu hình).
+get_or_create("ir.model.access", [("name", "=", "bh_orderpoint_mrp_manager")], {
+    "name": "bh_orderpoint_mrp_manager", "model_id": env["ir.model"]._get_id("stock.warehouse.orderpoint"),
+    "group_id": env.ref("mrp.group_mrp_manager").id,
+    "perm_read": True, "perm_write": True, "perm_create": True, "perm_unlink": True})
 
 # 4. Kho: nhận 1 bước (kiểm tại cửa), giao 1 bước theo tuyến, sản xuất 2 bước (cấp NVL ra Khu sản xuất)
 print("4. Kho")
