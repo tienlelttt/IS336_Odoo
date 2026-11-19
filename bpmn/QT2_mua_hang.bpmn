@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_QT2_mua_hang" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
   <bpmn:collaboration id="Collaboration_QT2_mua_hang">
-    <bpmn:participant id="Participant_QT2_mua_hang" name="QT2 - Đặt nguyên liệu, nhận hàng, trả tiền (Procure to Pay) - Công ty TNHH Bánh Bảo Hân" processRef="Process_QT2_mua_hang" />
+    <bpmn:participant id="Participant_QT2_mua_hang_Ext0" name="Nhà cung cấp" processRef="Process_QT2_mua_hang_Ext0" />
+    <bpmn:participant id="Participant_QT2_mua_hang_Main" name="Công ty TNHH Bánh Bảo Hân" processRef="Process_QT2_mua_hang_Main" />
+    <bpmn:messageFlow id="Flow_QT2_mua_hang_6" name="Đơn mua" sourceRef="T4" targetRef="T5" />
+    <bpmn:messageFlow id="Flow_QT2_mua_hang_7" name="Hàng, hóa đơn, lô" sourceRef="T5" targetRef="T6" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_QT2_mua_hang" isExecutable="false">
+  <bpmn:process id="Process_QT2_mua_hang_Ext0" isExecutable="false">
+    <bpmn:task id="T5" name="Giao hàng kèm hóa đơn, số lô, hạn dùng">
+    </bpmn:task>
+  </bpmn:process>
+  <bpmn:process id="Process_QT2_mua_hang_Main" name="QT2 - Đặt nguyên liệu, nhận hàng, trả tiền (Procure to Pay) - Công ty TNHH Bánh Bảo Hân" isExecutable="false">
     <bpmn:laneSet id="LaneSet_QT2_mua_hang">
       <bpmn:lane id="Lane_QT2_mua_hang_0" name="Giám đốc">
         <bpmn:flowNodeRef>T3</bpmn:flowNodeRef>
@@ -19,18 +26,15 @@
         <bpmn:flowNodeRef>G1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>T6</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT2_mua_hang_3" name="Nhà cung cấp">
-        <bpmn:flowNodeRef>T5</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_QT2_mua_hang_4" name="Thủ kho">
+      <bpmn:lane id="Lane_QT2_mua_hang_3" name="Thủ kho">
         <bpmn:flowNodeRef>T8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>T9</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT2_mua_hang_5" name="QC">
+      <bpmn:lane id="Lane_QT2_mua_hang_4" name="QC">
         <bpmn:flowNodeRef>T7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>G2</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT2_mua_hang_6" name="Kế toán">
+      <bpmn:lane id="Lane_QT2_mua_hang_5" name="Kế toán">
         <bpmn:flowNodeRef>T10</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>G3</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>T12</bpmn:flowNodeRef>
@@ -61,54 +65,50 @@
     <bpmn:sendTask id="T4" name="Xác nhận đơn mua">
       <bpmn:incoming>Flow_QT2_mua_hang_4</bpmn:incoming>
       <bpmn:incoming>Flow_QT2_mua_hang_5</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT2_mua_hang_6</bpmn:outgoing>
-    </bpmn:sendTask>
-    <bpmn:userTask id="T5" name="Giao hàng kèm hóa đơn, số lô, hạn dùng">
-      <bpmn:incoming>Flow_QT2_mua_hang_6</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT2_mua_hang_7</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:serviceTask id="T6" name="Xe đến (phiếu nhập sẵn sàng): tạo phiếu QC">
-      <bpmn:incoming>Flow_QT2_mua_hang_7</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_8</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:userTask id="T7" name="Kiểm nhiệt độ, hạn dùng, bao bì, đếm hàng hỏng">
+    </bpmn:sendTask>
+    <bpmn:serviceTask id="T6" name="Xe đến (phiếu nhập sẵn sàng): tạo phiếu QC">
       <bpmn:incoming>Flow_QT2_mua_hang_8</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_9</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:exclusiveGateway id="G2" name="Đạt hết?">
+    </bpmn:serviceTask>
+    <bpmn:userTask id="T7" name="Kiểm nhiệt độ, hạn dùng, bao bì, đếm hàng hỏng">
       <bpmn:incoming>Flow_QT2_mua_hang_9</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_10</bpmn:outgoing>
-      <bpmn:outgoing>Flow_QT2_mua_hang_12</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:userTask id="T8" name="Trả phần không đạt cho xe NCC, ghi lý do">
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="G2" name="Đạt hết?">
       <bpmn:incoming>Flow_QT2_mua_hang_10</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_11</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT2_mua_hang_13</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="T8" name="Trả phần không đạt cho xe NCC, ghi lý do">
+      <bpmn:incoming>Flow_QT2_mua_hang_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT2_mua_hang_12</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="T9" name="Nhận số đạt, ghi lô, hạn dùng; hàng vào vị trí theo nhóm">
-      <bpmn:incoming>Flow_QT2_mua_hang_11</bpmn:incoming>
       <bpmn:incoming>Flow_QT2_mua_hang_12</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT2_mua_hang_13</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:userTask id="T10" name="Hóa đơn NCC theo số đã nhận, đối chiếu 3 bên">
       <bpmn:incoming>Flow_QT2_mua_hang_13</bpmn:incoming>
-      <bpmn:incoming>Flow_QT2_mua_hang_16</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_14</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="G3" name="Khớp giá, số lượng?">
+    <bpmn:userTask id="T10" name="Hóa đơn NCC theo số đã nhận, đối chiếu 3 bên">
       <bpmn:incoming>Flow_QT2_mua_hang_14</bpmn:incoming>
+      <bpmn:incoming>Flow_QT2_mua_hang_17</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_15</bpmn:outgoing>
-      <bpmn:outgoing>Flow_QT2_mua_hang_17</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:userTask id="T11" name="Làm rõ với NCC">
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="G3" name="Khớp giá, số lượng?">
       <bpmn:incoming>Flow_QT2_mua_hang_15</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_16</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT2_mua_hang_18</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="T11" name="Làm rõ với NCC">
+      <bpmn:incoming>Flow_QT2_mua_hang_16</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT2_mua_hang_17</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="T12" name="Thanh toán: tiền mặt (NCC trứng) hoặc chuyển khoản thứ Sáu">
-      <bpmn:incoming>Flow_QT2_mua_hang_17</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT2_mua_hang_18</bpmn:outgoing>
+      <bpmn:incoming>Flow_QT2_mua_hang_18</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT2_mua_hang_19</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:endEvent id="E1" name="Hoàn tất">
-      <bpmn:incoming>Flow_QT2_mua_hang_18</bpmn:incoming>
+      <bpmn:incoming>Flow_QT2_mua_hang_19</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_QT2_mua_hang_0" sourceRef="S1" targetRef="T1" />
     <bpmn:sequenceFlow id="Flow_QT2_mua_hang_1" sourceRef="T1" targetRef="T2" />
@@ -116,198 +116,199 @@
     <bpmn:sequenceFlow id="Flow_QT2_mua_hang_3" name="Có" sourceRef="G1" targetRef="T3" />
     <bpmn:sequenceFlow id="Flow_QT2_mua_hang_4" sourceRef="T3" targetRef="T4" />
     <bpmn:sequenceFlow id="Flow_QT2_mua_hang_5" name="Không" sourceRef="G1" targetRef="T4" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_6" sourceRef="T4" targetRef="T5" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_7" sourceRef="T5" targetRef="T6" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_8" sourceRef="T6" targetRef="T7" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_9" sourceRef="T7" targetRef="G2" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_10" name="Không" sourceRef="G2" targetRef="T8" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_11" sourceRef="T8" targetRef="T9" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_12" name="Đạt" sourceRef="G2" targetRef="T9" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_13" sourceRef="T9" targetRef="T10" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_14" sourceRef="T10" targetRef="G3" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_15" name="Không" sourceRef="G3" targetRef="T11" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_16" sourceRef="T11" targetRef="T10" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_17" name="Khớp" sourceRef="G3" targetRef="T12" />
-    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_18" sourceRef="T12" targetRef="E1" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_8" sourceRef="T4" targetRef="T6" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_9" sourceRef="T6" targetRef="T7" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_10" sourceRef="T7" targetRef="G2" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_11" name="Không" sourceRef="G2" targetRef="T8" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_12" sourceRef="T8" targetRef="T9" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_13" name="Đạt" sourceRef="G2" targetRef="T9" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_14" sourceRef="T9" targetRef="T10" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_15" sourceRef="T10" targetRef="G3" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_16" name="Không" sourceRef="G3" targetRef="T11" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_17" sourceRef="T11" targetRef="T10" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_18" name="Khớp" sourceRef="G3" targetRef="T12" />
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_19" sourceRef="T12" targetRef="E1" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_QT2_mua_hang">
     <bpmndi:BPMNPlane id="Plane_QT2_mua_hang" bpmnElement="Collaboration_QT2_mua_hang">
-      <bpmndi:BPMNShape id="Participant_QT2_mua_hang_di" bpmnElement="Participant_QT2_mua_hang" isHorizontal="true">
-        <dc:Bounds x="0" y="0" width="3030" height="1050" />
+      <bpmndi:BPMNShape id="Participant_QT2_mua_hang_Ext0_di" bpmnElement="Participant_QT2_mua_hang_Ext0" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="2990" height="130" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_QT2_mua_hang_Main_di" bpmnElement="Participant_QT2_mua_hang_Main" isHorizontal="true">
+        <dc:Bounds x="0" y="190" width="2990" height="900" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT2_mua_hang_0_di" bpmnElement="Lane_QT2_mua_hang_0" isHorizontal="true">
-        <dc:Bounds x="40" y="0" width="2990" height="150" />
+        <dc:Bounds x="30" y="190" width="2960" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT2_mua_hang_1_di" bpmnElement="Lane_QT2_mua_hang_1" isHorizontal="true">
-        <dc:Bounds x="40" y="150" width="2990" height="150" />
+        <dc:Bounds x="30" y="340" width="2960" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT2_mua_hang_2_di" bpmnElement="Lane_QT2_mua_hang_2" isHorizontal="true">
-        <dc:Bounds x="40" y="300" width="2990" height="150" />
+        <dc:Bounds x="30" y="490" width="2960" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT2_mua_hang_3_di" bpmnElement="Lane_QT2_mua_hang_3" isHorizontal="true">
-        <dc:Bounds x="40" y="450" width="2990" height="150" />
+        <dc:Bounds x="30" y="640" width="2960" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT2_mua_hang_4_di" bpmnElement="Lane_QT2_mua_hang_4" isHorizontal="true">
-        <dc:Bounds x="40" y="600" width="2990" height="150" />
+        <dc:Bounds x="30" y="790" width="2960" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT2_mua_hang_5_di" bpmnElement="Lane_QT2_mua_hang_5" isHorizontal="true">
-        <dc:Bounds x="40" y="750" width="2990" height="150" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_QT2_mua_hang_6_di" bpmnElement="Lane_QT2_mua_hang_6" isHorizontal="true">
-        <dc:Bounds x="40" y="900" width="2990" height="150" />
+        <dc:Bounds x="30" y="940" width="2960" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S1_di" bpmnElement="S1">
-        <dc:Bounds x="167" y="357" width="36" height="36" />
+        <dc:Bounds x="147" y="547" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T1_di" bpmnElement="T1">
-        <dc:Bounds x="290" y="335" width="130" height="80" />
+        <dc:Bounds x="270" y="525" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T2_di" bpmnElement="T2">
-        <dc:Bounds x="460" y="185" width="130" height="80" />
+        <dc:Bounds x="440" y="375" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G1_di" bpmnElement="G1" isMarkerVisible="true">
-        <dc:Bounds x="670" y="350" width="50" height="50" />
+        <dc:Bounds x="650" y="540" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T3_di" bpmnElement="T3">
-        <dc:Bounds x="800" y="35" width="130" height="80" />
+        <dc:Bounds x="780" y="225" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T4_di" bpmnElement="T4">
-        <dc:Bounds x="970" y="185" width="130" height="80" />
+        <dc:Bounds x="950" y="375" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T5_di" bpmnElement="T5">
-        <dc:Bounds x="1140" y="485" width="130" height="80" />
+        <dc:Bounds x="1120" y="25" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T6_di" bpmnElement="T6">
-        <dc:Bounds x="1310" y="335" width="130" height="80" />
+        <dc:Bounds x="1290" y="525" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T7_di" bpmnElement="T7">
-        <dc:Bounds x="1480" y="785" width="130" height="80" />
+        <dc:Bounds x="1460" y="825" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G2_di" bpmnElement="G2" isMarkerVisible="true">
-        <dc:Bounds x="1690" y="800" width="50" height="50" />
+        <dc:Bounds x="1670" y="840" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T8_di" bpmnElement="T8">
-        <dc:Bounds x="1820" y="635" width="130" height="80" />
+        <dc:Bounds x="1800" y="675" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T9_di" bpmnElement="T9">
-        <dc:Bounds x="1990" y="635" width="130" height="80" />
+        <dc:Bounds x="1970" y="675" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T10_di" bpmnElement="T10">
-        <dc:Bounds x="2160" y="935" width="130" height="80" />
+        <dc:Bounds x="2140" y="975" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G3_di" bpmnElement="G3" isMarkerVisible="true">
-        <dc:Bounds x="2370" y="950" width="50" height="50" />
+        <dc:Bounds x="2350" y="990" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T11_di" bpmnElement="T11">
-        <dc:Bounds x="2500" y="185" width="130" height="80" />
+        <dc:Bounds x="2480" y="375" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T12_di" bpmnElement="T12">
-        <dc:Bounds x="2670" y="935" width="130" height="80" />
+        <dc:Bounds x="2650" y="975" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E1_di" bpmnElement="E1">
-        <dc:Bounds x="2887" y="957" width="36" height="36" />
+        <dc:Bounds x="2867" y="997" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_0_di" bpmnElement="Flow_QT2_mua_hang_0">
-        <di:waypoint x="203" y="375" />
-        <di:waypoint x="290" y="375" />
+        <di:waypoint x="183" y="565" />
+        <di:waypoint x="270" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_1_di" bpmnElement="Flow_QT2_mua_hang_1">
-        <di:waypoint x="420" y="375" />
-        <di:waypoint x="440" y="375" />
-        <di:waypoint x="440" y="225" />
-        <di:waypoint x="460" y="225" />
+        <di:waypoint x="400" y="565" />
+        <di:waypoint x="420" y="565" />
+        <di:waypoint x="420" y="415" />
+        <di:waypoint x="440" y="415" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_2_di" bpmnElement="Flow_QT2_mua_hang_2">
-        <di:waypoint x="590" y="225" />
-        <di:waypoint x="630" y="225" />
-        <di:waypoint x="630" y="375" />
-        <di:waypoint x="670" y="375" />
+        <di:waypoint x="570" y="415" />
+        <di:waypoint x="610" y="415" />
+        <di:waypoint x="610" y="565" />
+        <di:waypoint x="650" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_3_di" bpmnElement="Flow_QT2_mua_hang_3">
-        <di:waypoint x="720" y="375" />
-        <di:waypoint x="760" y="375" />
-        <di:waypoint x="760" y="75" />
-        <di:waypoint x="800" y="75" />
+        <di:waypoint x="675" y="540" />
+        <di:waypoint x="675" y="265" />
+        <di:waypoint x="780" y="265" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_4_di" bpmnElement="Flow_QT2_mua_hang_4">
-        <di:waypoint x="930" y="75" />
-        <di:waypoint x="950" y="75" />
-        <di:waypoint x="950" y="225" />
-        <di:waypoint x="970" y="225" />
+        <di:waypoint x="910" y="265" />
+        <di:waypoint x="930" y="265" />
+        <di:waypoint x="930" y="415" />
+        <di:waypoint x="950" y="415" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_5_di" bpmnElement="Flow_QT2_mua_hang_5">
-        <di:waypoint x="720" y="375" />
-        <di:waypoint x="845" y="375" />
-        <di:waypoint x="845" y="225" />
-        <di:waypoint x="970" y="225" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_6_di" bpmnElement="Flow_QT2_mua_hang_6">
-        <di:waypoint x="1100" y="225" />
-        <di:waypoint x="1120" y="225" />
-        <di:waypoint x="1120" y="525" />
-        <di:waypoint x="1140" y="525" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_7_di" bpmnElement="Flow_QT2_mua_hang_7">
-        <di:waypoint x="1270" y="525" />
-        <di:waypoint x="1290" y="525" />
-        <di:waypoint x="1290" y="375" />
-        <di:waypoint x="1310" y="375" />
+        <di:waypoint x="675" y="540" />
+        <di:waypoint x="675" y="415" />
+        <di:waypoint x="950" y="415" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_8_di" bpmnElement="Flow_QT2_mua_hang_8">
-        <di:waypoint x="1440" y="375" />
-        <di:waypoint x="1460" y="375" />
-        <di:waypoint x="1460" y="825" />
-        <di:waypoint x="1480" y="825" />
+        <di:waypoint x="1080" y="415" />
+        <di:waypoint x="1185" y="415" />
+        <di:waypoint x="1185" y="565" />
+        <di:waypoint x="1290" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_9_di" bpmnElement="Flow_QT2_mua_hang_9">
-        <di:waypoint x="1610" y="825" />
-        <di:waypoint x="1690" y="825" />
+        <di:waypoint x="1420" y="565" />
+        <di:waypoint x="1440" y="565" />
+        <di:waypoint x="1440" y="865" />
+        <di:waypoint x="1460" y="865" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_10_di" bpmnElement="Flow_QT2_mua_hang_10">
-        <di:waypoint x="1740" y="825" />
-        <di:waypoint x="1780" y="825" />
-        <di:waypoint x="1780" y="675" />
-        <di:waypoint x="1820" y="675" />
+        <di:waypoint x="1590" y="865" />
+        <di:waypoint x="1670" y="865" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_11_di" bpmnElement="Flow_QT2_mua_hang_11">
-        <di:waypoint x="1950" y="675" />
-        <di:waypoint x="1990" y="675" />
+        <di:waypoint x="1695" y="840" />
+        <di:waypoint x="1695" y="715" />
+        <di:waypoint x="1800" y="715" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_12_di" bpmnElement="Flow_QT2_mua_hang_12">
-        <di:waypoint x="1740" y="825" />
-        <di:waypoint x="1865" y="825" />
-        <di:waypoint x="1865" y="675" />
-        <di:waypoint x="1990" y="675" />
+        <di:waypoint x="1930" y="715" />
+        <di:waypoint x="1970" y="715" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_13_di" bpmnElement="Flow_QT2_mua_hang_13">
-        <di:waypoint x="2120" y="675" />
-        <di:waypoint x="2140" y="675" />
-        <di:waypoint x="2140" y="975" />
-        <di:waypoint x="2160" y="975" />
+        <di:waypoint x="1720" y="865" />
+        <di:waypoint x="1950" y="865" />
+        <di:waypoint x="1950" y="715" />
+        <di:waypoint x="1970" y="715" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_14_di" bpmnElement="Flow_QT2_mua_hang_14">
-        <di:waypoint x="2290" y="975" />
-        <di:waypoint x="2370" y="975" />
+        <di:waypoint x="2100" y="715" />
+        <di:waypoint x="2120" y="715" />
+        <di:waypoint x="2120" y="1015" />
+        <di:waypoint x="2140" y="1015" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_15_di" bpmnElement="Flow_QT2_mua_hang_15">
-        <di:waypoint x="2420" y="975" />
-        <di:waypoint x="2460" y="975" />
-        <di:waypoint x="2460" y="225" />
-        <di:waypoint x="2500" y="225" />
+        <di:waypoint x="2270" y="1015" />
+        <di:waypoint x="2350" y="1015" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_16_di" bpmnElement="Flow_QT2_mua_hang_16">
-        <di:waypoint x="2565" y="185" />
-        <di:waypoint x="2565" y="163" />
-        <di:waypoint x="2225" y="163" />
-        <di:waypoint x="2225" y="935" />
+        <di:waypoint x="2375" y="990" />
+        <di:waypoint x="2375" y="415" />
+        <di:waypoint x="2480" y="415" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_17_di" bpmnElement="Flow_QT2_mua_hang_17">
-        <di:waypoint x="2420" y="975" />
-        <di:waypoint x="2670" y="975" />
+        <di:waypoint x="2545" y="375" />
+        <di:waypoint x="2545" y="353" />
+        <di:waypoint x="2205" y="353" />
+        <di:waypoint x="2205" y="975" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_18_di" bpmnElement="Flow_QT2_mua_hang_18">
-        <di:waypoint x="2800" y="975" />
-        <di:waypoint x="2887" y="975" />
+        <di:waypoint x="2400" y="1015" />
+        <di:waypoint x="2650" y="1015" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_19_di" bpmnElement="Flow_QT2_mua_hang_19">
+        <di:waypoint x="2780" y="1015" />
+        <di:waypoint x="2867" y="1015" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_6_di" bpmnElement="Flow_QT2_mua_hang_6">
+        <di:waypoint x="1015" y="375" />
+        <di:waypoint x="1015" y="144" />
+        <di:waypoint x="1167" y="144" />
+        <di:waypoint x="1167" y="105" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_7_di" bpmnElement="Flow_QT2_mua_hang_7">
+        <di:waypoint x="1203" y="105" />
+        <di:waypoint x="1203" y="152" />
+        <di:waypoint x="1355" y="152" />
+        <di:waypoint x="1355" y="525" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_QT4_kho_can_han" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
   <bpmn:collaboration id="Collaboration_QT4_kho_can_han">
-    <bpmn:participant id="Participant_QT4_kho_can_han" name="QT4 - Lô, hạn dùng, cận hạn, kiểm kê (Material Management) - Công ty TNHH Bánh Bảo Hân" processRef="Process_QT4_kho_can_han" />
+    <bpmn:participant id="Participant_QT4_kho_can_han_Main" name="Công ty TNHH Bánh Bảo Hân" processRef="Process_QT4_kho_can_han_Main" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_QT4_kho_can_han" isExecutable="false">
+  <bpmn:process id="Process_QT4_kho_can_han_Main" name="QT4 - Lô, hạn dùng, cận hạn, kiểm kê (Material Management) - Công ty TNHH Bánh Bảo Hân" isExecutable="false">
     <bpmn:laneSet id="LaneSet_QT4_kho_can_han">
       <bpmn:lane id="Lane_QT4_kho_can_han_0" name="Hệ thống Odoo">
         <bpmn:flowNodeRef>S1</bpmn:flowNodeRef>
@@ -12,7 +12,14 @@
         <bpmn:flowNodeRef>E0</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>T2</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT4_kho_can_han_1" name="Thủ kho">
+      <bpmn:lane id="Lane_QT4_kho_can_han_1" name="Nhân viên kinh doanh">
+        <bpmn:flowNodeRef>T3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>E3</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT4_kho_can_han_2" name="Tài xế">
+        <bpmn:flowNodeRef>T5</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_QT4_kho_can_han_3" name="Thủ kho">
         <bpmn:flowNodeRef>G2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>T4</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>T6</bpmn:flowNodeRef>
@@ -21,12 +28,6 @@
         <bpmn:flowNodeRef>S2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>K1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>K4</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_QT4_kho_can_han_2" name="Nhân viên kinh doanh">
-        <bpmn:flowNodeRef>T3</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_QT4_kho_can_han_3" name="Tài xế">
-        <bpmn:flowNodeRef>T5</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_QT4_kho_can_han_4" name="Giám đốc">
         <bpmn:flowNodeRef>G3</bpmn:flowNodeRef>
@@ -102,8 +103,10 @@
       <bpmn:outgoing>Flow_QT4_kho_can_han_16</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:endEvent id="E1" name="Đóng việc cận hạn">
-      <bpmn:incoming>Flow_QT4_kho_can_han_15</bpmn:incoming>
       <bpmn:incoming>Flow_QT4_kho_can_han_16</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="E3" name="Đã chào giá xả">
+      <bpmn:incoming>Flow_QT4_kho_can_han_15</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:startEvent id="S2" name="Thứ Bảy / cuối tháng: kiểm kê">
       <bpmn:outgoing>Flow_QT4_kho_can_han_17</bpmn:outgoing>
@@ -149,7 +152,7 @@
     <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_12" name="Vụn bánh" sourceRef="G3" targetRef="T8" />
     <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_13" sourceRef="T7" targetRef="T9" />
     <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_14" sourceRef="T8" targetRef="T9" />
-    <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_15" sourceRef="T3" targetRef="E1" />
+    <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_15" sourceRef="T3" targetRef="E3" />
     <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_16" sourceRef="T9" targetRef="E1" />
     <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_17" sourceRef="S2" targetRef="K1" />
     <bpmn:sequenceFlow id="Flow_QT4_kho_can_han_18" sourceRef="K1" targetRef="K2" />
@@ -161,218 +164,217 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_QT4_kho_can_han">
     <bpmndi:BPMNPlane id="Plane_QT4_kho_can_han" bpmnElement="Collaboration_QT4_kho_can_han">
-      <bpmndi:BPMNShape id="Participant_QT4_kho_can_han_di" bpmnElement="Participant_QT4_kho_can_han" isHorizontal="true">
-        <dc:Bounds x="0" y="0" width="2520" height="900" />
+      <bpmndi:BPMNShape id="Participant_QT4_kho_can_han_Main_di" bpmnElement="Participant_QT4_kho_can_han_Main" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="2650" height="900" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT4_kho_can_han_0_di" bpmnElement="Lane_QT4_kho_can_han_0" isHorizontal="true">
-        <dc:Bounds x="40" y="0" width="2480" height="150" />
+        <dc:Bounds x="30" y="0" width="2620" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT4_kho_can_han_1_di" bpmnElement="Lane_QT4_kho_can_han_1" isHorizontal="true">
-        <dc:Bounds x="40" y="150" width="2480" height="150" />
+        <dc:Bounds x="30" y="150" width="2620" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT4_kho_can_han_2_di" bpmnElement="Lane_QT4_kho_can_han_2" isHorizontal="true">
-        <dc:Bounds x="40" y="300" width="2480" height="150" />
+        <dc:Bounds x="30" y="300" width="2620" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT4_kho_can_han_3_di" bpmnElement="Lane_QT4_kho_can_han_3" isHorizontal="true">
-        <dc:Bounds x="40" y="450" width="2480" height="150" />
+        <dc:Bounds x="30" y="450" width="2620" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT4_kho_can_han_4_di" bpmnElement="Lane_QT4_kho_can_han_4" isHorizontal="true">
-        <dc:Bounds x="40" y="600" width="2480" height="150" />
+        <dc:Bounds x="30" y="600" width="2620" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT4_kho_can_han_5_di" bpmnElement="Lane_QT4_kho_can_han_5" isHorizontal="true">
-        <dc:Bounds x="40" y="750" width="2480" height="150" />
+        <dc:Bounds x="30" y="750" width="2620" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S1_di" bpmnElement="S1">
-        <dc:Bounds x="167" y="57" width="36" height="36" />
+        <dc:Bounds x="147" y="57" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T1_di" bpmnElement="T1">
-        <dc:Bounds x="290" y="35" width="130" height="80" />
+        <dc:Bounds x="270" y="35" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G1_di" bpmnElement="G1" isMarkerVisible="true">
-        <dc:Bounds x="500" y="50" width="50" height="50" />
+        <dc:Bounds x="480" y="50" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E0_di" bpmnElement="E0">
-        <dc:Bounds x="677" y="57" width="36" height="36" />
+        <dc:Bounds x="657" y="57" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T2_di" bpmnElement="T2">
-        <dc:Bounds x="800" y="35" width="130" height="80" />
+        <dc:Bounds x="780" y="35" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G2_di" bpmnElement="G2" isMarkerVisible="true">
-        <dc:Bounds x="1010" y="200" width="50" height="50" />
+        <dc:Bounds x="1160" y="500" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T3_di" bpmnElement="T3">
-        <dc:Bounds x="1140" y="335" width="130" height="80" />
+        <dc:Bounds x="1290" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T4_di" bpmnElement="T4">
-        <dc:Bounds x="1140" y="185" width="130" height="80" />
+        <dc:Bounds x="1290" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T5_di" bpmnElement="T5">
-        <dc:Bounds x="1310" y="485" width="130" height="80" />
+        <dc:Bounds x="1460" y="335" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T6_di" bpmnElement="T6">
-        <dc:Bounds x="1480" y="185" width="130" height="80" />
+        <dc:Bounds x="1630" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G3_di" bpmnElement="G3" isMarkerVisible="true">
-        <dc:Bounds x="1690" y="650" width="50" height="50" />
+        <dc:Bounds x="1840" y="650" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T7_di" bpmnElement="T7">
-        <dc:Bounds x="1820" y="185" width="130" height="80" />
+        <dc:Bounds x="1970" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T8_di" bpmnElement="T8">
-        <dc:Bounds x="1990" y="185" width="130" height="80" />
+        <dc:Bounds x="2140" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T9_di" bpmnElement="T9">
-        <dc:Bounds x="2160" y="785" width="130" height="80" />
+        <dc:Bounds x="2310" y="785" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E1_di" bpmnElement="E1">
-        <dc:Bounds x="2377" y="807" width="36" height="36" />
+        <dc:Bounds x="2527" y="807" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="E3_di" bpmnElement="E3">
+        <dc:Bounds x="1507" y="207" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S2_di" bpmnElement="S2">
-        <dc:Bounds x="167" y="207" width="36" height="36" />
+        <dc:Bounds x="147" y="507" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="K1_di" bpmnElement="K1">
-        <dc:Bounds x="290" y="185" width="130" height="80" />
+        <dc:Bounds x="270" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="K2_di" bpmnElement="K2" isMarkerVisible="true">
-        <dc:Bounds x="500" y="650" width="50" height="50" />
+        <dc:Bounds x="480" y="650" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="K3_di" bpmnElement="K3">
-        <dc:Bounds x="630" y="635" width="130" height="80" />
+        <dc:Bounds x="610" y="635" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="K4_di" bpmnElement="K4">
-        <dc:Bounds x="800" y="185" width="130" height="80" />
+        <dc:Bounds x="780" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="K5_di" bpmnElement="K5">
-        <dc:Bounds x="970" y="785" width="130" height="80" />
+        <dc:Bounds x="950" y="785" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E2_di" bpmnElement="E2">
-        <dc:Bounds x="1187" y="807" width="36" height="36" />
+        <dc:Bounds x="1167" y="807" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_0_di" bpmnElement="Flow_QT4_kho_can_han_0">
-        <di:waypoint x="203" y="75" />
-        <di:waypoint x="290" y="75" />
+        <di:waypoint x="183" y="75" />
+        <di:waypoint x="270" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_1_di" bpmnElement="Flow_QT4_kho_can_han_1">
-        <di:waypoint x="420" y="75" />
-        <di:waypoint x="500" y="75" />
+        <di:waypoint x="400" y="75" />
+        <di:waypoint x="480" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_2_di" bpmnElement="Flow_QT4_kho_can_han_2">
-        <di:waypoint x="550" y="75" />
-        <di:waypoint x="677" y="75" />
+        <di:waypoint x="530" y="75" />
+        <di:waypoint x="657" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_3_di" bpmnElement="Flow_QT4_kho_can_han_3">
-        <di:waypoint x="550" y="75" />
-        <di:waypoint x="800" y="75" />
+        <di:waypoint x="505" y="50" />
+        <di:waypoint x="505" y="13" />
+        <di:waypoint x="845" y="13" />
+        <di:waypoint x="845" y="35" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_4_di" bpmnElement="Flow_QT4_kho_can_han_4">
-        <di:waypoint x="930" y="75" />
-        <di:waypoint x="970" y="75" />
-        <di:waypoint x="970" y="225" />
-        <di:waypoint x="1010" y="225" />
+        <di:waypoint x="910" y="75" />
+        <di:waypoint x="1035" y="75" />
+        <di:waypoint x="1035" y="525" />
+        <di:waypoint x="1160" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_5_di" bpmnElement="Flow_QT4_kho_can_han_5">
-        <di:waypoint x="1060" y="225" />
-        <di:waypoint x="1100" y="225" />
-        <di:waypoint x="1100" y="375" />
-        <di:waypoint x="1140" y="375" />
+        <di:waypoint x="1185" y="500" />
+        <di:waypoint x="1185" y="225" />
+        <di:waypoint x="1290" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_6_di" bpmnElement="Flow_QT4_kho_can_han_6">
-        <di:waypoint x="1060" y="225" />
-        <di:waypoint x="1140" y="225" />
+        <di:waypoint x="1210" y="525" />
+        <di:waypoint x="1290" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_7_di" bpmnElement="Flow_QT4_kho_can_han_7">
-        <di:waypoint x="1060" y="225" />
-        <di:waypoint x="1185" y="225" />
-        <di:waypoint x="1185" y="525" />
-        <di:waypoint x="1310" y="525" />
+        <di:waypoint x="1185" y="500" />
+        <di:waypoint x="1185" y="375" />
+        <di:waypoint x="1460" y="375" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_8_di" bpmnElement="Flow_QT4_kho_can_han_8">
-        <di:waypoint x="1440" y="525" />
-        <di:waypoint x="1460" y="525" />
-        <di:waypoint x="1460" y="225" />
-        <di:waypoint x="1480" y="225" />
+        <di:waypoint x="1590" y="375" />
+        <di:waypoint x="1610" y="375" />
+        <di:waypoint x="1610" y="525" />
+        <di:waypoint x="1630" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_9_di" bpmnElement="Flow_QT4_kho_can_han_9">
-        <di:waypoint x="1270" y="225" />
-        <di:waypoint x="1480" y="225" />
-        <di:waypoint x="1480" y="675" />
-        <di:waypoint x="1690" y="675" />
+        <di:waypoint x="1420" y="525" />
+        <di:waypoint x="1440" y="525" />
+        <di:waypoint x="1440" y="675" />
+        <di:waypoint x="1840" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_10_di" bpmnElement="Flow_QT4_kho_can_han_10">
-        <di:waypoint x="1610" y="225" />
-        <di:waypoint x="1650" y="225" />
-        <di:waypoint x="1650" y="675" />
-        <di:waypoint x="1690" y="675" />
+        <di:waypoint x="1760" y="525" />
+        <di:waypoint x="1800" y="525" />
+        <di:waypoint x="1800" y="675" />
+        <di:waypoint x="1840" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_11_di" bpmnElement="Flow_QT4_kho_can_han_11">
-        <di:waypoint x="1740" y="675" />
-        <di:waypoint x="1780" y="675" />
-        <di:waypoint x="1780" y="225" />
-        <di:waypoint x="1820" y="225" />
+        <di:waypoint x="1865" y="650" />
+        <di:waypoint x="1865" y="525" />
+        <di:waypoint x="1970" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_12_di" bpmnElement="Flow_QT4_kho_can_han_12">
-        <di:waypoint x="1740" y="675" />
-        <di:waypoint x="1865" y="675" />
-        <di:waypoint x="1865" y="225" />
-        <di:waypoint x="1990" y="225" />
+        <di:waypoint x="1890" y="675" />
+        <di:waypoint x="2120" y="675" />
+        <di:waypoint x="2120" y="525" />
+        <di:waypoint x="2140" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_13_di" bpmnElement="Flow_QT4_kho_can_han_13">
-        <di:waypoint x="1950" y="225" />
-        <di:waypoint x="2055" y="225" />
-        <di:waypoint x="2055" y="825" />
-        <di:waypoint x="2160" y="825" />
+        <di:waypoint x="2100" y="525" />
+        <di:waypoint x="2120" y="525" />
+        <di:waypoint x="2120" y="825" />
+        <di:waypoint x="2310" y="825" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_14_di" bpmnElement="Flow_QT4_kho_can_han_14">
-        <di:waypoint x="2120" y="225" />
-        <di:waypoint x="2140" y="225" />
-        <di:waypoint x="2140" y="825" />
-        <di:waypoint x="2160" y="825" />
+        <di:waypoint x="2270" y="525" />
+        <di:waypoint x="2290" y="525" />
+        <di:waypoint x="2290" y="825" />
+        <di:waypoint x="2310" y="825" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_15_di" bpmnElement="Flow_QT4_kho_can_han_15">
-        <di:waypoint x="1270" y="375" />
-        <di:waypoint x="1823" y="375" />
-        <di:waypoint x="1823" y="825" />
-        <di:waypoint x="2377" y="825" />
+        <di:waypoint x="1420" y="225" />
+        <di:waypoint x="1507" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_16_di" bpmnElement="Flow_QT4_kho_can_han_16">
-        <di:waypoint x="2290" y="825" />
-        <di:waypoint x="2377" y="825" />
+        <di:waypoint x="2440" y="825" />
+        <di:waypoint x="2527" y="825" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_17_di" bpmnElement="Flow_QT4_kho_can_han_17">
-        <di:waypoint x="203" y="225" />
-        <di:waypoint x="290" y="225" />
+        <di:waypoint x="183" y="525" />
+        <di:waypoint x="270" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_18_di" bpmnElement="Flow_QT4_kho_can_han_18">
-        <di:waypoint x="420" y="225" />
-        <di:waypoint x="460" y="225" />
-        <di:waypoint x="460" y="675" />
-        <di:waypoint x="500" y="675" />
+        <di:waypoint x="400" y="525" />
+        <di:waypoint x="440" y="525" />
+        <di:waypoint x="440" y="675" />
+        <di:waypoint x="480" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_19_di" bpmnElement="Flow_QT4_kho_can_han_19">
-        <di:waypoint x="550" y="675" />
-        <di:waypoint x="630" y="675" />
+        <di:waypoint x="530" y="675" />
+        <di:waypoint x="610" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_20_di" bpmnElement="Flow_QT4_kho_can_han_20">
+        <di:waypoint x="740" y="675" />
         <di:waypoint x="760" y="675" />
-        <di:waypoint x="780" y="675" />
-        <di:waypoint x="780" y="225" />
-        <di:waypoint x="800" y="225" />
+        <di:waypoint x="760" y="525" />
+        <di:waypoint x="780" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_21_di" bpmnElement="Flow_QT4_kho_can_han_21">
-        <di:waypoint x="550" y="675" />
-        <di:waypoint x="675" y="675" />
-        <di:waypoint x="675" y="225" />
-        <di:waypoint x="800" y="225" />
+        <di:waypoint x="505" y="650" />
+        <di:waypoint x="505" y="525" />
+        <di:waypoint x="780" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_22_di" bpmnElement="Flow_QT4_kho_can_han_22">
-        <di:waypoint x="930" y="225" />
-        <di:waypoint x="950" y="225" />
+        <di:waypoint x="910" y="525" />
+        <di:waypoint x="930" y="525" />
+        <di:waypoint x="930" y="825" />
         <di:waypoint x="950" y="825" />
-        <di:waypoint x="970" y="825" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT4_kho_can_han_23_di" bpmnElement="Flow_QT4_kho_can_han_23">
-        <di:waypoint x="1100" y="825" />
-        <di:waypoint x="1187" y="825" />
+        <di:waypoint x="1080" y="825" />
+        <di:waypoint x="1167" y="825" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

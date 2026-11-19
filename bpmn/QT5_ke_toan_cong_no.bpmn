@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_QT5_ke_toan_cong_no" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
   <bpmn:collaboration id="Collaboration_QT5_ke_toan_cong_no">
-    <bpmn:participant id="Participant_QT5_ke_toan_cong_no" name="QT5 - Công nợ, thu tiền, đối soát (Accounting) - Công ty TNHH Bánh Bảo Hân" processRef="Process_QT5_ke_toan_cong_no" />
+    <bpmn:participant id="Participant_QT5_ke_toan_cong_no_Ext0" name="Khách hàng sỉ" processRef="Process_QT5_ke_toan_cong_no_Ext0" />
+    <bpmn:participant id="Participant_QT5_ke_toan_cong_no_Ext1" name="Ngân hàng" processRef="Process_QT5_ke_toan_cong_no_Ext1" />
+    <bpmn:participant id="Participant_QT5_ke_toan_cong_no_Main" name="Công ty TNHH Bánh Bảo Hân" processRef="Process_QT5_ke_toan_cong_no_Main" />
+    <bpmn:messageFlow id="Flow_QT5_ke_toan_cong_no_9" name="Chuyển khoản" sourceRef="A3" targetRef="A4" />
+    <bpmn:messageFlow id="Flow_QT5_ke_toan_cong_no_10" name="Webhook" sourceRef="A4" targetRef="A5" />
+    <bpmn:messageFlow id="Flow_QT5_ke_toan_cong_no_17" name="Nhắc nợ" sourceRef="A8" targetRef="A3" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_QT5_ke_toan_cong_no" isExecutable="false">
+  <bpmn:process id="Process_QT5_ke_toan_cong_no_Ext0" isExecutable="false">
+    <bpmn:task id="A3" name="Chuyển khoản theo hạn, ghi số hóa đơn">
+    </bpmn:task>
+  </bpmn:process>
+  <bpmn:process id="Process_QT5_ke_toan_cong_no_Ext1" isExecutable="false">
+    <bpmn:sendTask id="A4" name="Webhook biến động số dư">
+    </bpmn:sendTask>
+  </bpmn:process>
+  <bpmn:process id="Process_QT5_ke_toan_cong_no_Main" name="QT5 - Công nợ, thu tiền, đối soát (Accounting) - Công ty TNHH Bánh Bảo Hân" isExecutable="false">
     <bpmn:laneSet id="LaneSet_QT5_ke_toan_cong_no">
-      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_0" name="Khách hàng sỉ">
-        <bpmn:flowNodeRef>A3</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_1" name="Tài xế">
+      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_0" name="Tài xế">
         <bpmn:flowNodeRef>B1</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_2" name="Ngân hàng">
-        <bpmn:flowNodeRef>A4</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_3" name="Hệ thống Odoo">
+      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_1" name="Hệ thống Odoo">
         <bpmn:flowNodeRef>A5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>G2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>A7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>G3</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>A8</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_4" name="Kế toán">
+      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_2" name="Kế toán">
         <bpmn:flowNodeRef>S1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>A1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>G0</bpmn:flowNodeRef>
@@ -31,7 +38,7 @@
         <bpmn:flowNodeRef>A6</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>C1</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_5" name="Giám đốc">
+      <bpmn:lane id="Lane_QT5_ke_toan_cong_no_3" name="Giám đốc">
         <bpmn:flowNodeRef>C2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>E1</bpmn:flowNodeRef>
       </bpmn:lane>
@@ -65,17 +72,8 @@
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_5</bpmn:incoming>
       <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_7</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="A3" name="Chuyển khoản theo hạn, ghi số hóa đơn">
-      <bpmn:incoming>Flow_QT5_ke_toan_cong_no_8</bpmn:incoming>
-      <bpmn:incoming>Flow_QT5_ke_toan_cong_no_17</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_9</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:sendTask id="A4" name="Webhook biến động số dư">
-      <bpmn:incoming>Flow_QT5_ke_toan_cong_no_9</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_10</bpmn:outgoing>
-    </bpmn:sendTask>
     <bpmn:serviceTask id="A5" name="Kiểm secret, chống trùng, tìm hóa đơn">
-      <bpmn:incoming>Flow_QT5_ke_toan_cong_no_10</bpmn:incoming>
+      <bpmn:incoming>Flow_QT5_ke_toan_cong_no_8</bpmn:incoming>
       <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_11</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:exclusiveGateway id="G2" name="Khớp hóa đơn?">
@@ -95,24 +93,25 @@
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_14</bpmn:incoming>
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_15</bpmn:incoming>
       <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_16</bpmn:outgoing>
-      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_18</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_19</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:serviceTask id="A8" name="BH3 nhắc nợ; nợ quá hạn chặn đơn mới (QT1)">
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_16</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_17</bpmn:outgoing>
+      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_18</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:userTask id="C1" name="Cuối tháng: sao kê, tuổi nợ, sổ cái, đối chiếu phần mềm thuế">
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_6</bpmn:incoming>
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_7</bpmn:incoming>
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_18</bpmn:incoming>
-      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_19</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:userTask id="C2" name="Xem báo cáo, điều chỉnh hạn mức nợ">
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_19</bpmn:incoming>
       <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_20</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:endEvent id="E1" name="Khóa sổ tháng">
+    <bpmn:userTask id="C2" name="Xem báo cáo, điều chỉnh hạn mức nợ">
       <bpmn:incoming>Flow_QT5_ke_toan_cong_no_20</bpmn:incoming>
+      <bpmn:outgoing>Flow_QT5_ke_toan_cong_no_21</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="E1" name="Khóa sổ tháng">
+      <bpmn:incoming>Flow_QT5_ke_toan_cong_no_21</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_0" sourceRef="S1" targetRef="A1" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_1" sourceRef="A1" targetRef="G0" />
@@ -122,200 +121,205 @@
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_5" name="Không" sourceRef="G1" targetRef="B3" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_6" name="Khớp" sourceRef="G1" targetRef="C1" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_7" sourceRef="B3" targetRef="C1" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_8" name="Trả sau" sourceRef="G0" targetRef="A3" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_9" sourceRef="A3" targetRef="A4" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_10" sourceRef="A4" targetRef="A5" />
+    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_8" name="Trả sau" sourceRef="G0" targetRef="A5" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_11" sourceRef="A5" targetRef="G2" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_12" name="Không" sourceRef="G2" targetRef="A6" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_13" name="Có" sourceRef="G2" targetRef="A7" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_14" sourceRef="A6" targetRef="G3" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_15" sourceRef="A7" targetRef="G3" />
     <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_16" name="Có" sourceRef="G3" targetRef="A8" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_17" sourceRef="A8" targetRef="A3" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_18" name="Không" sourceRef="G3" targetRef="C1" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_19" sourceRef="C1" targetRef="C2" />
-    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_20" sourceRef="C2" targetRef="E1" />
+    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_18" sourceRef="A8" targetRef="C1" />
+    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_19" name="Không" sourceRef="G3" targetRef="C1" />
+    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_20" sourceRef="C1" targetRef="C2" />
+    <bpmn:sequenceFlow id="Flow_QT5_ke_toan_cong_no_21" sourceRef="C2" targetRef="E1" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_QT5_ke_toan_cong_no">
     <bpmndi:BPMNPlane id="Plane_QT5_ke_toan_cong_no" bpmnElement="Collaboration_QT5_ke_toan_cong_no">
-      <bpmndi:BPMNShape id="Participant_QT5_ke_toan_cong_no_di" bpmnElement="Participant_QT5_ke_toan_cong_no" isHorizontal="true">
-        <dc:Bounds x="0" y="0" width="2350" height="900" />
+      <bpmndi:BPMNShape id="Participant_QT5_ke_toan_cong_no_Ext0_di" bpmnElement="Participant_QT5_ke_toan_cong_no_Ext0" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="2310" height="130" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_QT5_ke_toan_cong_no_Ext1_di" bpmnElement="Participant_QT5_ke_toan_cong_no_Ext1" isHorizontal="true">
+        <dc:Bounds x="0" y="190" width="2310" height="130" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_QT5_ke_toan_cong_no_Main_di" bpmnElement="Participant_QT5_ke_toan_cong_no_Main" isHorizontal="true">
+        <dc:Bounds x="0" y="380" width="2310" height="600" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT5_ke_toan_cong_no_0_di" bpmnElement="Lane_QT5_ke_toan_cong_no_0" isHorizontal="true">
-        <dc:Bounds x="40" y="0" width="2310" height="150" />
+        <dc:Bounds x="30" y="380" width="2280" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT5_ke_toan_cong_no_1_di" bpmnElement="Lane_QT5_ke_toan_cong_no_1" isHorizontal="true">
-        <dc:Bounds x="40" y="150" width="2310" height="150" />
+        <dc:Bounds x="30" y="530" width="2280" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT5_ke_toan_cong_no_2_di" bpmnElement="Lane_QT5_ke_toan_cong_no_2" isHorizontal="true">
-        <dc:Bounds x="40" y="300" width="2310" height="150" />
+        <dc:Bounds x="30" y="680" width="2280" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT5_ke_toan_cong_no_3_di" bpmnElement="Lane_QT5_ke_toan_cong_no_3" isHorizontal="true">
-        <dc:Bounds x="40" y="450" width="2310" height="150" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_QT5_ke_toan_cong_no_4_di" bpmnElement="Lane_QT5_ke_toan_cong_no_4" isHorizontal="true">
-        <dc:Bounds x="40" y="600" width="2310" height="150" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_QT5_ke_toan_cong_no_5_di" bpmnElement="Lane_QT5_ke_toan_cong_no_5" isHorizontal="true">
-        <dc:Bounds x="40" y="750" width="2310" height="150" />
+        <dc:Bounds x="30" y="830" width="2280" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S1_di" bpmnElement="S1">
-        <dc:Bounds x="167" y="657" width="36" height="36" />
+        <dc:Bounds x="147" y="737" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A1_di" bpmnElement="A1">
-        <dc:Bounds x="290" y="635" width="130" height="80" />
+        <dc:Bounds x="270" y="715" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G0_di" bpmnElement="G0" isMarkerVisible="true">
-        <dc:Bounds x="500" y="650" width="50" height="50" />
+        <dc:Bounds x="480" y="730" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="B1_di" bpmnElement="B1">
-        <dc:Bounds x="630" y="185" width="130" height="80" />
+        <dc:Bounds x="610" y="415" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="B2_di" bpmnElement="B2">
-        <dc:Bounds x="800" y="635" width="130" height="80" />
+        <dc:Bounds x="780" y="715" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G1_di" bpmnElement="G1" isMarkerVisible="true">
-        <dc:Bounds x="1010" y="650" width="50" height="50" />
+        <dc:Bounds x="990" y="730" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="B3_di" bpmnElement="B3">
-        <dc:Bounds x="1140" y="635" width="130" height="80" />
+        <dc:Bounds x="1120" y="715" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A3_di" bpmnElement="A3">
-        <dc:Bounds x="630" y="35" width="130" height="80" />
+        <dc:Bounds x="610" y="25" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A4_di" bpmnElement="A4">
-        <dc:Bounds x="800" y="335" width="130" height="80" />
+        <dc:Bounds x="780" y="215" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A5_di" bpmnElement="A5">
-        <dc:Bounds x="970" y="485" width="130" height="80" />
+        <dc:Bounds x="950" y="565" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G2_di" bpmnElement="G2" isMarkerVisible="true">
-        <dc:Bounds x="1180" y="500" width="50" height="50" />
+        <dc:Bounds x="1160" y="580" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A6_di" bpmnElement="A6">
-        <dc:Bounds x="1310" y="635" width="130" height="80" />
+        <dc:Bounds x="1290" y="715" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A7_di" bpmnElement="A7">
-        <dc:Bounds x="1310" y="485" width="130" height="80" />
+        <dc:Bounds x="1290" y="565" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G3_di" bpmnElement="G3" isMarkerVisible="true">
-        <dc:Bounds x="1520" y="500" width="50" height="50" />
+        <dc:Bounds x="1500" y="580" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="A8_di" bpmnElement="A8">
-        <dc:Bounds x="1650" y="485" width="130" height="80" />
+        <dc:Bounds x="1630" y="565" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="C1_di" bpmnElement="C1">
-        <dc:Bounds x="1820" y="635" width="130" height="80" />
+        <dc:Bounds x="1800" y="715" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="C2_di" bpmnElement="C2">
-        <dc:Bounds x="1990" y="785" width="130" height="80" />
+        <dc:Bounds x="1970" y="865" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E1_di" bpmnElement="E1">
-        <dc:Bounds x="2207" y="807" width="36" height="36" />
+        <dc:Bounds x="2187" y="887" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_0_di" bpmnElement="Flow_QT5_ke_toan_cong_no_0">
-        <di:waypoint x="203" y="675" />
-        <di:waypoint x="290" y="675" />
+        <di:waypoint x="183" y="755" />
+        <di:waypoint x="270" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_1_di" bpmnElement="Flow_QT5_ke_toan_cong_no_1">
-        <di:waypoint x="420" y="675" />
-        <di:waypoint x="500" y="675" />
+        <di:waypoint x="400" y="755" />
+        <di:waypoint x="480" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_2_di" bpmnElement="Flow_QT5_ke_toan_cong_no_2">
-        <di:waypoint x="550" y="675" />
-        <di:waypoint x="590" y="675" />
-        <di:waypoint x="590" y="225" />
-        <di:waypoint x="630" y="225" />
+        <di:waypoint x="505" y="730" />
+        <di:waypoint x="505" y="455" />
+        <di:waypoint x="610" y="455" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_3_di" bpmnElement="Flow_QT5_ke_toan_cong_no_3">
-        <di:waypoint x="760" y="225" />
-        <di:waypoint x="780" y="225" />
-        <di:waypoint x="780" y="675" />
-        <di:waypoint x="800" y="675" />
+        <di:waypoint x="740" y="455" />
+        <di:waypoint x="760" y="455" />
+        <di:waypoint x="760" y="755" />
+        <di:waypoint x="780" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_4_di" bpmnElement="Flow_QT5_ke_toan_cong_no_4">
-        <di:waypoint x="930" y="675" />
-        <di:waypoint x="1010" y="675" />
+        <di:waypoint x="910" y="755" />
+        <di:waypoint x="990" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_5_di" bpmnElement="Flow_QT5_ke_toan_cong_no_5">
-        <di:waypoint x="1060" y="675" />
-        <di:waypoint x="1140" y="675" />
+        <di:waypoint x="1040" y="755" />
+        <di:waypoint x="1120" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_6_di" bpmnElement="Flow_QT5_ke_toan_cong_no_6">
-        <di:waypoint x="1060" y="675" />
-        <di:waypoint x="1820" y="675" />
+        <di:waypoint x="1015" y="730" />
+        <di:waypoint x="1015" y="693" />
+        <di:waypoint x="1865" y="693" />
+        <di:waypoint x="1865" y="715" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_7_di" bpmnElement="Flow_QT5_ke_toan_cong_no_7">
-        <di:waypoint x="1270" y="675" />
-        <di:waypoint x="1820" y="675" />
+        <di:waypoint x="1185" y="715" />
+        <di:waypoint x="1185" y="693" />
+        <di:waypoint x="1865" y="693" />
+        <di:waypoint x="1865" y="715" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_8_di" bpmnElement="Flow_QT5_ke_toan_cong_no_8">
-        <di:waypoint x="550" y="675" />
-        <di:waypoint x="590" y="675" />
-        <di:waypoint x="590" y="75" />
-        <di:waypoint x="630" y="75" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_9_di" bpmnElement="Flow_QT5_ke_toan_cong_no_9">
-        <di:waypoint x="760" y="75" />
-        <di:waypoint x="780" y="75" />
-        <di:waypoint x="780" y="375" />
-        <di:waypoint x="800" y="375" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_10_di" bpmnElement="Flow_QT5_ke_toan_cong_no_10">
-        <di:waypoint x="930" y="375" />
-        <di:waypoint x="950" y="375" />
-        <di:waypoint x="950" y="525" />
-        <di:waypoint x="970" y="525" />
+        <di:waypoint x="505" y="730" />
+        <di:waypoint x="505" y="605" />
+        <di:waypoint x="950" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_11_di" bpmnElement="Flow_QT5_ke_toan_cong_no_11">
-        <di:waypoint x="1100" y="525" />
-        <di:waypoint x="1180" y="525" />
+        <di:waypoint x="1080" y="605" />
+        <di:waypoint x="1160" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_12_di" bpmnElement="Flow_QT5_ke_toan_cong_no_12">
-        <di:waypoint x="1230" y="525" />
-        <di:waypoint x="1270" y="525" />
-        <di:waypoint x="1270" y="675" />
-        <di:waypoint x="1310" y="675" />
+        <di:waypoint x="1210" y="605" />
+        <di:waypoint x="1270" y="605" />
+        <di:waypoint x="1270" y="755" />
+        <di:waypoint x="1290" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_13_di" bpmnElement="Flow_QT5_ke_toan_cong_no_13">
-        <di:waypoint x="1230" y="525" />
-        <di:waypoint x="1310" y="525" />
+        <di:waypoint x="1210" y="605" />
+        <di:waypoint x="1290" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_14_di" bpmnElement="Flow_QT5_ke_toan_cong_no_14">
-        <di:waypoint x="1440" y="675" />
-        <di:waypoint x="1480" y="675" />
-        <di:waypoint x="1480" y="525" />
-        <di:waypoint x="1520" y="525" />
+        <di:waypoint x="1420" y="755" />
+        <di:waypoint x="1460" y="755" />
+        <di:waypoint x="1460" y="605" />
+        <di:waypoint x="1500" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_15_di" bpmnElement="Flow_QT5_ke_toan_cong_no_15">
-        <di:waypoint x="1440" y="525" />
-        <di:waypoint x="1520" y="525" />
+        <di:waypoint x="1420" y="605" />
+        <di:waypoint x="1500" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_16_di" bpmnElement="Flow_QT5_ke_toan_cong_no_16">
-        <di:waypoint x="1570" y="525" />
-        <di:waypoint x="1650" y="525" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_17_di" bpmnElement="Flow_QT5_ke_toan_cong_no_17">
-        <di:waypoint x="1715" y="485" />
-        <di:waypoint x="1715" y="13" />
-        <di:waypoint x="695" y="13" />
-        <di:waypoint x="695" y="35" />
+        <di:waypoint x="1550" y="605" />
+        <di:waypoint x="1630" y="605" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_18_di" bpmnElement="Flow_QT5_ke_toan_cong_no_18">
-        <di:waypoint x="1570" y="525" />
-        <di:waypoint x="1695" y="525" />
-        <di:waypoint x="1695" y="675" />
-        <di:waypoint x="1820" y="675" />
+        <di:waypoint x="1760" y="605" />
+        <di:waypoint x="1780" y="605" />
+        <di:waypoint x="1780" y="755" />
+        <di:waypoint x="1800" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_19_di" bpmnElement="Flow_QT5_ke_toan_cong_no_19">
-        <di:waypoint x="1950" y="675" />
-        <di:waypoint x="1970" y="675" />
-        <di:waypoint x="1970" y="825" />
-        <di:waypoint x="1990" y="825" />
+        <di:waypoint x="1525" y="630" />
+        <di:waypoint x="1525" y="755" />
+        <di:waypoint x="1800" y="755" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_20_di" bpmnElement="Flow_QT5_ke_toan_cong_no_20">
-        <di:waypoint x="2120" y="825" />
-        <di:waypoint x="2207" y="825" />
+        <di:waypoint x="1930" y="755" />
+        <di:waypoint x="1950" y="755" />
+        <di:waypoint x="1950" y="905" />
+        <di:waypoint x="1970" y="905" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_21_di" bpmnElement="Flow_QT5_ke_toan_cong_no_21">
+        <di:waypoint x="2100" y="905" />
+        <di:waypoint x="2187" y="905" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_9_di" bpmnElement="Flow_QT5_ke_toan_cong_no_9">
+        <di:waypoint x="657" y="105" />
+        <di:waypoint x="657" y="144" />
+        <di:waypoint x="827" y="144" />
+        <di:waypoint x="827" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_10_di" bpmnElement="Flow_QT5_ke_toan_cong_no_10">
+        <di:waypoint x="863" y="295" />
+        <di:waypoint x="863" y="342" />
+        <di:waypoint x="1015" y="342" />
+        <di:waypoint x="1015" y="565" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT5_ke_toan_cong_no_17_di" bpmnElement="Flow_QT5_ke_toan_cong_no_17">
+        <di:waypoint x="1695" y="565" />
+        <di:waypoint x="1695" y="350" />
+        <di:waypoint x="693" y="350" />
+        <di:waypoint x="693" y="105" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -11,6 +11,7 @@ Dùng: python tools/md2docx.py out.docx in1.md [in2.md ...]
 import os
 import re
 import sys
+from copy import deepcopy
 from pathlib import Path
 
 from docx import Document
@@ -19,11 +20,13 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Pt, RGBColor
+from PIL import Image
 
 TEMPLATE = Path(__file__).with_name("mau_bao_cao.docx")
 FRONT_SECT = []  # đoạn mang section phần đầu, lấy từ mẫu
 TEXT_W = Cm(15.5)  # khổ chữ thân bài: A4 21 cm - lề trái 3,5 - lề phải 2
-STATE = {"ch": "", "Hinh": 0, "Bang": 0}  # chương hiện tại và số thứ tự chú thích trong chương
+LAND_W, LAND_H = Cm(24.2), Cm(13)  # khổ chữ trang ngang (29,7 - 3,5 - 2) và chiều cao tối đa của hình
+STATE = {"ch": "", "Hinh": 0, "Bang": 0, "breaks": 0}  # chương hiện tại và số thứ tự chú thích trong chương
 
 
 def add_runs(par, text, size=None):
@@ -122,6 +125,23 @@ def add_field(paragraph, instr, hint_text="Nhấn chuột phải vào đây → 
     end_run._r.append(end)
 
 
+def section_break(doc, landscape):
+    """Kết thúc section hiện tại (dọc hoặc ngang) bằng bản sao section thân bài.
+    Chỉ section đầu tiên của thân bài giữ 'bắt đầu đánh số từ 1'; các section sau đánh số tiếp."""
+    sp = deepcopy(doc.element.body[-1])
+    num = sp.find(qn("w:pgNumType"))
+    if num is not None and (STATE["breaks"] or landscape):
+        sp.remove(num)
+    STATE["breaks"] += 1
+    if landscape:
+        sz = sp.find(qn("w:pgSz"))
+        w, h = sz.get(qn("w:w")), sz.get(qn("w:h"))
+        sz.set(qn("w:w"), h)
+        sz.set(qn("w:h"), w)
+        sz.set(qn("w:orient"), "landscape")
+    doc.add_paragraph()._p.get_or_add_pPr().append(sp)
+
+
 def add_caption(doc, kind, text):
     """Chú thích 'Hình 4.1: ...' / 'Bảng 4.1: ...': số trong chương là trường SEQ (Word tự đánh lại);
     danh mục hình/bảng lấy theo SEQ."""
@@ -197,13 +217,21 @@ def convert(md_text, doc, base_dir):
                 STATE.update(ch=(ch.group(1) or ch.group(2)) if ch else "", Hinh=0, Bang=0)
         elif img := re.match(r"!\[(.*)\]\((.+)\)", line):
             path = (base_dir / img.group(2)).resolve()
+            landscape = path.parent.name == "bpmn" and path.exists()  # sơ đồ BPMN rộng: đặt trên trang ngang
+            if landscape:
+                section_break(doc, landscape=False)
             if path.exists():
-                doc.add_picture(str(path), width=TEXT_W)
+                with Image.open(path) as im:
+                    ratio = im.height / im.width
+                width = min(LAND_W, int(LAND_H / ratio)) if landscape else TEXT_W
+                doc.add_picture(str(path), width=width)
                 doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
                 doc.paragraphs[-1].paragraph_format.keep_with_next = True
             else:
                 doc.add_paragraph(f"[THIẾU HÌNH: {img.group(2)}]")
             add_caption(doc, "Hình", re.sub(r"^Hình [\dA-Z]+\.\d+[.:]\s*", "", img.group(1)))
+            if landscape:
+                section_break(doc, landscape=True)
         elif re.match(r"(- |\d+\. )", line):
             # Đoạn thường, thụt treo để dòng sau thẳng với chữ (List Paragraph của mẫu thụt 1,27 cm, giãn dòng 1)
             p = doc.add_paragraph(style="Normal")
@@ -238,6 +266,10 @@ def main(out, *inputs):
             if run.font.name != "Consolas":
                 run.font.name = "Times New Roman"
                 run._element.get_or_add_rPr().get_or_add_rFonts().set(qn("w:eastAsia"), "Times New Roman")
+    if STATE["breaks"]:  # section cuối không đánh số lại từ 1
+        num = body[-1].find(qn("w:pgNumType"))
+        if num is not None:
+            body[-1].remove(num)
     # Yêu cầu Word cập nhật trường (mục lục) khi mở file
     if not os.environ.get("NO_UPDATE_FIELDS"):  # khi tự động hóa bằng Word COM thì bỏ để không hiện hộp thoại
         settings = doc.settings.element

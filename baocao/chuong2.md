@@ -91,13 +91,16 @@ Bảng: Ký hiệu BPMN 2.0 dùng trong đồ án
 
 | Ký hiệu | Ý nghĩa | Dùng trong đồ án |
 |---|---|---|
-| Pool / Lane | Tổ chức / vai trò thực hiện | Mỗi lane là một vai trò ở Chương 1 (kể cả "Hệ thống Odoo") |
+| Pool / Lane | Tổ chức / vai trò thực hiện | Pool "Công ty TNHH Bánh Bảo Hân" chia lane theo vai trò ở Chương 1 (kể cả "Hệ thống Odoo"); khách hàng, nhà cung cấp, ngân hàng là pool riêng |
 | Start / End event | Bắt đầu, kết thúc | Bắt đầu bằng sự kiện thật ("16:00 chốt đơn") |
 | Timer start event | Bắt đầu theo thời gian | Kế hoạch hằng ngày, kiểm tra cận hạn 23:00 |
+| Message start event | Bắt đầu khi nhận thông điệp | Nhận đơn đặt bánh của khách |
+| Call activity | Gọi một quy trình con | 5 quy trình trong sơ đồ tổng quan |
 | User task / Service task | Việc người làm / hệ thống làm | Phân biệt rõ việc của người và việc Odoo tự động |
 | Send / Receive task | Gửi / chờ nhận thông tin | Gửi đơn mua, chờ nguyên liệu |
 | Exclusive gateway | Rẽ nhánh theo điều kiện | Ngoại lệ: nợ quá hạn, QC không đạt, làm thiếu |
-| Sequence flow | Thứ tự | |
+| Sequence flow | Thứ tự các bước trong cùng một pool | |
+| Message flow (nét đứt) | Thông điệp giữa hai pool | Đơn đặt bánh, đơn mua, hàng và hóa đơn NCC, webhook ngân hàng, nhắc nợ |
 
 Các file BPMN được tạo theo chuẩn BPMN 2.0 có phần hiển thị (DI), mở được bằng Camunda Modeler bản desktop.
 

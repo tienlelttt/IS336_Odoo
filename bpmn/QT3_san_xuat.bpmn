@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_QT3_san_xuat" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
   <bpmn:collaboration id="Collaboration_QT3_san_xuat">
-    <bpmn:participant id="Participant_QT3_san_xuat" name="QT3 - Sản xuất theo mẻ: Odoo cho quản đốc xưởng (Manufacturing) - Công ty TNHH Bánh Bảo Hân" processRef="Process_QT3_san_xuat" />
+    <bpmn:participant id="Participant_QT3_san_xuat_Main" name="Công ty TNHH Bánh Bảo Hân" processRef="Process_QT3_san_xuat_Main" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_QT3_san_xuat" isExecutable="false">
+  <bpmn:process id="Process_QT3_san_xuat_Main" name="QT3 - Sản xuất theo mẻ: Odoo cho quản đốc xưởng (Manufacturing) - Công ty TNHH Bánh Bảo Hân" isExecutable="false">
     <bpmn:laneSet id="LaneSet_QT3_san_xuat">
       <bpmn:lane id="Lane_QT3_san_xuat_0" name="Hệ thống Odoo">
         <bpmn:flowNodeRef>S1</bpmn:flowNodeRef>
@@ -140,192 +140,190 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_QT3_san_xuat">
     <bpmndi:BPMNPlane id="Plane_QT3_san_xuat" bpmnElement="Collaboration_QT3_san_xuat">
-      <bpmndi:BPMNShape id="Participant_QT3_san_xuat_di" bpmnElement="Participant_QT3_san_xuat" isHorizontal="true">
-        <dc:Bounds x="0" y="0" width="3200" height="750" />
+      <bpmndi:BPMNShape id="Participant_QT3_san_xuat_Main_di" bpmnElement="Participant_QT3_san_xuat_Main" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="3160" height="750" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT3_san_xuat_0_di" bpmnElement="Lane_QT3_san_xuat_0" isHorizontal="true">
-        <dc:Bounds x="40" y="0" width="3160" height="150" />
+        <dc:Bounds x="30" y="0" width="3130" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT3_san_xuat_1_di" bpmnElement="Lane_QT3_san_xuat_1" isHorizontal="true">
-        <dc:Bounds x="40" y="150" width="3160" height="150" />
+        <dc:Bounds x="30" y="150" width="3130" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT3_san_xuat_2_di" bpmnElement="Lane_QT3_san_xuat_2" isHorizontal="true">
-        <dc:Bounds x="40" y="300" width="3160" height="150" />
+        <dc:Bounds x="30" y="300" width="3130" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT3_san_xuat_3_di" bpmnElement="Lane_QT3_san_xuat_3" isHorizontal="true">
-        <dc:Bounds x="40" y="450" width="3160" height="150" />
+        <dc:Bounds x="30" y="450" width="3130" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_QT3_san_xuat_4_di" bpmnElement="Lane_QT3_san_xuat_4" isHorizontal="true">
-        <dc:Bounds x="40" y="600" width="3160" height="150" />
+        <dc:Bounds x="30" y="600" width="3130" height="150" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S1_di" bpmnElement="S1">
-        <dc:Bounds x="167" y="57" width="36" height="36" />
+        <dc:Bounds x="147" y="57" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T1_di" bpmnElement="T1">
-        <dc:Bounds x="290" y="35" width="130" height="80" />
+        <dc:Bounds x="270" y="35" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T2_di" bpmnElement="T2">
-        <dc:Bounds x="460" y="185" width="130" height="80" />
+        <dc:Bounds x="440" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G1_di" bpmnElement="G1" isMarkerVisible="true">
-        <dc:Bounds x="670" y="50" width="50" height="50" />
+        <dc:Bounds x="650" y="50" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T3_di" bpmnElement="T3">
-        <dc:Bounds x="800" y="185" width="130" height="80" />
+        <dc:Bounds x="780" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T4_di" bpmnElement="T4">
-        <dc:Bounds x="970" y="185" width="130" height="80" />
+        <dc:Bounds x="950" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T5_di" bpmnElement="T5">
-        <dc:Bounds x="1140" y="35" width="130" height="80" />
+        <dc:Bounds x="1120" y="35" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T6_di" bpmnElement="T6">
-        <dc:Bounds x="1310" y="335" width="130" height="80" />
+        <dc:Bounds x="1290" y="335" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T7_di" bpmnElement="T7">
-        <dc:Bounds x="1480" y="485" width="130" height="80" />
+        <dc:Bounds x="1460" y="485" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T8_di" bpmnElement="T8">
-        <dc:Bounds x="1650" y="635" width="130" height="80" />
+        <dc:Bounds x="1630" y="635" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T9_di" bpmnElement="T9">
-        <dc:Bounds x="1820" y="185" width="130" height="80" />
+        <dc:Bounds x="1800" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G2_di" bpmnElement="G2" isMarkerVisible="true">
-        <dc:Bounds x="2030" y="200" width="50" height="50" />
+        <dc:Bounds x="2010" y="200" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="G3_di" bpmnElement="G3" isMarkerVisible="true">
-        <dc:Bounds x="2200" y="200" width="50" height="50" />
+        <dc:Bounds x="2180" y="200" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T10_di" bpmnElement="T10">
-        <dc:Bounds x="2330" y="185" width="130" height="80" />
+        <dc:Bounds x="2310" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T11_di" bpmnElement="T11">
-        <dc:Bounds x="2330" y="35" width="130" height="80" />
+        <dc:Bounds x="2310" y="35" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T12_di" bpmnElement="T12">
-        <dc:Bounds x="2500" y="35" width="130" height="80" />
+        <dc:Bounds x="2480" y="35" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T13_di" bpmnElement="T13">
-        <dc:Bounds x="2670" y="335" width="130" height="80" />
+        <dc:Bounds x="2650" y="335" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T14_di" bpmnElement="T14">
-        <dc:Bounds x="2840" y="185" width="130" height="80" />
+        <dc:Bounds x="2820" y="185" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="E1_di" bpmnElement="E1">
-        <dc:Bounds x="3057" y="207" width="36" height="36" />
+        <dc:Bounds x="3037" y="207" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_0_di" bpmnElement="Flow_QT3_san_xuat_0">
-        <di:waypoint x="203" y="75" />
-        <di:waypoint x="290" y="75" />
+        <di:waypoint x="183" y="75" />
+        <di:waypoint x="270" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_1_di" bpmnElement="Flow_QT3_san_xuat_1">
+        <di:waypoint x="400" y="75" />
         <di:waypoint x="420" y="75" />
-        <di:waypoint x="440" y="75" />
+        <di:waypoint x="420" y="225" />
         <di:waypoint x="440" y="225" />
-        <di:waypoint x="460" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_2_di" bpmnElement="Flow_QT3_san_xuat_2">
-        <di:waypoint x="590" y="225" />
-        <di:waypoint x="630" y="225" />
-        <di:waypoint x="630" y="75" />
-        <di:waypoint x="670" y="75" />
+        <di:waypoint x="570" y="225" />
+        <di:waypoint x="610" y="225" />
+        <di:waypoint x="610" y="75" />
+        <di:waypoint x="650" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_3_di" bpmnElement="Flow_QT3_san_xuat_3">
-        <di:waypoint x="720" y="75" />
-        <di:waypoint x="760" y="75" />
-        <di:waypoint x="760" y="225" />
-        <di:waypoint x="800" y="225" />
+        <di:waypoint x="675" y="100" />
+        <di:waypoint x="675" y="225" />
+        <di:waypoint x="780" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_4_di" bpmnElement="Flow_QT3_san_xuat_4">
-        <di:waypoint x="930" y="225" />
-        <di:waypoint x="970" y="225" />
+        <di:waypoint x="910" y="225" />
+        <di:waypoint x="950" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_5_di" bpmnElement="Flow_QT3_san_xuat_5">
-        <di:waypoint x="720" y="75" />
-        <di:waypoint x="845" y="75" />
-        <di:waypoint x="845" y="225" />
-        <di:waypoint x="970" y="225" />
+        <di:waypoint x="700" y="75" />
+        <di:waypoint x="930" y="75" />
+        <di:waypoint x="930" y="225" />
+        <di:waypoint x="950" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_6_di" bpmnElement="Flow_QT3_san_xuat_6">
+        <di:waypoint x="1080" y="225" />
         <di:waypoint x="1100" y="225" />
-        <di:waypoint x="1120" y="225" />
+        <di:waypoint x="1100" y="75" />
         <di:waypoint x="1120" y="75" />
-        <di:waypoint x="1140" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_7_di" bpmnElement="Flow_QT3_san_xuat_7">
+        <di:waypoint x="1250" y="75" />
         <di:waypoint x="1270" y="75" />
-        <di:waypoint x="1290" y="75" />
+        <di:waypoint x="1270" y="375" />
         <di:waypoint x="1290" y="375" />
-        <di:waypoint x="1310" y="375" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_8_di" bpmnElement="Flow_QT3_san_xuat_8">
+        <di:waypoint x="1420" y="375" />
         <di:waypoint x="1440" y="375" />
-        <di:waypoint x="1460" y="375" />
+        <di:waypoint x="1440" y="525" />
         <di:waypoint x="1460" y="525" />
-        <di:waypoint x="1480" y="525" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_9_di" bpmnElement="Flow_QT3_san_xuat_9">
+        <di:waypoint x="1590" y="525" />
         <di:waypoint x="1610" y="525" />
-        <di:waypoint x="1630" y="525" />
+        <di:waypoint x="1610" y="675" />
         <di:waypoint x="1630" y="675" />
-        <di:waypoint x="1650" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_10_di" bpmnElement="Flow_QT3_san_xuat_10">
+        <di:waypoint x="1760" y="675" />
         <di:waypoint x="1780" y="675" />
-        <di:waypoint x="1800" y="675" />
+        <di:waypoint x="1780" y="225" />
         <di:waypoint x="1800" y="225" />
-        <di:waypoint x="1820" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_11_di" bpmnElement="Flow_QT3_san_xuat_11">
-        <di:waypoint x="1950" y="225" />
-        <di:waypoint x="2030" y="225" />
+        <di:waypoint x="1930" y="225" />
+        <di:waypoint x="2010" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_12_di" bpmnElement="Flow_QT3_san_xuat_12">
-        <di:waypoint x="2080" y="225" />
-        <di:waypoint x="2200" y="225" />
+        <di:waypoint x="2060" y="225" />
+        <di:waypoint x="2180" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_13_di" bpmnElement="Flow_QT3_san_xuat_13">
-        <di:waypoint x="2080" y="225" />
-        <di:waypoint x="2290" y="225" />
-        <di:waypoint x="2290" y="75" />
-        <di:waypoint x="2500" y="75" />
+        <di:waypoint x="2035" y="200" />
+        <di:waypoint x="2035" y="13" />
+        <di:waypoint x="2545" y="13" />
+        <di:waypoint x="2545" y="35" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_14_di" bpmnElement="Flow_QT3_san_xuat_14">
-        <di:waypoint x="2250" y="225" />
-        <di:waypoint x="2330" y="225" />
+        <di:waypoint x="2230" y="225" />
+        <di:waypoint x="2310" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_15_di" bpmnElement="Flow_QT3_san_xuat_15">
-        <di:waypoint x="2250" y="225" />
-        <di:waypoint x="2290" y="225" />
-        <di:waypoint x="2290" y="75" />
-        <di:waypoint x="2330" y="75" />
+        <di:waypoint x="2205" y="200" />
+        <di:waypoint x="2205" y="75" />
+        <di:waypoint x="2310" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_16_di" bpmnElement="Flow_QT3_san_xuat_16">
+        <di:waypoint x="2440" y="225" />
         <di:waypoint x="2460" y="225" />
-        <di:waypoint x="2480" y="225" />
+        <di:waypoint x="2460" y="75" />
         <di:waypoint x="2480" y="75" />
-        <di:waypoint x="2500" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_17_di" bpmnElement="Flow_QT3_san_xuat_17">
-        <di:waypoint x="2460" y="75" />
-        <di:waypoint x="2500" y="75" />
+        <di:waypoint x="2440" y="75" />
+        <di:waypoint x="2480" y="75" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_18_di" bpmnElement="Flow_QT3_san_xuat_18">
+        <di:waypoint x="2610" y="75" />
         <di:waypoint x="2630" y="75" />
-        <di:waypoint x="2650" y="75" />
+        <di:waypoint x="2630" y="375" />
         <di:waypoint x="2650" y="375" />
-        <di:waypoint x="2670" y="375" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_19_di" bpmnElement="Flow_QT3_san_xuat_19">
+        <di:waypoint x="2780" y="375" />
         <di:waypoint x="2800" y="375" />
-        <di:waypoint x="2820" y="375" />
+        <di:waypoint x="2800" y="225" />
         <di:waypoint x="2820" y="225" />
-        <di:waypoint x="2840" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT3_san_xuat_20_di" bpmnElement="Flow_QT3_san_xuat_20">
-        <di:waypoint x="2970" y="225" />
-        <di:waypoint x="3057" y="225" />
+        <di:waypoint x="2950" y="225" />
+        <di:waypoint x="3037" y="225" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
