@@ -115,8 +115,8 @@ Mở `bpmn/QT2_mua_hang.png` 15 giây. **Nói:** "Sau khi quản đốc lập k�
 |---|---|---|---|
 | D2.1 | Cửa sổ ẩn danh: đăng nhập `muahang@baohan.local`. Mua hàng > Đơn hàng > Yêu cầu báo giá > Mới. Nhà cung cấp: `NCC mẫu 04 - Trứng gà`. Sản phẩm `Trứng gà` 3.000 | "Đặt 3.000 quả trứng. Đơn giá 3.100 đồng tự lấy từ hợp đồng giá quý, nhân viên không tự sửa giá." | Đơn giá 3.100, tổng 10.230.000 đ |
 | D2.2 | Xác nhận đơn hàng | "Đơn dưới 20 triệu nên xác nhận được ngay, sau đó gửi PDF cho nhà cung cấp qua email hoặc Zalo." | Trạng thái Đơn mua hàng, nút Nhận |
-| D2.3 | Mua hàng > Đơn hàng > Đơn mua hàng > mở `P00002` (NCC01 bột mì, 24.612.500 đ) | "Đơn bột tuần này 24,6 triệu, vượt ngưỡng nên đang chờ duyệt; nhân viên mua hàng không tự duyệt được." | Trạng thái Chờ phê duyệt |
-| D2.4 | Cửa sổ thường: đăng nhập `giamdoc@baohan.local`, mở P00002 > Phê duyệt đơn hàng | "Giám đốc duyệt, đơn chuyển thành đơn mua và sinh phiếu nhập." | Trạng thái Đơn mua hàng |
+| D2.3 | Mua hàng > Đơn hàng > Đơn mua hàng > mở `P00004` (NCC01 bột mì, 24.612.500 đ) | "Đơn bột tuần này 24,6 triệu, vượt ngưỡng nên đang chờ duyệt; nhân viên mua hàng không tự duyệt được." | Trạng thái Chờ phê duyệt |
+| D2.4 | Cửa sổ thường: đăng nhập `giamdoc@baohan.local`, mở P00004 > Phê duyệt đơn hàng | "Giám đốc duyệt, đơn chuyển thành đơn mua và sinh phiếu nhập." | Trạng thái Đơn mua hàng |
 | D2.5 | Đăng xuất, đăng nhập `qc@baohan.local`. Quality Control > Inspections > Inspections > mở phiếu mới nhất (trạng thái Ready) của trứng gà | "Khi đơn mua xác nhận, quy tắc tự động BH1 tạo sẵn phiếu kiểm tra. Xe đến là QC kiểm ngay tại cửa, trước khi nhận." | Phiếu QC-000xx, 3 câu kiểm |
 | D2.6 | Nhập: Nhiệt độ hàng khi nhận `4` (chuẩn 0–5 °C); Bao bì nguyên vẹn `Đạt`; Hạn dùng còn ít nhất 2/3 `Đạt`. Bấm Confirm | "Trứng là hàng mát, nhiệt độ phải từ 0 đến 5 độ. Nếu nhập 7 độ thì phiếu không đạt và không nhận hàng." | Trạng thái Success |
 | D2.7 | Đăng xuất, đăng nhập `thukho@baohan.local`. Tồn kho > Hoạt động > Lệnh chuyển hàng > Phiếu nhập kho > mở phiếu trứng của NCC04 | "Thủ kho nhận số đạt." | Phiếu BH/IN/000xx |

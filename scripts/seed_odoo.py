@@ -193,9 +193,12 @@ for code, name, cat, uom, cost, days, vendor, mn, mx in RAW:
     p.seller_ids.unlink()
     p.seller_ids = [(0, 0, {"partner_id": partner[vendor].id, "price": cost, "delay": VENDOR_LEAD_DAYS[vendor],
                             "currency_id": vnd.id})]
-    get_or_create("stock.warehouse.orderpoint", [("product_id", "=", p.id)], {
-        "product_id": p.id, "warehouse_id": wh.id, "location_id": wh.lot_stock_id.id,
-        "product_min_qty": mn, "product_max_qty": mx, "trigger": "manual"})
+    # Tạo bằng admin: Odoo tự xóa quy tắc "thủ công" do superuser tạo khi đã đủ hàng (_unlink_processed_orderpoints)
+    op_vals = {"product_id": p.id, "warehouse_id": wh.id, "location_id": wh.lot_stock_id.id,
+               "product_min_qty": mn, "product_max_qty": mx, "trigger": "manual"}
+    OP = env["stock.warehouse.orderpoint"].with_user(env.ref("base.user_admin")).with_context(active_test=False)
+    op = OP.search([("product_id", "=", p.id)], limit=1)
+    op.write(op_vals) if op else OP.create(op_vals)
 code, name, cat, uom, cost = BYPRODUCT
 prod[code] = get_or_create("product.product", [("default_code", "=", code)], {
     "name": name, "default_code": code, "categ_id": categ[cat].id, "type": "consu", "is_storable": True,

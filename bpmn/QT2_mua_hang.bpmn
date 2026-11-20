@@ -5,10 +5,16 @@
     <bpmn:participant id="Participant_QT2_mua_hang_Main" name="Công ty TNHH Bánh Bảo Hân" processRef="Process_QT2_mua_hang_Main" />
     <bpmn:messageFlow id="Flow_QT2_mua_hang_6" name="Đơn mua" sourceRef="T4" targetRef="T5" />
     <bpmn:messageFlow id="Flow_QT2_mua_hang_7" name="Hàng, hóa đơn, lô" sourceRef="T5" targetRef="T6" />
+    <bpmn:messageFlow id="Flow_QT2_mua_hang_21" name="Tiền thanh toán" sourceRef="T12" targetRef="T13" />
   </bpmn:collaboration>
   <bpmn:process id="Process_QT2_mua_hang_Ext0" isExecutable="false">
     <bpmn:task id="T5" name="Giao hàng kèm hóa đơn, số lô, hạn dùng">
+      <bpmn:outgoing>Flow_QT2_mua_hang_20</bpmn:outgoing>
     </bpmn:task>
+    <bpmn:task id="T13" name="Nhận tiền thanh toán">
+      <bpmn:incoming>Flow_QT2_mua_hang_20</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_QT2_mua_hang_20" sourceRef="T5" targetRef="T13" />
   </bpmn:process>
   <bpmn:process id="Process_QT2_mua_hang_Main" name="QT2 - Đặt nguyên liệu, nhận hàng, trả tiền (Procure to Pay) - Công ty TNHH Bánh Bảo Hân" isExecutable="false">
     <bpmn:laneSet id="LaneSet_QT2_mua_hang">
@@ -49,7 +55,7 @@
       <bpmn:incoming>Flow_QT2_mua_hang_0</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_1</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="T2" name="Kiểm số lượng, gom theo NCC, gửi đơn (email, Zalo)">
+    <bpmn:userTask id="T2" name="Kiểm số lượng, gom theo NCC">
       <bpmn:incoming>Flow_QT2_mua_hang_1</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_2</bpmn:outgoing>
     </bpmn:userTask>
@@ -62,7 +68,7 @@
       <bpmn:incoming>Flow_QT2_mua_hang_3</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_4</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sendTask id="T4" name="Xác nhận đơn mua">
+    <bpmn:sendTask id="T4" name="Xác nhận đơn mua, gửi NCC (email, Zalo)">
       <bpmn:incoming>Flow_QT2_mua_hang_4</bpmn:incoming>
       <bpmn:incoming>Flow_QT2_mua_hang_5</bpmn:incoming>
       <bpmn:outgoing>Flow_QT2_mua_hang_8</bpmn:outgoing>
@@ -175,6 +181,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T5_di" bpmnElement="T5">
         <dc:Bounds x="1120" y="25" width="130" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="T13_di" bpmnElement="T13">
+        <dc:Bounds x="2650" y="25" width="130" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="T6_di" bpmnElement="T6">
         <dc:Bounds x="1290" y="525" width="130" height="80" />
@@ -298,6 +307,10 @@
         <di:waypoint x="2780" y="1015" />
         <di:waypoint x="2867" y="1015" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_20_di" bpmnElement="Flow_QT2_mua_hang_20">
+        <di:waypoint x="1250" y="65" />
+        <di:waypoint x="2650" y="65" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_6_di" bpmnElement="Flow_QT2_mua_hang_6">
         <di:waypoint x="1015" y="375" />
         <di:waypoint x="1015" y="144" />
@@ -309,6 +322,10 @@
         <di:waypoint x="1203" y="152" />
         <di:waypoint x="1355" y="152" />
         <di:waypoint x="1355" y="525" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_QT2_mua_hang_21_di" bpmnElement="Flow_QT2_mua_hang_21">
+        <di:waypoint x="2715" y="975" />
+        <di:waypoint x="2715" y="105" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

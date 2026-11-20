@@ -43,11 +43,11 @@ Dữ liệu trong Odoo mô phỏng **tuần đầu đưa Odoo vào vận hành**
 
 | ☐ | Bước | Link | Phải thấy |
 |---|---|---|---|
-| ☐ | Đơn mua | http://localhost:8069/odoo/action-purchase.purchase_form_action | P00001 trứng (đã nhận thiếu 60 quả); P00002 bột tuần 24,6 triệu "Chờ duyệt" |
-| ☐ | Duyệt | Đăng nhập giamdoc → mở P00002 → Phê duyệt | Chuyển thành đơn mua, sinh phiếu nhập cho thứ Năm |
-| ☐ | Phiếu QC tại cửa | http://localhost:8069/odoo/action-quality_control_oca.action_qc_inspection | QC-000006 trứng "Không đạt" |
-| ☐ | Nhận hàng | Mở P00001 > Phiếu nhập | BH/IN/00001: nhận 60 quả ít hơn đặt, có lô, hạn dùng, ghi chú lý do |
-| ☐ | Hóa đơn NCC | http://localhost:8069/odoo/action-account.action_move_in_invoice_type | Công nợ đầu kỳ NCC01, NCC03 |
+| ☐ | Đơn mua | http://localhost:8069/odoo/action-purchase.purchase_form_action | P00001 trứng (nhận thiếu 60 quả), P00002 sữa, phô mai, P00003 xúc xích: "Đã lập hóa đơn"; P00004 bột tuần 24,6 triệu "Chờ duyệt" |
+| ☐ | Duyệt | Đăng nhập giamdoc → mở P00004 → Phê duyệt | Chuyển thành đơn mua, sinh phiếu nhập cho thứ Năm |
+| ☐ | Phiếu QC tại cửa | http://localhost:8069/odoo/action-quality_control_oca.action_qc_inspection | QC-000009 trứng "Không đạt" |
+| ☐ | Nhận hàng | Mở P00001 > Phiếu nhập | BH/IN/00003: nhận 60 quả ít hơn đặt, có lô, hạn dùng, ghi chú lý do |
+| ☐ | Hóa đơn NCC | http://localhost:8069/odoo/action-account.action_move_in_invoice_type | Công nợ đầu kỳ NCC01, NCC03; hóa đơn của P00001–P00003 theo số đã nhận (P00001 trứng 7.161.000 đ đã trả tiền mặt) |
 
 ## 4. QT3 – Sản xuất cho quản đốc (bpmn/QT3_san_xuat.png)
 
@@ -99,7 +99,7 @@ Dữ liệu trong Odoo mô phỏng **tuần đầu đưa Odoo vào vận hành**
 ## 8. Kết quả kiểm tra ngày 18/11
 
 - 33 màn hình trong bảng: nạp action và toàn bộ view qua API của giao diện, không lỗi; số bản ghi khớp.
-- Đã kiểm dữ liệu cụ thể: S00020 bị chặn đúng thông báo; S00003 có nhãn duyệt; INV/2026/00012 tính 52/56 ổ FG02 (theo số giao); P00002 chờ duyệt, người tạo NV mua; QC-000006 không đạt; WH/MO/00007 66 → 58, xong, không lệnh bổ sung; SP/00001 gắn WH/MO/00006; webhook 1 đã ghi nhận + 1 trùng; BH1, BH2a, BH2b, BH3, BH5 bật, BH4 tắt.
+- Đã kiểm dữ liệu cụ thể: S00020 bị chặn đúng thông báo; S00003 có nhãn duyệt; INV/2026/00012 tính 52/56 ổ FG02 (theo số giao); P00004 chờ duyệt, người tạo NV mua; QC-000009 không đạt; WH/MO/00007 66 → 58, xong, không lệnh bổ sung; SP/00001 gắn WH/MO/00006; webhook 1 đã ghi nhận + 1 trùng; BH1, BH2a, BH2b, BH3, BH5 bật, BH4 tắt.
 - Phát hiện và đã sửa: Khu cách ly nằm trong Tồn kho (hàng trả về bị tính là hàng bán được, lô hết hạn làm quản đốc không thấy cần sản xuất) → chuyển ra ngoài Tồn kho và thêm bước thủ kho cách ly lô (QT4).
 - Chưa xem bằng mắt từng màn hình (khung trình duyệt bị ẩn làm giao diện tải rất chậm); nên mở thử khi chụp ảnh.
 

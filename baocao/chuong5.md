@@ -137,7 +137,7 @@ Bảng: Ngoại lệ của QT2
 | Tình huống | Cách xử lý |
 |---|---|
 | Trứng vỡ khi giao (thứ Hai, có trong dữ liệu) | QC không đạt; nhận thiếu 60 quả; không tạo đơn chờ; hóa đơn chỉ theo số nhận |
-| Đơn lớn vượt ngưỡng (P00002) | Chờ giám đốc duyệt mới thành đơn đặt |
+| Đơn lớn vượt ngưỡng (P00004) | Chờ giám đốc duyệt mới thành đơn đặt |
 | NCC giao trễ làm thiếu NVL ca đêm | Quản đốc đổi thứ tự mẻ; kinh doanh báo khách |
 | Giá NCC tăng giữa quý | Cập nhật hợp đồng, giám đốc duyệt; hóa đơn lệch giá không được xác nhận |
 | Hàng mát quá nhiệt độ | Không nhận; phiếu QC ghi lý do để đánh giá NCC cuối quý |
@@ -153,8 +153,12 @@ Bảng: Bút toán của QT2
 
 | Nghiệp vụ | Bút toán (dữ liệu thật) |
 |---|---|
-| Hóa đơn NCC trứng P00001 | Nợ 152 6.510.000; Nợ 1331 651.000 / Có 3311 7.161.000 |
-| Thanh toán NCC | Nợ 3311 / Có tiền mặt hoặc ngân hàng |
+| Nhận hàng (phiếu nhập BH/IN/00003) | Không ghi bút toán: công ty định giá kho cuối kỳ, giá trị nhập kho ghi qua hóa đơn NCC |
+| Hóa đơn NCC trứng P00001 (2.100 quả nhận, không phải 2.160 quả đặt) | Nợ 152 6.510.000; Nợ 1331 651.000 / Có 3311 7.161.000 |
+| Hóa đơn NCC03 sữa, phô mai P00002 | Nợ 152 7.280.000; Nợ 1331 728.000 / Có 3311 8.008.000 |
+| Hóa đơn NCC05 xúc xích P00003 | Nợ 152 3.740.000; Nợ 1331 374.000 / Có 3311 4.114.000 |
+| Trả tiền mặt NCC04 khi nhận trứng (PCSH1/2026/00004) | Nợ 3311 7.161.000 / Có 1132 (khoản chi chưa đối soát) 7.161.000 |
+| NCC03, NCC05 (30 ngày) | Chưa trả: nằm trong công nợ phải trả, thanh toán thứ Sáu đến hạn |
 
 ## 5.3. QT3 – Sản xuất theo mẻ: Odoo cho quản đốc xưởng
 

@@ -78,11 +78,12 @@ PROCESSES = {
         "nodes": [
             ("S1", "timer", "Hệ thống Odoo", 0, "16:30, sau khi lập kế hoạch sản xuất"),
             ("T1", "service", "Hệ thống Odoo", 1, "Bổ sung hàng: đề xuất đơn mua theo giá thỏa thuận quý"),
-            ("T2", "user", "Nhân viên mua hàng", 2, "Kiểm số lượng, gom theo NCC, gửi đơn (email, Zalo)"),
+            ("T2", "user", "Nhân viên mua hàng", 2, "Kiểm số lượng, gom theo NCC"),
             ("G1", "gw", "Hệ thống Odoo", 3, "Đơn trên 20 triệu?"),
             ("T3", "user", "Giám đốc", 4, "Duyệt đơn mua"),
-            ("T4", "send", "Nhân viên mua hàng", 5, "Xác nhận đơn mua"),
+            ("T4", "send", "Nhân viên mua hàng", 5, "Xác nhận đơn mua, gửi NCC (email, Zalo)"),
             ("T5", "task", "Nhà cung cấp", 6, "Giao hàng kèm hóa đơn, số lô, hạn dùng"),
+            ("T13", "task", "Nhà cung cấp", 15, "Nhận tiền thanh toán"),
             ("T6", "service", "Hệ thống Odoo", 7, "Xe đến (phiếu nhập sẵn sàng): tạo phiếu QC"),
             ("T7", "user", "QC", 8, "Kiểm nhiệt độ, hạn dùng, bao bì, đếm hàng hỏng"),
             ("G2", "gw", "QC", 9, "Đạt hết?"),
@@ -100,6 +101,7 @@ PROCESSES = {
             ("T6", "T7", ""), ("T7", "G2", ""),
             ("G2", "T8", "Không"), ("T8", "T9", ""), ("G2", "T9", "Đạt"), ("T9", "T10", ""), ("T10", "G3", ""),
             ("G3", "T11", "Không"), ("T11", "T10", ""), ("G3", "T12", "Khớp"), ("T12", "E1", ""),
+            ("T5", "T13", ""), ("T12", "T13", "Tiền thanh toán"),
         ],
     },
     "QT3_san_xuat": {

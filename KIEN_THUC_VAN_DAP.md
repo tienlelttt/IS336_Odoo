@@ -92,7 +92,7 @@ Khách có nhãn "Trả tiền mặt cho tài xế"; cuối ngày kế toán ghi
 Phiếu QC (BH1 tạo sẵn khi xác nhận đơn mua) ghi "Không đạt"; thủ kho nhận số đạt, không tạo đơn chờ; ghi chú lý do trên phiếu nhập; hóa đơn NCC theo số nhận.
 
 **QT2 – Ai duyệt đơn mua? Vì sao admin tạo thì không phải chờ?**
-Đơn trên 20 triệu chờ giám đốc duyệt (duyệt 2 cấp có sẵn trong Purchase). Người có quyền quản lý mua hàng tự duyệt được đơn của mình, nên đơn phải do nhân viên mua (quyền người dùng) tạo: P00002 24,6 triệu đang "Chờ duyệt".
+Đơn trên 20 triệu chờ giám đốc duyệt (duyệt 2 cấp có sẵn trong Purchase). Người có quyền quản lý mua hàng tự duyệt được đơn của mình, nên đơn phải do nhân viên mua (quyền người dùng) tạo: P00004 24,6 triệu đang "Chờ duyệt".
 
 **QT3 – Quản đốc làm gì trên Odoo trong một ngày?**
 16:00 mở Bổ sung hàng, chốt số lượng theo mẻ, gộp lệnh; xác nhận, in phiếu; 05:00 nhập sản lượng thực tế, lô, ghi bánh lỗi, đóng lệnh; thứ Hai xem báo cáo sản lượng, bánh lỗi, tải lò.

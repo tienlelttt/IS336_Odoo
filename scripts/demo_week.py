@@ -292,6 +292,19 @@ def purchase(day, deliver_on):
     return pos
 
 
+def vendor_bills(d):
+    """Kế toán: hóa đơn NCC theo số đã nhận (đối chiếu đơn mua – phiếu nhập – hóa đơn); NCC trả ngay (trứng) chi tiền mặt."""
+    immediate = env.ref("account.account_payment_term_immediate")
+    for po in env["purchase.order"].search([("invoice_status", "=", "to invoice")]):
+        po.action_create_invoice()
+        bill = po.invoice_ids.filtered(lambda m: m.state == "draft")
+        bill.write({"invoice_date": d, "ref": f"HĐ {po.partner_id.ref}/{d:%d%m}"})
+        bill.action_post()
+        if po.partner_id.property_supplier_payment_term_id == immediate:
+            pay(bill, CASH, d)
+        print("   hóa đơn NCC", bill.name, po.name, po.partner_id.ref, f"{bill.amount_total:,.0f}", bill.payment_state)
+
+
 def end_of_day(d):
     """17:00 kế toán: hóa đơn hàng loạt theo số đã giao; ghi tiền mặt tài xế nộp; KH02 chuyển khoản ngay."""
     orders = env["sale.order"].search([("invoice_status", "=", "to invoice")])
@@ -380,6 +393,7 @@ def _():
     inv = env["account.move"].search([("partner_id", "=", C("KH03").id), ("ref", "=", "Số dư đầu kỳ (sổ cũ)")], limit=1)
     pay(inv, BANK, MON, amount=inv.amount_total / 2)
     end_of_day(MON)
+    vendor_bills(MON)
     take_orders(TUE)
     # Ca đêm: mẻ bánh mì sandwich trắng thiếu 8 ổ (bột không nở) → đóng lệnh, không làm bù
     plan_production(MON, TUE, short={"FG02": 8}, scrap_after={"FG01": (5, "Rách bao bì khi đóng gói")})
@@ -392,6 +406,7 @@ def _():
     deliver(TUE, actual={"KH07": {"FG01": 0, "FG04": 0}})
     receive(TUE)
     end_of_day(TUE)
+    vendor_bills(TUE)
     # 17:00 thủ kho đếm nhanh thành phẩm: bánh tiệc trà thiếu 2 khay
     q = env["stock.quant"].search([("product_id", "=", P("FG06").id), ("location_id.usage", "=", "internal"),
                                    ("quantity", ">", 0)], limit=1)
@@ -416,6 +431,7 @@ def _():
 def _():
     deliver(WED)
     receive(WED)
+    vendor_bills(WED)
     # 10:30 KH01 trả 6 ổ bánh mì sandwich không bán hết (theo thỏa thuận) → Khu cách ly, giấy báo có
     out = env["stock.picking"].search([("partner_id", "=", C("KH01").id), ("picking_type_code", "=", "outgoing"),
                                        ("state", "=", "done")], order="id", limit=1)
