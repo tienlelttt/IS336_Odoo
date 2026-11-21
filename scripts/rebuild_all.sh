@@ -16,3 +16,16 @@ cat ../scripts/seed_data.py ../scripts/seed_odoo.py | $SHELL_RUN
 $SHELL_RUN < ../scripts/automation_rules.py
 cat ../scripts/seed_data.py ../scripts/demo_week.py | $SHELL_RUN
 docker compose up -d odoo
+
+# App đặt hàng gọi bh_api và ngân hàng gửi webhook qua HTTP thật (cần Python + requests trên máy)
+for _ in $(seq 1 60); do curl -sf -o /dev/null http://localhost:8069/web/login && break; sleep 2; done
+SQL="docker compose exec -T db psql -U odoo -d baohan -tAc"
+TOKEN=$($SQL "select value from ir_config_parameter where key='bh_demo.api_token_kh02'")
+# Hóa đơn khách trả sau đầu tiên chưa thu: khách chuyển khoản, nội dung ghi số hóa đơn
+read -r INV AMT <<< "$($SQL "select name, amount_residual from account_move where move_type='out_invoice' \
+  and state='posted' and payment_state='not_paid' and coalesce(ref,'') not like 'Số dư đầu kỳ%' order by id limit 1" | tr '|' ' ')"
+if command -v python >/dev/null && [ -n "$TOKEN" ] && [ -n "$INV" ]; then
+  PYTHONUTF8=1 BH_API_TOKEN="$TOKEN" python ../scripts/api_demo_calls.py "$INV" "$AMT"
+else
+  echo "Bỏ qua gọi API/webhook: thiếu Python, token hoặc hóa đơn chưa thu"
+fi

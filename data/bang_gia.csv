@@ -1,0 +1,4 @@
+﻿name,currency_id,item_ids/applied_on,item_ids/compute_price,item_ids/percent_price
+Giá sỉ quán,VND,,,
+Giá siêu thị - bếp ăn,VND,3_global,percentage,5
+Giá OEM theo hợp đồng,VND,3_global,percentage,8

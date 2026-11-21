@@ -231,9 +231,12 @@ for fg, qty, comps, ops, byp in BOMS:
     if kind == "oem":
         op.unlink()
     else:
-        get_or_create("stock.warehouse.orderpoint", [("product_id", "=", prod[fg].id)], {
-            "product_id": prod[fg].id, "warehouse_id": wh.id, "location_id": wh.lot_stock_id.id,
-            "product_min_qty": mn, "product_max_qty": mx, "trigger": "manual"})
+        # Hàng trữ (min/max > 0) tạo bằng admin để Odoo không tự xóa; bánh tươi 0/0 cố ý để Odoo xóa sau khi đặt
+        model_ = env["stock.warehouse.orderpoint"].with_user(env.ref("base.user_admin")) if kind == "tru" \
+            else env["stock.warehouse.orderpoint"]
+        op_vals = {"product_id": prod[fg].id, "warehouse_id": wh.id, "location_id": wh.lot_stock_id.id,
+                   "product_min_qty": mn, "product_max_qty": mx, "trigger": "manual"}
+        op.write(op_vals) if op else model_.create(op_vals)
 
 # 9. Hợp đồng giá theo quý (thỏa thuận mua hàng)
 print("9. Hợp đồng giá với NCC")

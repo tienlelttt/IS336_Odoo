@@ -9,7 +9,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill
 
 sys.path.insert(0, str(Path(__file__).parent))
-from seed_data import CUSTOMERS, FINISHED, RAW, ROUTES, VENDOR_LEAD_DAYS, VENDORS  # noqa: E402
+from seed_data import CUSTOMERS, FINISHED, PRICELISTS, RAW, ROUTES, VENDOR_LEAD_DAYS, VENDORS  # noqa: E402
 
 OUT = Path(__file__).resolve().parents[1] / "data"
 OUT.mkdir(exist_ok=True)
@@ -38,6 +38,10 @@ sheets = {
     "nha_cung_cap": (
         ["ref", "name", "is_company", "supplier_rank"],
         [[c, n, True, 1] for c, n in VENDORS]),
+    # Bảng giá theo nhóm khách: giảm % trên giá bán cho mọi sản phẩm (bảng giá sỉ quán = giá bán, không có dòng)
+    "bang_gia": (
+        ["name", "currency_id", "item_ids/applied_on", "item_ids/compute_price", "item_ids/percent_price"],
+        [[n, "VND", "3_global" if d else "", "percentage" if d else "", d or ""] for n, d in PRICELISTS]),
 }
 
 wb = Workbook()
